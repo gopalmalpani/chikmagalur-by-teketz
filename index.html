@@ -32,7 +32,7 @@
     max-width: 980px; 
     margin: 0 auto; 
     background: #ffffff; 
-    padding: 18px 24px 28px 24px; 
+    padding: 22px 26px 28px 26px; 
     border-radius: 14px; 
     border: 1px solid var(--border-color); 
     box-shadow: 0 10px 20px -5px rgba(0,0,0,0.06); 
@@ -53,17 +53,13 @@
     user-select: none; 
   }
   
-  /* FROZEN / STICKY HEADER DOCK */
-  .sticky-top-header {
-    position: sticky;
-    top: 0;
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 100;
-    padding: 8px 0 10px 0;
+  /* Modern Header */
+  .brand-header {
     border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 14px;
     margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
   }
 
   .header-top-bar {
@@ -71,10 +67,10 @@
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
-  /* Unconstrained Brand Logo (Click to Scroll Top) */
+  /* Unconstrained Brand Logo Button (Click to Scroll Top) */
   .brand-brand-wrap {
     display: flex;
     align-items: center;
@@ -147,55 +143,10 @@
     color: var(--primary-blue);
   }
 
-  /* Streamlined Filter Navigation Inside Sticky Dock */
-  .filter-nav-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    padding-top: 4px;
-  }
-  .filter-btn {
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    color: var(--slate-dark);
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-size: 8pt;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .filter-btn:hover {
-    background: #f8fafc;
-    border-color: var(--primary-blue);
-    color: var(--primary-blue);
-  }
-  .filter-btn.active {
-    background: var(--primary-blue);
-    border-color: var(--primary-blue);
-    color: #ffffff;
-    box-shadow: 0 2px 4px rgba(2, 132, 199, 0.25);
-  }
-  .filter-btn.btn-sos-tab.active {
-    background: #dc2626;
-    border-color: #dc2626;
-    color: #ffffff;
-  }
-  .filter-btn.btn-calc-tab.active {
-    background: #d97706;
-    border-color: #d97706;
-    color: #ffffff;
-  }
-
-  /* Trip Hero Section */
   .hero-title-section {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    margin-bottom: 8px;
   }
 
   .trip-main-title {
@@ -251,7 +202,7 @@
     border: 1px solid #bbf7d0;
     border-radius: 8px;
     padding: 8px 14px;
-    margin: 10px 0 12px 0;
+    margin: 10px 0 14px 0;
     font-size: 8pt;
     color: #166534;
   }
@@ -329,6 +280,53 @@
     border-radius: 3px; 
     font-weight: 800; 
     font-size: 7.5pt; 
+  }
+
+  /* Filter Navigation Bar (Restored to Clean Natural Placement) */
+  .filter-nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0 16px 0;
+    background: #f1f5f9;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+  }
+  .filter-btn {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: var(--slate-dark);
+    padding: 6px 12px;
+    border-radius: 7px;
+    font-size: 8.5pt;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .filter-btn:hover {
+    background: #f8fafc;
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+  }
+  .filter-btn.active {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(2, 132, 199, 0.25);
+  }
+  .filter-btn.btn-sos-tab.active {
+    background: #dc2626;
+    border-color: #dc2626;
+    color: #ffffff;
+  }
+  .filter-btn.btn-calc-tab.active {
+    background: #d97706;
+    border-color: #d97706;
+    color: #ffffff;
   }
 
   /* Live External Route Buttons */
@@ -672,8 +670,8 @@
 
 <div class="container">
 
-<!-- FROZEN / STICKY HEADER DOCK -->
-<div class="sticky-top-header">
+<!-- MODERN 2-TIER BRAND HEADER -->
+<div class="brand-header">
   
   <!-- Row 1: Brand Logo on Left (Click to Scroll Top) + Action Badges on Right -->
   <div class="header-top-bar">
@@ -692,30 +690,18 @@
     </div>
   </div>
 
-  <!-- Row 2: Streamlined 8-Tab Navigation Bar -->
-  <div class="filter-nav-bar">
-    <button class="filter-btn active" onclick="switchMainTab('all', this)">🗺️ Full Itinerary</button>
-    <button class="filter-btn" onclick="switchMainTab('day1', this)">1️⃣ Day 1 (Fri)</button>
-    <button class="filter-btn" onclick="switchMainTab('day2', this)">2️⃣ Day 2 (Sat)</button>
-    <button class="filter-btn" onclick="switchMainTab('day3', this)">3️⃣ Day 3 (Sun)</button>
-    <button class="filter-btn" onclick="switchMainTab('dining', this)">🍽️ Dining Guide</button>
-    <button class="filter-btn" onclick="switchMainTab('packing', this)">🎒 Packing List</button>
-    <button class="filter-btn btn-sos-tab" onclick="switchMainTab('sos', this)">🚨 Emergency &amp; Help</button>
-    <button class="filter-btn btn-calc-tab" onclick="switchMainTab('calc', this)">💰 Expense Calculator</button>
+  <!-- Row 2: Trip Hero Heading & Metadata Pills -->
+  <div class="hero-title-section">
+    <h1 class="trip-main-title">Chikmagalur Road Trip &amp; Staycation 🌿</h1>
+    <div class="trip-pills-wrap">
+      <span class="pill pill-highlight">📅 Oct 2 – 4, 2026 (Gandhi Jayanti Weekend)</span>
+      <span class="pill">👥 <span id="pill-pax">5 Pax</span></span>
+      <span class="pill">🚗 Hyundai i10/i20 Petrol</span>
+      <span class="pill pill-opt" id="pill-bike">🏍️ RE Meteor 350 (Group Split)</span>
+      <span class="pill">📍 Whitefield ➔ Chikmagalur ➔ Halebidu</span>
+    </div>
   </div>
 
-</div>
-
-<!-- Trip Hero Heading & Metadata Pills -->
-<div class="hero-title-section">
-  <h1 class="trip-main-title">Chikmagalur Road Trip &amp; Staycation 🌿</h1>
-  <div class="trip-pills-wrap">
-    <span class="pill pill-highlight">📅 Oct 2 – 4, 2026 (Gandhi Jayanti Weekend)</span>
-    <span class="pill">👥 <span id="pill-pax">5 Pax</span></span>
-    <span class="pill">🚗 Hyundai i10/i20 Petrol</span>
-    <span class="pill pill-opt" id="pill-bike">🏍️ RE Meteor 350 (Group Split)</span>
-    <span class="pill">📍 Whitefield ➔ Chikmagalur ➔ Halebidu</span>
-  </div>
 </div>
 
 <!-- Mountain Weather & Daylight Strip -->
@@ -758,7 +744,19 @@
   &bull; <strong>Emergency Cash Pool:</strong> Designate one treasurer to hold <strong>₹5,000 in cash</strong> for Jhari 4x4 Jeeps, parking, and rural stalls where UPI fails.
 </div>
 
-<!-- Live Route Navigation Buttons (Fully Geocoded Coordinates for Mydala Lake) -->
+<!-- Streamlined 8-Tab Navigation Bar (Restored Below Master Map & Alerts) -->
+<div class="filter-nav-bar">
+  <button class="filter-btn active" onclick="switchMainTab('all', this)">🗺️ Full Itinerary</button>
+  <button class="filter-btn" onclick="switchMainTab('day1', this)">1️⃣ Day 1 (Fri)</button>
+  <button class="filter-btn" onclick="switchMainTab('day2', this)">2️⃣ Day 2 (Sat)</button>
+  <button class="filter-btn" onclick="switchMainTab('day3', this)">3️⃣ Day 3 (Sun)</button>
+  <button class="filter-btn" onclick="switchMainTab('dining', this)">🍽️ Dining Guide</button>
+  <button class="filter-btn" onclick="switchMainTab('packing', this)">🎒 Packing List</button>
+  <button class="filter-btn btn-sos-tab" onclick="switchMainTab('sos', this)">🚨 Emergency &amp; Help</button>
+  <button class="filter-btn btn-calc-tab" onclick="switchMainTab('calc', this)">💰 Expense Calculator</button>
+</div>
+
+<!-- Live Route Navigation Buttons -->
 <div class="route-nav">
   <a class="route-btn purple" href="https://www.google.com/maps/dir/Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru/13.3092605,77.1880542/Desi+Caf%C3%A9+Khaana-Paana,+Kyathsandra/Chikkamagaluru/Mullayanagiri+Peak/Jhari+Waterfalls/Kallathigiri+Falls/Shri+Hoysaleswara+Temple,+Halebidu/Tower+Summer+D,+Whitefield,+Bengaluru" target="_blank">&#128506; Complete Circuit Map</a>
   <a class="route-btn" href="https://www.google.com/maps/dir/Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru/13.3092605,77.1880542/Desi+Caf%C3%A9+Khaana-Paana,+Kyathsandra/Chikkamagaluru" target="_blank">&#128506; Day 1: Bangalore &rarr; Mydala &rarr; Chikmagalur</a>
