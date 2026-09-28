@@ -10,6 +10,7 @@
     --primary-blue: #0284c7;
     --accent-orange: #ea580c;
     --emerald-green: #059669;
+    --amber-fuel: #d97706;
     --slate-dark: #0f172a;
     --slate-body: #1e293b;
     --slate-muted: #64748b;
@@ -282,7 +283,7 @@
     font-size: 7.5pt; 
   }
 
-  /* Filter Navigation Bar */
+  /* 9-Tab Filter Navigation Bar */
   .filter-nav-bar {
     display: flex;
     flex-wrap: wrap;
@@ -318,14 +319,19 @@
     color: #ffffff;
     box-shadow: 0 2px 4px rgba(2, 132, 199, 0.25);
   }
+  .filter-btn.btn-fuel-tab.active {
+    background: var(--amber-fuel);
+    border-color: var(--amber-fuel);
+    color: #ffffff;
+  }
   .filter-btn.btn-sos-tab.active {
     background: #dc2626;
     border-color: #dc2626;
     color: #ffffff;
   }
   .filter-btn.btn-calc-tab.active {
-    background: #d97706;
-    border-color: #d97706;
+    background: #059669;
+    border-color: #059669;
     color: #ffffff;
   }
 
@@ -422,7 +428,7 @@
   .badge { background: #dcfce7; color: #166534; padding: 2px 6px; border-radius: 3px; font-size: 7.5pt; font-weight: 700; }
   .badge-opt { background: #fef3c7; color: #b45309; padding: 2px 6px; border-radius: 3px; font-size: 7.5pt; font-weight: 700; }
   .badge-gem { background: #ede9fe; color: #6d28d9; padding: 2px 6px; border-radius: 3px; font-size: 7.5pt; font-weight: 700; }
-  .badge-fuel { background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 3px; font-size: 7.5pt; font-weight: 700; }
+  .badge-fuel { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; padding: 2px 6px; border-radius: 3px; font-size: 7.5pt; font-weight: 700; }
   .tag-veg { color: #15803d; font-weight: 700; }
   .tag-nonveg { color: #b91c1c; font-weight: 700; }
   
@@ -491,7 +497,7 @@
     cursor: pointer;
   }
 
-  /* Emergency Sector Cards */
+  /* Fuel & SOS Cards */
   .sector-card {
     background: #ffffff;
     border: 1px solid #cbd5e1;
@@ -727,10 +733,11 @@
       <button class="btn-map-switch active" onclick="switchMasterMapRoute('full', this)">🔁 Full 3-Day Loop</button>
       <button class="btn-map-switch" onclick="switchMasterMapRoute('day1', this)">1️⃣ Day 1 (To Chikmagalur)</button>
       <button class="btn-map-switch" onclick="switchMasterMapRoute('day2', this)">2️⃣ Day 2 (Peaks &amp; Waterfalls)</button>
-      <button class="btn-map-switch" onclick="switchMasterMapRoute('day3', this)">3️⃣ Day 3 (Halebidu Return)</button>
+      <button class="btn-map-switch" onclick="switchMasterMapRoute('day3_direct', this)">3️⃣ Day 3 (Direct Express)</button>
+      <button class="btn-map-switch" onclick="switchMasterMapRoute('day3_mysore', this)">3️⃣ Day 3 (Mysore Rd Hangout)</button>
     </div>
     <div class="master-map-frame-wrap">
-      <!-- Direct Multi-Point Coordinates Embedding (100% Reliable Mydala Sync) -->
+      <!-- Direct Multi-Point Coordinates Embedding -->
       <iframe id="master-circuit-iframe" src="https://maps.google.com/maps?saddr=Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru&daddr=13.3092605,77.1880542+to:Chikkamagaluru+to:Mullayanagiri+Peak+to:Shri+Hoysaleswara+Temple,+Halebidu+to:Tower+Summer+D,+Whitefield,+Bengaluru&output=embed" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </div>
   </div>
@@ -743,10 +750,10 @@
   &bull; <strong>Mullayanagiri Vehicle Entry Pass:</strong> Pre-book Slot 1 (6:00 AM &ndash; 12:00 PM) on the official portal (<a class="spot-link" href="https://pgbiz.omniware.in/chikkamagalurutourism" target="_blank">pgbiz.omniware.in/chikkamagalurutourism</a>). Download or screenshot QR pass prior to ascent (cellular data drops at Kaimara checkpost).<br>
   &bull; <strong>Solo Driver &amp; Rider Relief:</strong> Exactly 1 car driver and 1 biker. Highway speed is capped at <strong>75&ndash;85 km/h</strong>. If driver/rider fatigue hits post-Jhari Falls on Day 2, toggle to <strong>Track B (Hidden Gems)</strong> to skip 106 km of driving.<br>
   &bull; <strong>Boot Space Rule:</strong> 5 adults in a hatchback requires <strong>soft duffel bags or backpacks only</strong>. Strictly zero hard-shell suitcases.<br>
-  &bull; <strong>Fuel Tank Discipline:</strong> Full tank top-up in Chikmagalur town on Friday evening. <strong>Zero pumps exist up in the hills/peaks!</strong>
+  &bull; <strong>Mandatory Mountain Fuel Top-up:</strong> Top up to 100% full tank in Chikmagalur town on Friday evening. <strong>Zero pumps exist in the Bababudangiri hill range!</strong>
 </div>
 
-<!-- Streamlined 8-Tab Navigation Bar (Clean Placement Below Header & Alerts) -->
+<!-- Streamlined 9-Tab Navigation Bar (Natural Layout Below Alerts) -->
 <div class="filter-nav-bar">
   <button class="filter-btn active" onclick="switchMainTab('all', this)">🗺️ Full Itinerary</button>
   <button class="filter-btn" onclick="switchMainTab('day1', this)">1️⃣ Day 1 (Fri)</button>
@@ -754,7 +761,8 @@
   <button class="filter-btn" onclick="switchMainTab('day3', this)">3️⃣ Day 3 (Sun)</button>
   <button class="filter-btn" onclick="switchMainTab('dining', this)">🍽️ Dining Guide</button>
   <button class="filter-btn" onclick="switchMainTab('packing', this)">🎒 Packing List</button>
-  <button class="filter-btn btn-sos-tab" onclick="switchMainTab('sos', this)">🚨 Emergency, Fuel &amp; Help</button>
+  <button class="filter-btn btn-fuel-tab" onclick="switchMainTab('fuel', this)">⛽ Fuel Strategy &amp; Pumps</button>
+  <button class="filter-btn btn-sos-tab" onclick="switchMainTab('sos', this)">🚨 Emergency &amp; Help</button>
   <button class="filter-btn btn-calc-tab" onclick="switchMainTab('calc', this)">💰 Expense Calculator</button>
 </div>
 
@@ -763,7 +771,7 @@
   <a class="route-btn purple" href="https://www.google.com/maps/dir/Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru/13.3092605,77.1880542/Desi+Caf%C3%A9+Khaana-Paana,+Kyathsandra/Chikkamagaluru/Mullayanagiri+Peak/Jhari+Waterfalls/Kallathigiri+Falls/Shri+Hoysaleswara+Temple,+Halebidu/Tower+Summer+D,+Whitefield,+Bengaluru" target="_blank">&#128506; Complete Circuit Map</a>
   <a class="route-btn" href="https://www.google.com/maps/dir/Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru/13.3092605,77.1880542/Desi+Caf%C3%A9+Khaana-Paana,+Kyathsandra/Chikkamagaluru" target="_blank">&#128506; Day 1: Bangalore &rarr; Mydala &rarr; Chikmagalur</a>
   <a class="route-btn green" href="https://www.google.com/maps/dir/Chikkamagaluru/Mullayanagiri+Peak/Jhari+Waterfalls/Kallathigiri+Falls/Chikkamagaluru" target="_blank">&#128506; Day 2: Peak, Falls &amp; Temple Circuit</a>
-  <a class="route-btn orange" href="https://www.google.com/maps/dir/Chikkamagaluru/Shri+Hoysaleswara+Temple,+Halebidu/Swathi+Delicacy/Rasta+Cafe,+Bengaluru+-+Mysuru+Expressway/Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru" target="_blank">&#128506; Day 3: Halebidu &rarr; Mysore Rd &rarr; Bangalore</a>
+  <a class="route-btn orange" href="https://www.google.com/maps/dir/Chikkamagaluru/Shri+Hoysaleswara+Temple,+Halebidu/Swathi+Delicacy/Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru" target="_blank">&#128506; Day 3: Express Direct Return</a>
 </div>
 
 <!-- DAY 1 SECTION -->
@@ -774,7 +782,7 @@
     <tr>
       <th class="time-col">Time</th>
       <th>Route Segment / Stop</th>
-      <th>Details, Activities &amp; Convoy Refuel Strategy (5 Pax)[cite: 1]</th>
+      <th>Details, Activities &amp; Equal Group Allocations (5 Pax)[cite: 1]</th>
     </tr>
   </thead>
   <tbody>
@@ -796,9 +804,8 @@
         </div>
       </td>
       <td>
-        <strong>Pacing &amp; Highway Cruise:</strong> 06:30 AM rollout accounts for morning prep. Convoy cruises along NH 48 at 75&ndash;85 km/h. Car matches Meteor 350 pace.<br>
-        <strong>Fuel Check:</strong> Start trip with full tanks from Bangalore. Safe range: Car ~450 km, Bike ~300 km.<br>
-        <strong>Pre-Breakfast Munchies:</strong> Energy bars, bananas, and light snacks in car to maintain stamina.
+        <strong>Pacing:</strong> 06:30 AM rollout accounts for group morning preparation. Convoy cruises along NH 48 at 75&ndash;85 km/h. Car matches Meteor 350 speed.<br>
+        <strong>Pre-Breakfast Munchies:</strong> Eat Bangalore-packed light bites (energy bars, bananas, dry snacks) in car to maintain stamina.
       </td>
     </tr>
     <tr>
@@ -842,15 +849,15 @@
         <strong>Mandatory Fatigue Buffer:</strong> 25-min stop near Arsikere bypass for tender coconut, washroom break, and limb stretching.
       </td>
     </tr>
-    <tr style="background:#fff7ed;">
+    <tr style="background:#fffbeb;">
       <td>04:00 PM &ndash; 04:25 PM</td>
       <td>
         <span class="badge-fuel">⛽ REFILL STOP 1</span><br>
-        <strong>Chikmagalur Town Entry</strong> (KM Road BPCL/HPCL COCO)
+        <strong>Chikmagalur Town Entry (KM Road)</strong>
       </td>
       <td>
-        <strong>MANDATORY FULL TANK REFILL:</strong> Both hatchback and Meteor 350 top up to 100% full before entering homestay.<br>
-        <strong>Why Crucial:</strong> Tomorrow's mountain circuit (Mullayanagiri, Jhari Falls, Kalathagiri) has <em>zero fuel stations</em> and steep 1st/2nd gear climbs that consume ~30% more petrol.
+        <strong>MANDATORY 100% REFILL:</strong> Top up both car and Meteor 350 at BPCL/HPCL on KM Road before checking in.<br>
+        <strong>Hill Warning:</strong> Tomorrow's mountain ascent (Mullayanagiri &amp; Jhari) has <em>zero fuel stations</em> and steep 1st/2nd gear hill climbs.
       </td>
     </tr>
     <tr>
@@ -1065,15 +1072,28 @@
 </table>
 </div>
 
-<!-- DAY 3 SECTION -->
+<!-- DAY 3 SECTION WITH INTERACTIVE RETURN ROUTE SELECTOR -->
 <div id="section-day3" class="day-section">
-<h2>Day 3: Sunday, Oct 4 &ndash; Late Checkout, UNESCO Hoysala Heritage &amp; Mysore Road Dinner</h2>
+<h2>Day 3: Sunday, Oct 4 &ndash; Late Checkout, UNESCO Heritage &amp; Bangalore Return</h2>
+
+<!-- Return Route Option Selector -->
+<div class="option-toggle-box">
+  <div style="font-weight:700; font-size:8.5pt; margin-bottom:4px; color:var(--slate-dark);">Bangalore Return Route Options (Choose What Fits the Group Vibe):</div>
+  <div class="option-btns">
+    <button class="toggle-sub-btn active" id="btn-route-direct" onclick="switchReturnRoute('direct')">Option 1: Express Direct via NH 75 (Fastest &amp; Shortest — Recommended)</button>
+    <button class="toggle-sub-btn" id="btn-route-mysore" onclick="switchReturnRoute('mysore')">Option 2: Mysore Road Late-Night Dinner Detour (Rasta Cafe / Filter Cafe)</button>
+  </div>
+  <div id="return-route-desc" style="font-size:8pt; color:var(--slate-muted);">
+    <strong>Option 1 Selected:</strong> 275 km direct highway cruise. Enjoy highway dinner at Swathi Delicacy (Yediyur), then enter Bangalore smoothly via NICE Road. Reach Whitefield by 08:45 PM – 09:15 PM!
+  </div>
+</div>
+
 <table>
   <thead>
     <tr>
       <th class="time-col">Time</th>
       <th>Route Segment / Stop</th>
-      <th>Details, Activities &amp; Late-Night Dinner Stop (5 Pax)[cite: 1]</th>
+      <th>Details, Activities &amp; Convoy Schedule (5 Pax)[cite: 1]</th>
     </tr>
   </thead>
   <tbody>
@@ -1117,65 +1137,25 @@
       </td>
       <td>
         Relaxed lunch at Hotel Mayura or Empire Restaurant Hassan. Air-conditioned dining, spacious parking, and clean washrooms.<br>
-        <span class="badge-fuel">⛽ REFILL STOP 2</span> <strong>BPCL COCO Hassan Bypass</strong> (Top up for the 180 km return run).
+        <span class="badge-fuel">⛽ REFILL STOP 2</span> <strong>BPCL COCO Hassan Bypass</strong> (Top up both vehicles for the 180 km return run).
       </td>
     </tr>
     <tr>
-      <td>03:45 PM &ndash; 06:00 PM</td>
+      <td>03:45 PM &ndash; 06:15 PM</td>
       <td>Hassan &rarr; Yediyur &rarr; Kunigal (125 km on NH 75)</td>
       <td>Straight 4-lane cruising. Maintain convoy speed at <strong>80&ndash;85 km/h</strong> matching the Meteor 350 comfort sweet spot.</td>
     </tr>
-    <tr>
-      <td>06:00 PM &ndash; 06:45 PM</td>
-      <td>
-        Highway Tea Halt at <a class="spot-link" href="https://maps.app.goo.gl/4syqyR66NvLDUggc9" target="_blank">Swathi Delicacy</a>
-        <div class="loc-tools">
-          <a href="https://maps.app.goo.gl/4syqyR66NvLDUggc9" target="_blank" class="btn-map-link">📍 Swathi GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-swathi-d3')">🗺️ Preview Swathi</button>
-        </div>
-        <div id="map-swathi-d3" class="embed-map-drawer">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6314028259253!2d76.9003171!3d12.995411299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bafc36bf986a6f7%3A0x226a28446bb9f973!2sSwathi%20Delicacy!5e0!3m2!1sen!2sin!4v1790612541659!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        </div>
-      </td>
-      <td>Filter coffee, crispy dosas, and physical stretching for the solo rider before continuing onto NICE road.</td>
+    
+    <!-- Dynamic Return Route Block -->
+    <tr id="row-dinner-stage" style="background:#f8fafc;">
+      <td>06:15 PM &ndash; 07:15 PM</td>
+      <td><span id="label-dinner-title"><strong>Swathi Delicacy (NH 75, Yediyur)</strong> &bull; Highway Dinner / Snacks</span></td>
+      <td><span id="desc-dinner-content">Filter coffee, crispy ghee roast dosas, and physical stretching. If taking the Direct Express route, have early dinner here to enter Bangalore completely fed!</span></td>
     </tr>
-    <tr>
-      <td>06:45 PM &ndash; 08:15 PM</td>
-      <td>Kunigal &rarr; Nelamangala &rarr; NICE Road &rarr; Mysore Road Exit (68 km)</td>
-      <td>Switch from NH 75 to NICE Road at Nelamangala toll plaza, exit onto Mysore Road for dinner.</td>
-    </tr>
-    <!-- NEW LATE-NIGHT DINNER STOP ON MYSORE ROAD -->
-    <tr style="background:#fff7ed;">
-      <td>08:15 PM &ndash; 09:45 PM</td>
-      <td>
-        <span class="badge-gem">⭐ LATE-NIGHT DINNER HALT</span><br>
-        <strong>Mysore Road Highway Stop:</strong><br>
-        &bull; <strong>Option A (Recommended):</strong> <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Rasta+Cafe+Mysore+Road+Bengaluru" target="_blank">Rasta Cafe (Bidadi)</a><br>
-        &bull; <strong>Option B:</strong> <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Filter+Cafe+and+Kitchen+Restaurant+Mysore+Road" target="_blank">Filter Cafe &amp; Kitchen</a>
-        <div class="loc-tools">
-          <a href="https://www.google.com/maps/search/?api=1&query=Rasta+Cafe+Mysore+Road+Bengaluru" target="_blank" class="btn-map-link">📍 Rasta Cafe GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-rasta')">🗺️ Preview Rasta</button>
-          <a href="https://www.google.com/maps/search/?api=1&query=Filter+Cafe+and+Kitchen+Restaurant+Mysore+Road" target="_blank" class="btn-map-link">📍 Filter Cafe GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-filter-cafe')">🗺️ Preview Filter Cafe</button>
-        </div>
-        <div id="map-rasta" class="embed-map-drawer">
-          <iframe src="https://maps.google.com/maps?q=Rasta+Cafe,+Bengaluru+-+Mysuru+Expressway,+Mayaganahalli&output=embed" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        </div>
-        <div id="map-filter-cafe" class="embed-map-drawer">
-          <iframe src="https://maps.google.com/maps?q=Filter+Cafe+and+Kitchen+Restaurant+Mysore+Road&output=embed" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        </div>
-      </td>
-      <td>
-        <strong>Dinner &amp; Group Debrief:</strong> Relaxed, open-air late-night atmosphere.<br>
-        &bull; <em>Rasta Cafe:</em> Burgers, wood-fired pizzas, mocktails, coffee, and ambient outdoor seating.<br>
-        &bull; <em>Filter Cafe &amp; Kitchen:</em> Hearty North/South Indian meals, rolls, and beverages.<br>
-        <strong>Pro-Tip:</strong> Eating dinner here avoids having to cook or hunt for late-night food after reaching home.
-      </td>
-    </tr>
-    <tr>
-      <td>09:45 PM &ndash; 10:45 PM</td>
-      <td>Mysore Road &rarr; NICE Road &rarr; Electronic City / Whitefield (48 km)</td>
-      <td>Late night smooth driving via NICE road directly to Whitefield. Zero traffic congestion; reach home relaxed!</td>
+    <tr id="row-final-leg">
+      <td>07:15 PM &ndash; 09:15 PM</td>
+      <td><span id="label-final-route">Kunigal &rarr; Nelamangala &rarr; NICE Road &rarr; Whitefield (85 km)</span></td>
+      <td><span id="desc-final-content">Connect directly from NH 75 onto NICE Road at Nelamangala toll plaza. Bypass all city bottleneck traffic. Arrive home smoothly by ~09:15 PM!</span></td>
     </tr>
   </tbody>
 </table>
@@ -1215,10 +1195,10 @@
 <h3>2. Multi-Cuisine, Malnad Specialists &amp; Late-Night Hangouts</h3>
 <ul class="clean-list">
   <li>
-    <span class="tag-nonveg">[Late Night] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Rasta+Cafe+Mysore+Road+Bengaluru" target="_blank">Rasta Cafe</a> (Mysore Road, Bidadi)</span> &ndash; <em>4.5+ (30,000+ Reviews)</em>. Open till late night. Rustic open-air seating, wood-fired pizzas, burgers, nachos, coffee, and ambient lighting.
+    <span class="tag-nonveg">[Late Night Hangout] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Rasta+Cafe+Mysore+Road+Bengaluru" target="_blank">Rasta Cafe</a> (Bidadi / Mysore Road)</span> &ndash; <em>4.5+ (30,000+ Reviews)</em>. Open till 4:00 AM. Ambient open-air garden seating, wood-fired pizzas, burgers, loaded nachos, and chilled cold brews.
   </li>
   <li>
-    <span class="tag-nonveg">[Late Night] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Filter+Cafe+and+Kitchen+Restaurant+Mysore+Road" target="_blank">Filter Cafe and Kitchen | Restaurant</a> (Mysore Road)</span> &ndash; <em>4.5+ Rating</em>. Excellent food stop on the return corridor for hot meals, biryanis, and filter coffees.
+    <span class="tag-nonveg">[Highway Diner] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Filter+Cafe+and+Kitchen+Restaurant+Mysore+Road" target="_blank">Filter Cafe and Kitchen | Restaurant</a> (Mysore Road)</span> &ndash; <em>4.5+ Rating</em>. Comfortable highway dining stop for hot meals, rolls, and filter coffee.
   </li>
   <li>
     <span class="tag-nonveg">[Cafe] <a class="spot-link" href="https://maps.app.goo.gl/JYY7qHRSQmkagFGe7" target="_blank">The Estate Cafe</a> (Mallandur Road)</span> &ndash; <em>4.5+ (800+ Reviews)</em>. Open-air wooden deck perched over coffee slopes. Wood-fired thin-crust pizzas, creamy pasta, garlic bread, and cold brews.
@@ -1285,14 +1265,126 @@
 </div>
 </div>
 
-<!-- DEDICATED EMERGENCY SOS, RSA & SECTOR 1-4 DASHBOARD WITH PETROL PUMPS -->
-<div id="section-sos" class="day-section">
-<h2>Convoy Emergency SOS, RSA, Fuel &amp; En-Route Garages 🚨</h2>
+<!-- DEDICATED FUEL STRATEGY & REFILL STATIONS SECTION -->
+<div id="section-fuel" class="day-section">
+<h2>Convoy Fuel Strategy &amp; Verified Refill Stations ⛽</h2>
 <p style="font-size: 8.5pt; color: var(--slate-muted); margin-top: 0;">
-  Verified emergency contacts, OEM 24/7 Roadside Assistance, and Company-Owned Petrol Pumps categorized across our 4 sectors.
+  Calculated fuel ranges, mandatory hill top-up rules, and verified Company-Owned (COCO) fuel stations along the circuit.
 </p>
 
-<!-- 1. OEM 24/7 Roadside Assistance -->
+<!-- Fuel Range & Burn Matrix -->
+<div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
+  <div style="font-weight: 800; font-size: 8.5pt; color: #92400e; margin-bottom: 6px;">
+    📊 Convoy Tank Range &amp; Burn Parameters
+  </div>
+  <table style="margin-bottom: 0;">
+    <thead>
+      <tr>
+        <th>Vehicle</th>
+        <th>Usable Tank</th>
+        <th>Blended Mileage</th>
+        <th>Safe Highway Range</th>
+        <th>Strategic Refill Threshold</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Hyundai Hatchback (5 Pax Loaded)</strong></td>
+        <td>~37 Litres</td>
+        <td>14.0 km/L (16 HWY / 11 Ghats)</td>
+        <td>~450 km</td>
+        <td>Refill every 300 &ndash; 350 km</td>
+      </tr>
+      <tr>
+        <td><strong>Royal Enfield Meteor 350</strong></td>
+        <td>~12 Litres (excl. 3L reserve)</td>
+        <td>34.5 km/L</td>
+        <td>~320 km</td>
+        <td>Refill every 240 &ndash; 270 km</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 3 Strategic Refill Windows -->
+<div class="sector-card">
+  <div class="sector-header">
+    <span>Stage 1: Bangalore Exit &bull; Nelamangala &rarr; Kyatsandra (NH 48)</span>
+    <span class="badge-fuel">Pre-Ghats Top-Up</span>
+  </div>
+  <div class="sos-chip-grid">
+    <div class="sos-chip">
+      <div class="sos-chip-title">BPCL COCO Pump (Nelamangala Toll NH 48)</div>
+      <div class="sos-chip-meta">Company-Owned 24/7 Pure Fuel, Digital Air &amp; Washrooms</div>
+      <div class="sos-chip-actions">
+        <a href="https://www.google.com/maps/search/?api=1&query=BPCL+COCO+petrol+pump+Nelamangala+NH48" target="_blank" class="btn-sos btn-fuel">⛽ Fuel GPS</a>
+      </div>
+    </div>
+    <div class="sos-chip">
+      <div class="sos-chip-title">IOCL Swagath COCO (Kyatsandra / Tumkur)</div>
+      <div class="sos-chip-meta">Last major expressway fuel hub before NH 73 single-lane</div>
+      <div class="sos-chip-actions">
+        <a href="https://www.google.com/maps/search/?api=1&query=IOCL+petrol+pump+Kyatsandra+Tumkur" target="_blank" class="btn-sos btn-fuel">⛽ Fuel GPS</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sector-card">
+  <div class="sector-header">
+    <span>Stage 2: Chikmagalur Town Entry (KM Road) &bull; Friday Evening</span>
+    <span class="badge" style="background:#dc2626; color:#ffffff;">CRITICAL MANDATORY REFILL</span>
+  </div>
+  <div class="sos-chip-grid">
+    <div class="sos-chip" style="background:#fff7ed; border-color:#fed7aa;">
+      <div class="sos-chip-title">BPCL / HPCL Fuel Station (KM Road, Chikmagalur)</div>
+      <div class="sos-chip-meta"><strong>MANDATORY:</strong> Fill tanks to 100% full. Zero pumps exist on Mullayanagiri or Jhari Falls!</div>
+      <div class="sos-chip-actions">
+        <a href="https://www.google.com/maps/search/?api=1&query=BPCL+petrol+pump+KM+Road+Chikkamagaluru" target="_blank" class="btn-sos btn-fuel">⛽ Fuel GPS</a>
+      </div>
+    </div>
+    <div class="sos-chip">
+      <div class="sos-chip-title">Shell Petrol Pump (Town Ring Road, Chikmagalur)</div>
+      <div class="sos-chip-meta">Premium fuels, quick tyre check &amp; clean rest stop</div>
+      <div class="sos-chip-actions">
+        <a href="https://www.google.com/maps/search/?api=1&query=Shell+petrol+pump+Chikkamagaluru" target="_blank" class="btn-sos btn-fuel">⛽ Fuel GPS</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sector-card">
+  <div class="sector-header">
+    <span>Stage 3: Return Expressway &bull; Hassan Bypass (NH 75)</span>
+    <span class="badge-fuel">Expressway Return</span>
+  </div>
+  <div class="sos-chip-grid">
+    <div class="sos-chip">
+      <div class="sos-chip-title">BPCL COCO Pump (Hassan Bypass NH 75)</div>
+      <div class="sos-chip-meta">Top-up here to easily clear the 180 km run to Whitefield</div>
+      <div class="sos-chip-actions">
+        <a href="https://www.google.com/maps/search/?api=1&query=BPCL+COCO+petrol+pump+Hassan+bypass" target="_blank" class="btn-sos btn-fuel">⛽ Fuel GPS</a>
+      </div>
+    </div>
+    <div class="sos-chip">
+      <div class="sos-chip-title">HPCL Highway Oasis (Bellur Cross NH 75)</div>
+      <div class="sos-chip-meta">Mid-point return backup pump with 24/7 food court</div>
+      <div class="sos-chip-actions">
+        <a href="https://www.google.com/maps/search/?api=1&query=HPCL+petrol+pump+Bellur+Cross+NH75" target="_blank" class="btn-sos btn-fuel">⛽ Fuel GPS</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- DEDICATED EMERGENCY SOS, RSA & EN-ROUTE GARAGES SECTION -->
+<div id="section-sos" class="day-section">
+<h2>Convoy Emergency SOS, RSA &amp; En-Route Garages 🚨</h2>
+<p style="font-size: 8.5pt; color: var(--slate-muted); margin-top: 0;">
+  Verified emergency contacts, OEM 24/7 Roadside Assistance, and repair garages along our route.
+</p>
+
+<!-- OEM 24/7 Roadside Assistance -->
 <div style="background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
   <div style="font-weight: 800; font-size: 8.5pt; color: #9f1239; margin-bottom: 6px;">
     ⚡ 24/7 Official Roadside Assistance (RSA)
@@ -1318,13 +1410,6 @@
   </div>
   <div class="sos-chip-grid">
     <div class="sos-chip">
-      <div class="sos-chip-title">⛽ BPCL COCO Pump (Nelamangala NH 48)</div>
-      <div class="sos-chip-meta">Company-Owned 24/7 Clean Fuel &amp; Air</div>
-      <div class="sos-chip-actions">
-        <a href="https://www.google.com/maps/search/?api=1&query=BPCL+COCO+petrol+pump+Nelamangala+NH48" target="_blank" class="btn-sos btn-fuel">⛽ Fuel GPS</a>
-      </div>
-    </div>
-    <div class="sos-chip">
       <div class="sos-chip-title">Advaith Hyundai (Tumkur Bypass)</div>
       <div class="sos-chip-meta">Authorized Car Service &amp; Diagnostics</div>
       <div class="sos-chip-actions">
@@ -1340,6 +1425,13 @@
         <a href="https://www.google.com/maps/search/?api=1&query=Siddaganga+Hospital+Tumkur" target="_blank" class="btn-sos btn-dir">🗺️ GPS</a>
       </div>
     </div>
+    <div class="sos-chip">
+      <div class="sos-chip-title">24/7 Car Puncture Hub (Dobbaspet)</div>
+      <div class="sos-chip-meta">Tubeless Puncture &amp; Air Inflation</div>
+      <div class="sos-chip-actions">
+        <a href="https://www.google.com/maps/search/?api=1&query=tyre+puncture+Dobbaspet" target="_blank" class="btn-sos btn-dir">🗺️ Find Nearby</a>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1350,13 +1442,6 @@
     <span class="badge">Mid-Point Corridor</span>
   </div>
   <div class="sos-chip-grid">
-    <div class="sos-chip">
-      <div class="sos-chip-title">⛽ HPCL / IOCL Petrol Pump (Arsikere Bypass)</div>
-      <div class="sos-chip-meta">Mid-point stretch refill &amp; tyre pressure</div>
-      <div class="sos-chip-actions">
-        <a href="https://www.google.com/maps/search/?api=1&query=petrol+pump+Arsikere+bypass" target="_blank" class="btn-sos btn-fuel">⛽ Fuel GPS</a>
-      </div>
-    </div>
     <div class="sos-chip">
       <div class="sos-chip-title">SK Motors (Arsikere Bypass)</div>
       <div class="sos-chip-meta">Multi-Brand Car &amp; Bike Emergency Repair</div>
@@ -1373,6 +1458,13 @@
         <a href="https://www.google.com/maps/search/?api=1&query=Government+Hospital+Kadur" target="_blank" class="btn-sos btn-dir">🗺️ GPS</a>
       </div>
     </div>
+    <div class="sos-chip">
+      <div class="sos-chip-title">SLV MRP Wine Store (Kadur Bypass)</div>
+      <div class="sos-chip-meta">MRP Outlet (Note: Closed on Oct 2 Dry Day)</div>
+      <div class="sos-chip-actions">
+        <a href="https://www.google.com/maps/search/?api=1&query=MRP+liquor+store+Kadur" target="_blank" class="btn-sos btn-dir">🗺️ GPS</a>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1383,13 +1475,6 @@
     <span class="badge-gem">Destination Hub</span>
   </div>
   <div class="sos-chip-grid">
-    <div class="sos-chip" style="background:#fff7ed; border-color:#fed7aa;">
-      <div class="sos-chip-title">⛽ BPCL / HPCL COCO Pump (KM Road, Chikmagalur)</div>
-      <div class="sos-chip-meta"><strong>MANDATORY:</strong> Fill 100% full before entering hills!</div>
-      <div class="sos-chip-actions">
-        <a href="https://www.google.com/maps/search/?api=1&query=BPCL+petrol+pump+KM+Road+Chikkamagaluru" target="_blank" class="btn-sos btn-fuel">⛽ Fuel GPS</a>
-      </div>
-    </div>
     <div class="sos-chip">
       <div class="sos-chip-title">Kanchana Hyundai (KM Road)</div>
       <div class="sos-chip-meta">Main Regional Authorized Workshop</div>
@@ -1414,23 +1499,23 @@
         <a href="https://www.google.com/maps/search/?api=1&query=District+Hospital+MG+Hospital+Chikkamagaluru" target="_blank" class="btn-sos btn-dir">🗺️ GPS</a>
       </div>
     </div>
+    <div class="sos-chip">
+      <div class="sos-chip-title">Elite MRP Boutique (KM Road)</div>
+      <div class="sos-chip-meta">Beer, Wine &amp; Spirits (Open Oct 3 onwards)</div>
+      <div class="sos-chip-actions">
+        <a href="https://www.google.com/maps/search/?api=1&query=Madhuloka+liquor+store+Chikkamagaluru" target="_blank" class="btn-sos btn-dir">🗺️ GPS</a>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- Sector 4: Halebidu, Hassan & Mysore Road Return -->
+<!-- Sector 4: Halebidu to Hassan & NH 75 Return -->
 <div class="sector-card">
   <div class="sector-header">
-    <span>Sector 4: Hassan Bypass &rarr; Mysore Road &rarr; Bangalore</span>
+    <span>Sector 4: Halebidu &rarr; Hassan Bypass &rarr; Bangalore (NH 75)</span>
     <span class="badge">Return Leg</span>
   </div>
   <div class="sos-chip-grid">
-    <div class="sos-chip">
-      <div class="sos-chip-title">⛽ BPCL COCO Pump (Hassan Bypass NH 75)</div>
-      <div class="sos-chip-meta">Company-Owned 24/7 Express Refill</div>
-      <div class="sos-chip-actions">
-        <a href="https://www.google.com/maps/search/?api=1&query=BPCL+COCO+petrol+pump+Hassan+bypass" target="_blank" class="btn-sos btn-fuel">⛽ Fuel GPS</a>
-      </div>
-    </div>
     <div class="sos-chip">
       <div class="sos-chip-title">Advaith Hyundai (Hassan Bypass)</div>
       <div class="sos-chip-meta">Expressway Workshop &amp; RSA Towing</div>
@@ -1440,10 +1525,11 @@
       </div>
     </div>
     <div class="sos-chip">
-      <div class="sos-chip-title">Rasta Cafe (Late Night Hangout)</div>
-      <div class="sos-chip-meta">Mysore Road, Mayaganahalli (Open till late)</div>
+      <div class="sos-chip-title">HIMS Govt Teaching Hospital (Hassan)</div>
+      <div class="sos-chip-meta">24/7 Trauma Emergency along NH 75</div>
       <div class="sos-chip-actions">
-        <a href="https://www.google.com/maps/search/?api=1&query=Rasta+Cafe+Mysore+Road+Bengaluru" target="_blank" class="btn-sos btn-dir">🗺️ GPS</a>
+        <a href="tel:08172231699" class="btn-sos btn-call">📞 Call</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=HIMS+Hospital+Hassan" target="_blank" class="btn-sos btn-dir">🗺️ GPS</a>
       </div>
     </div>
   </div>
@@ -1516,7 +1602,7 @@
       <input type="number" id="cost-snacks" value="1500" oninput="calculateTotal()">
     </div>
     <div class="calc-field">
-      <label>Cafe Pizzas, Desserts &amp; Rasta Cafe:</label>
+      <label>Cafe Pizzas, Desserts &amp; Dining Buffer:</label>
       <input type="number" id="cost-cafes" value="2500" oninput="calculateTotal()">
     </div>
     <div class="calc-field">
@@ -1560,19 +1646,21 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// --- ISOLATED TAB CONTROLLER (ZERO CONTENT LEAKAGE) ---
+// --- ISOLATED 9-TAB CONTROLLER (ZERO CONTENT LEAKAGE) ---
 function switchMainTab(target, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
 
-  const allSections = ['day1', 'day2', 'day3', 'dining', 'packing', 'sos', 'calc'];
+  const allSections = ['day1', 'day2', 'day3', 'dining', 'packing', 'fuel', 'sos', 'calc'];
   
   if (target === 'all') {
+    // Show full itinerary narrative
     allSections.forEach(s => {
       const el = document.getElementById('section-' + s);
       if (el) el.style.display = 'block';
     });
   } else {
+    // Hide all, show strictly target section
     allSections.forEach(s => {
       const el = document.getElementById('section-' + s);
       if (el) el.style.display = (s === target) ? 'block' : 'none';
@@ -1593,7 +1681,7 @@ function toggleMasterMap() {
   }
 }
 
-// Dynamic Master Map Route Switcher (With Explicit Mydala Coordinates)
+// Dynamic Master Map Route Switcher
 function switchMasterMapRoute(type, btn) {
   document.querySelectorAll('.btn-map-switch').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
@@ -1602,16 +1690,19 @@ function switchMasterMapRoute(type, btn) {
 
   if (type === 'full') {
     label.innerText = 'Full 3-Day Route Loop';
-    iframe.src = 'https://maps.google.com/maps?saddr=Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru&daddr=13.3092605,77.1880542+to:Chikkamagaluru+to:Mullayanagiri+Peak+to:Shri+Hoysaleswara+Temple,+Halebidu+to:Rasta+Cafe,+Bengaluru+-+Mysuru+Expressway+to:Tower+Summer+D,+Whitefield,+Bengaluru&output=embed';
+    iframe.src = 'https://maps.google.com/maps?saddr=Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru&daddr=13.3092605,77.1880542+to:Chikkamagaluru+to:Mullayanagiri+Peak+to:Shri+Hoysaleswara+Temple,+Halebidu+to:Tower+Summer+D,+Whitefield,+Bengaluru&output=embed';
   } else if (type === 'day1') {
     label.innerText = 'Day 1 Route (Bangalore ➔ Mydala ➔ Chikmagalur)';
     iframe.src = 'https://maps.google.com/maps?saddr=Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru&daddr=13.3092605,77.1880542+to:Desi+Caf%C3%A9+Khaana-Paana,+Kyathsandra+to:Chikkamagaluru&output=embed';
   } else if (type === 'day2') {
     label.innerText = 'Day 2 Hills Loop (Mullayanagiri ➔ Jhari ➔ Kalathagiri)';
     iframe.src = 'https://maps.google.com/maps?saddr=Chikkamagaluru&daddr=Mullayanagiri+Peak+to:Jhari+Waterfall+to:Kallathigiri+Falls+to:Chikkamagaluru&output=embed';
-  } else if (type === 'day3') {
-    label.innerText = 'Day 3 Return (Chikmagalur ➔ Halebidu ➔ Mysore Rd ➔ Bangalore)';
-    iframe.src = 'https://maps.google.com/maps?saddr=Chikkamagaluru&daddr=Shri+Hoysaleswara+Temple,+Halebidu+to:Swathi+Delicacy+to:Rasta+Cafe,+Bengaluru+-+Mysuru+Expressway+to:Tower+Summer+D,+Whitefield,+Bengaluru&output=embed';
+  } else if (type === 'day3_direct') {
+    label.innerText = 'Day 3 Direct Express (Halebidu ➔ Yediyur ➔ Whitefield)';
+    iframe.src = 'https://maps.google.com/maps?saddr=Chikkamagaluru&daddr=Shri+Hoysaleswara+Temple,+Halebidu+to:Swathi+Delicacy+to:Tower+Summer+D,+Whitefield,+Bengaluru&output=embed';
+  } else if (type === 'day3_mysore') {
+    label.innerText = 'Day 3 Mysore Road Detour (Halebidu ➔ Rasta Cafe ➔ Whitefield)';
+    iframe.src = 'https://maps.google.com/maps?saddr=Chikkamagaluru&daddr=Shri+Hoysaleswara+Temple,+Halebidu+to:Rasta+Cafe,+Bengaluru+-+Mysuru+Expressway+to:Tower+Summer+D,+Whitefield,+Bengaluru&output=embed';
   }
 }
 
@@ -1648,6 +1739,35 @@ function switchTrack(track) {
     trackDesc.innerHTML = '<strong>Track B selected:</strong> Eliminates 106 km round-trip driving to protect solo driver and rider from fatigue!';
     toolsA.style.display = 'none';
     toolsB.style.display = 'flex';
+  }
+}
+
+// --- DAY 3 RETURN ROUTE TOGGLE (EXPRESS DIRECT VS MYSORE RD DETOUR) ---
+function switchReturnRoute(route) {
+  const btnDirect = document.getElementById('btn-route-direct');
+  const btnMysore = document.getElementById('btn-route-mysore');
+  const desc = document.getElementById('return-route-desc');
+  const dinnerTitle = document.getElementById('label-dinner-title');
+  const dinnerContent = document.getElementById('desc-dinner-content');
+  const finalRoute = document.getElementById('label-final-route');
+  const finalContent = document.getElementById('desc-final-content');
+
+  if (route === 'direct') {
+    btnDirect.classList.add('active');
+    btnMysore.classList.remove('active');
+    desc.innerHTML = '<strong>Option 1 Selected:</strong> 275 km direct highway cruise. Enjoy highway dinner at Swathi Delicacy (Yediyur), then enter Bangalore smoothly via NICE Road. Reach Whitefield by 08:45 PM – 09:15 PM!';
+    dinnerTitle.innerHTML = '<strong>Swathi Delicacy (NH 75, Yediyur)</strong> &bull; Highway Dinner / Snacks';
+    dinnerContent.innerHTML = 'Filter coffee, crispy ghee roast dosas, and physical stretching. Have an early highway dinner here to enter Bangalore completely fed with zero detour!';
+    finalRoute.innerHTML = 'Kunigal &rarr; Nelamangala &rarr; NICE Road &rarr; Whitefield (85 km)';
+    finalContent.innerHTML = 'Connect directly from NH 75 onto NICE Road at Nelamangala toll plaza. Bypass city traffic bottlenecks. Reach home by ~09:15 PM!';
+  } else {
+    btnMysore.classList.add('active');
+    btnDirect.classList.remove('active');
+    desc.innerHTML = '<strong>Option 2 Selected:</strong> 305 km late-night chill run. Turn off NICE Road onto Mysore Road (Bidadi) for pizzas, coffee, and open-air hangout at Rasta Cafe or Filter Cafe. Reach Whitefield by 10:30 PM – 10:45 PM!';
+    dinnerTitle.innerHTML = '<strong>Mysore Road Hangout (Rasta Cafe / Filter Cafe)</strong> &bull; Late-Night Dinner';
+    dinnerContent.innerHTML = 'Switch from NICE Road onto Mysore Road. Relax at <strong>Rasta Cafe</strong> (wood-fired pizzas, burgers, open-air music) or <strong>Filter Cafe</strong>. Great late-night vibe!';
+    finalRoute.innerHTML = 'Mysore Road &rarr; NICE Road &rarr; Electronic City / Whitefield (48 km)';
+    finalContent.innerHTML = 'Re-enter NICE Road after dinner. Uninterrupted late-night highway cruise directly to Whitefield. Reach home by ~10:30 PM – 10:45 PM!';
   }
 }
 
