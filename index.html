@@ -17,41 +17,51 @@
     --border-color: #cbd5e1;
   }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--slate-body); line-height: 1.45; font-size: 9pt; margin: 0; padding: 12px; background: var(--bg-light); }
-  .container { max-width: 960px; margin: 0 auto; background: #ffffff; padding: 24px 28px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); position: relative; }
+  .container { max-width: 960px; margin: 0 auto; background: #ffffff; padding: 24px 28px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
   
-  /* TeketZ Watermark Background */
-  .watermark-bg { position: absolute; top: 38%; left: 50%; transform: translate(-50%, -50%) rotate(-25deg); font-size: 72pt; font-weight: 900; color: rgba(2, 132, 199, 0.035); pointer-events: none; z-index: 0; text-transform: uppercase; white-space: nowrap; user-select: none; }
+  /* TeketZ Image Watermark */
+  .watermark-img { 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%) rotate(-15deg); 
+    width: 680px; 
+    opacity: 0.05; 
+    pointer-events: none; 
+    z-index: 0; 
+    user-select: none; 
+  }
   
-  /* Header & Logo */
-  .brand-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--primary-blue); padding-bottom: 12px; margin-bottom: 10px; position: relative; z-index: 1; }
-  .brand-logo-wrap { display: flex; align-items: center; gap: 10px; }
-  .brand-logo-svg { width: 52px; height: 52px; flex-shrink: 0; }
+  /* Brand Header */
+  .brand-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--primary-blue); padding-bottom: 12px; margin-bottom: 12px; position: relative; z-index: 1; }
+  .brand-logo-wrap { display: flex; align-items: center; gap: 14px; }
+  .brand-logo-img { height: 54px; width: auto; object-fit: contain; }
   .brand-title-wrap h1 { margin: 0; font-size: 16pt; color: var(--slate-dark); text-transform: uppercase; letter-spacing: 0.5px; }
   .brand-title-wrap .subtitle { font-size: 8.5pt; color: var(--slate-muted); margin-top: 2px; }
-  .teketz-badge { background: #fff7ed; border: 1.5px solid #fdba74; color: var(--accent-orange); font-size: 9pt; font-weight: 800; padding: 4px 10px; border-radius: 6px; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 4px; }
+  .teketz-badge { background: #fff7ed; border: 1.5px solid #fdba74; color: var(--accent-orange); font-size: 9pt; font-weight: 800; padding: 4px 10px; border-radius: 6px; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
   
-  /* Alert Box & Protocols */
+  /* Alert Box & Mandatory Protocols */
   .alert-box { background: #fef3c7; border-left: 4.5px solid #f59e0b; padding: 10px 14px; margin: 12px 0 16px 0; font-size: 8.5pt; border-radius: 0 6px 6px 0; line-height: 1.45; position: relative; z-index: 1; }
   .critical-tag { background: #dc2626; color: #ffffff; padding: 1.5px 5px; border-radius: 3px; font-weight: 800; font-size: 7.5pt; }
 
-  /* Interactive Tabs & Controllers */
-  .interactive-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin: 14px 0 16px 0; background: #f1f5f9; padding: 8px 12px; border-radius: 8px; border: 1px solid #e2e8f0; }
-  .tab-group { display: flex; gap: 6px; }
+  /* Interactive Tab Filter Bar */
+  .interactive-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin: 12px 0 16px 0; background: #f1f5f9; padding: 8px 12px; border-radius: 8px; border: 1px solid #e2e8f0; position: relative; z-index: 1; }
+  .tab-group { display: flex; gap: 6px; flex-wrap: wrap; }
   .tab-btn { background: #ffffff; border: 1px solid var(--border-color); color: var(--slate-dark); padding: 5px 12px; border-radius: 6px; font-size: 8.5pt; font-weight: 600; cursor: pointer; transition: all 0.15s ease; }
   .tab-btn:hover { background: #f8fafc; border-color: var(--primary-blue); color: var(--primary-blue); }
   .tab-btn.active { background: var(--primary-blue); border-color: var(--primary-blue); color: #ffffff; }
 
-  /* Route Buttons */
-  .route-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 16px 0; }
+  /* Route Navigation Buttons */
+  .route-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 16px 0; position: relative; z-index: 1; }
   .route-btn { display: inline-flex; align-items: center; gap: 5px; background: var(--primary-blue); color: #ffffff !important; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 8.5pt; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
   .route-btn.green { background: var(--emerald-green); }
   .route-btn.purple { background: #7c3aed; }
   .route-btn.orange { background: var(--accent-orange); }
 
-  /* Tables */
-  h2 { color: var(--emerald-green); font-size: 12pt; margin: 20px 0 8px 0; border-bottom: 1.5px solid var(--border-color); padding-bottom: 4px; display: flex; align-items: center; justify-content: space-between; }
-  h3 { color: #1e3a8a; font-size: 10pt; margin: 14px 0 6px 0; }
-  table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 8pt; margin-bottom: 14px; background: #ffffff; }
+  /* Tables & Headings */
+  h2 { color: var(--emerald-green); font-size: 12pt; margin: 20px 0 8px 0; border-bottom: 1.5px solid var(--border-color); padding-bottom: 4px; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
+  h3 { color: #1e3a8a; font-size: 10pt; margin: 14px 0 6px 0; position: relative; z-index: 1; }
+  table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 8pt; margin-bottom: 14px; background: #ffffff; position: relative; z-index: 1; }
   th, td { border: 1px solid var(--border-color); padding: 6px 8.5px; text-align: left; vertical-align: top; }
   th { background-color: #f8fafc; font-weight: 700; color: var(--slate-dark); }
   .time-col { width: 120px; font-weight: 700; color: var(--slate-dark); white-space: nowrap; }
@@ -66,13 +76,13 @@
   /* Links & Lists */
   a.spot-link { color: #0284c7; text-decoration: none; font-weight: 600; }
   a.spot-link:hover { text-decoration: underline; color: #0369a1; }
-  ul.clean-list { margin: 4px 0 6px 18px; padding: 0; font-size: 8.5pt; }
+  ul.clean-list { margin: 4px 0 6px 18px; padding: 0; font-size: 8.5pt; position: relative; z-index: 1; }
   ul.clean-list li { margin-bottom: 4px; }
-  .notice-box { background: #f1f5f9; border-left: 4px solid #64748b; padding: 8px 12px; margin: 10px 0; font-size: 8pt; border-radius: 0 5px 5px 0; }
+  .notice-box { background: #f1f5f9; border-left: 4px solid #64748b; padding: 8px 12px; margin: 10px 0; font-size: 8pt; border-radius: 0 5px 5px 0; position: relative; z-index: 1; }
   
-  /* Toggleable Tracks / Options Box */
-  .option-toggle-box { background: #f8fafc; border: 1.5px dashed #cbd5e1; border-radius: 8px; padding: 10px 14px; margin: 10px 0 16px 0; }
-  .option-btns { display: flex; gap: 8px; margin-bottom: 8px; }
+  /* Toggleable Sub-Panels */
+  .option-toggle-box { background: #f8fafc; border: 1.5px dashed #cbd5e1; border-radius: 8px; padding: 10px 14px; margin: 10px 0 14px 0; position: relative; z-index: 1; }
+  .option-btns { display: flex; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
   .toggle-sub-btn { background: #ffffff; border: 1px solid #cbd5e1; font-size: 8pt; font-weight: 700; padding: 4px 10px; border-radius: 4px; cursor: pointer; }
   .toggle-sub-btn.active { background: var(--slate-dark); color: #ffffff; border-color: var(--slate-dark); }
   
@@ -82,23 +92,15 @@
 <body>
 
 <div class="container">
-<div class="watermark-bg">Made by TeketZ</div>
+
+<!-- TeketZ Black & White Outline Background Watermark -->
+<img src="https://ibb.co/HfLN0pdD" alt="TeketZ Watermark" class="watermark-img" onerror="this.src='https://i.ibb.co/HfLN0pdD/TeketZ_BW_Outline_Full_Logo_Watermark.png';" />
 
 <!-- Brand Header -->
 <div class="brand-header">
   <div class="brand-logo-wrap">
-    <!-- Inline TeketZ Vector Propeller Logo -->
-    <svg class="brand-logo-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M120 220C90 190 60 170 30 180C20 185 25 210 50 230C80 255 120 250 120 220Z" fill="#0099FF"/>
-      <path d="M130 200C90 150 50 120 20 135C10 142 20 170 50 195C85 220 130 200 130 200Z" fill="#00B4D8"/>
-      <path d="M145 180C100 110 55 70 25 90C15 98 25 130 65 160C105 190 145 180 145 180Z" fill="#48CAE4"/>
-      <path d="M260 220C290 190 320 170 350 180C360 185 355 210 330 230C300 255 260 250 260 220Z" fill="#0099FF"/>
-      <path d="M250 200C290 150 330 120 360 135C370 142 360 170 330 195C295 220 250 200 250 200Z" fill="#00B4D8"/>
-      <path d="M235 180C280 110 325 70 355 90C365 98 355 130 315 160C275 190 235 180 235 180Z" fill="#48CAE4"/>
-      <ellipse cx="190" cy="240" rx="30" ry="75" stroke="#0099FF" stroke-width="12" fill="none" transform="rotate(-15 190 240)"/>
-      <circle cx="190" cy="240" r="10" fill="#0077B6"/>
-      <path d="M175 300C160 330 130 350 100 340C90 335 95 315 115 300C140 280 175 300 175 300Z" fill="#0099FF"/>
-    </svg>
+    <!-- TeketZ Full Color Logo -->
+    <img src="https://ibb.co/sx6R9JZ" alt="TeketZ Colored Logo" class="brand-logo-img" onerror="this.src='https://i.ibb.co/sx6R9JZ/TeketZ_Icon_Logo.png';" />
     <div class="brand-title-wrap">
       <h1>Chikmagalur Master Staycation Blueprint</h1>
       <div class="subtitle">
@@ -109,16 +111,17 @@
   <div class="teketz-badge">&#9992; Made by TeketZ</div>
 </div>
 
-<!-- Critical Operations Alert -->
+<!-- Critical Operations Protocols -->
 <div class="alert-box">
-  <strong><span class="critical-tag">MANDATORY PROTOCOLS</span> &bull; 5-Pax Convoy Safeguards:</strong><br>
-  &bull; <strong>Strict Dry Day (Oct 2):</strong> Gandhi Jayanti is a 100% legal dry day across Karnataka. Purchase all homestay/bonfire alcohol in Bangalore on <strong>Thursday, Oct 1st</strong> and transport sealed in boot.<br>
-  &bull; <strong>Mullayanagiri Vehicle Entry Pass:</strong> Pre-book Slot 1 (6:00 AM &ndash; 12:00 PM) on the official portal (<a class="spot-link" href="https://pgbiz.omniware.in/chikkamagalurutourism" target="_blank">pgbiz.omniware.in/chikkamagalurutourism</a>). Download or screenshot QR pass prior to ascent (zero network at base checkpost).<br>
-  &bull; <strong>Driver/Rider Relief:</strong> Only 1 car driver and 1 bike rider. Highway speed locked at <strong>75&ndash;85 km/h</strong>. If driver/rider fatigue hits post-Jhari Falls on Day 2, toggle to <strong>Track B (Hidden Gems)</strong> to skip 106 km of driving.<br>
-  &bull; <strong>Boot Capacity:</strong> 5 adults in a hatchback requires <strong>soft duffel bags only</strong>. Strictly zero rigid hard-shell suitcases.
+  <strong><span class="critical-tag">MANDATORY PROTOCOLS</span> &bull; 5-Pax Group &amp; Convoy Safeguards:</strong><br>
+  &bull; <strong>Strict Dry Day (Oct 2):</strong> Gandhi Jayanti is a 100% legal dry day across Karnataka. Purchase all homestay alcohol in Bangalore on <strong>Thursday, Oct 1st</strong> and transport sealed in boot.<br>
+  &bull; <strong>Mullayanagiri Vehicle Entry Pass:</strong> Pre-book Slot 1 (6:00 AM &ndash; 12:00 PM) on the official portal (<a class="spot-link" href="https://pgbiz.omniware.in/chikkamagalurutourism" target="_blank">pgbiz.omniware.in/chikkamagalurutourism</a>). Download or screenshot the QR pass prior to ascent (mobile data dies at Kaimara checkpost).<br>
+  &bull; <strong>Solo Driver &amp; Rider Relief:</strong> Exactly 1 car driver and 1 biker. Highway speed is capped at <strong>75&ndash;85 km/h</strong>. If driver/rider fatigue hits post-Jhari Falls on Day 2, toggle to <strong>Track B (Hidden Gems)</strong> to skip 106 km of driving.<br>
+  &bull; <strong>Boot Space Rule:</strong> 5 adults in a hatchback requires <strong>soft duffel bags or backpacks only</strong>. Strictly zero hard-shell suitcases.<br>
+  &bull; <strong>Emergency Cash Pool:</strong> Designate one treasurer to hold <strong>₹5,000 in cash</strong> for Jhari 4x4 Jeeps, parking, and rural stalls where UPI fails.
 </div>
 
-<!-- Interactive Navigation Controls -->
+<!-- Interactive View Filters -->
 <div class="interactive-bar">
   <div style="font-weight:700; font-size:8.5pt; color:var(--slate-dark);">Interactive View Filter:</div>
   <div class="tab-group">
@@ -193,7 +196,7 @@
     <tr>
       <td>04:00 PM &ndash; 05:15 PM</td>
       <td>Homestay Check-in &amp; Freshen Up</td>
-      <td>Check-in at booked plantation stay in Kaimara/Mallandur foothills. Unpack, wash off road grime, and rest for 1 hour.</td>
+      <td>Check-in at booked plantation stay in Kaimara/Mallandur foothills (Exact stay TBD). Unpack, wash off road grime, and rest for 1 hour.</td>
     </tr>
     <tr>
       <td>05:15 PM &ndash; 06:45 PM</td>
@@ -226,7 +229,7 @@
 <div id="section-day2" class="day-section">
 <h2>Day 2: Saturday, Oct 3 &ndash; Mullayanagiri Peak, Jhari Waterfall Dip &amp; Afternoon Circuit</h2>
 
-<!-- Track Selector Widget -->
+<!-- Driver Fatigue Track Selector -->
 <div class="option-toggle-box">
   <div style="font-weight:700; font-size:8.5pt; margin-bottom:4px; color:var(--slate-dark);">Driver Fatigue Management &bull; Afternoon Plan Selector:</div>
   <div class="option-btns">
@@ -234,7 +237,7 @@
     <button class="toggle-sub-btn" id="btn-track-b" onclick="switchTrack('B')">Track B: Low-Fatigue Hidden Gems (Kavikal Gandi + Honnammana Halla)</button>
   </div>
   <div id="track-desc" style="font-size:8pt; color:var(--slate-muted);">
-    <strong>Track A selected:</strong> Drives 53 km north to Kalathagiri Falls. Recommended if the driver and rider feel energetic post-lunch.
+    <strong>Track A selected:</strong> Drives 53 km north to Kalathagiri Falls. Recommended if driver and rider feel energetic post-lunch.
   </div>
 </div>
 
@@ -276,7 +279,7 @@
       <td>
         <strong>Activities &amp; Allocations:</strong> Park car and bike safely at entrance barrier. <strong>All 5 pax board 1 local 4x4 Jeep (~₹1,000 round-trip)</strong> down the steep plantation track.<br>
         <strong>Driver Relief:</strong> The 2.5-hour jeep + waterfall window gives driver and rider a total break from operating vehicles.<br>
-        <strong>Waterfall Bathing Protocol:</strong> Change into swimwear/quick-dry clothing; use rubber-grip footwear on slippery boulders; dry off and change back before boarding the return jeep.
+        <strong>Waterfall Bathing Protocol:</strong> Change into swimwear/quick-dry clothing; use rubber-grip footwear on slippery boulders; dry off and change back before boarding return jeep.
       </td>
     </tr>
     <tr>
@@ -414,8 +417,8 @@
 <div class="option-toggle-box">
   <div style="font-weight:700; font-size:8.5pt; margin-bottom:4px; color:var(--slate-dark);">Budget Plan View:</div>
   <div class="option-btns">
-    <button class="toggle-sub-btn active" id="btn-budget-base" onclick="switchBudget('base')">Standard Base Budget (₹7,050/head)</button>
-    <button class="toggle-sub-btn" id="btn-budget-chill" onclick="switchBudget('chill')">Upgraded Chill &amp; Party Pool (₹9,200/head)</button>
+    <button class="toggle-sub-btn active" id="btn-budget-base" onclick="switchBudget('base')">Standard Base Budget (₹7,052/head)</button>
+    <button class="toggle-sub-btn" id="btn-budget-chill" onclick="switchBudget('chill')">Upgraded Chill &amp; Party Pool (₹9,482/head)</button>
   </div>
   <div id="budget-desc" style="font-size:8pt; color:var(--slate-muted);">
     <strong>Standard Base Budget:</strong> Covers scenic 2-BHK private homestay, car petrol, FASTag tolls, Jhari jeep shuttle, and standard group dining.
@@ -502,7 +505,7 @@
 
 </div>
 
-<!-- Interactive JS Logic -->
+<!-- Interactive JavaScript Logic -->
 <script>
 function filterDay(day, btn) {
   const tabs = document.querySelectorAll('.tab-btn');
