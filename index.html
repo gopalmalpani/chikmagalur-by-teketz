@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chikmagalur Master Staycation Blueprint (5 Pax) • Made by Gopal</title>
+<title>Chikmagalur Road Trip & Staycation • Planned by Gopal</title>
 <style>
   @page { size: A4; margin: 8mm 10mm; }
   :root {
@@ -16,10 +16,27 @@
     --bg-light: #f8fafc;
     --border-color: #cbd5e1;
   }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--slate-body); line-height: 1.45; font-size: 9pt; margin: 0; padding: 12px; background: var(--bg-light); }
-  .container { max-width: 960px; margin: 0 auto; background: #ffffff; padding: 24px 28px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); position: relative; }
+  body { 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+    color: var(--slate-body); 
+    line-height: 1.45; 
+    font-size: 9pt; 
+    margin: 0; 
+    padding: 12px; 
+    background: var(--bg-light); 
+  }
+  .container { 
+    max-width: 960px; 
+    margin: 0 auto; 
+    background: #ffffff; 
+    padding: 22px 26px; 
+    border-radius: 14px; 
+    border: 1px solid var(--border-color); 
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.06); 
+    position: relative; 
+  }
   
-  /* Fixed, Non-Rotated Centered Screen Watermark */
+  /* Fixed Centered Background Watermark */
   .watermark-img { 
     position: fixed; 
     top: 50%; 
@@ -33,76 +50,39 @@
     user-select: none; 
   }
   
-  /* Brand Header Container */
-  .brand-header { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    gap: 16px; 
-    border-bottom: 3px solid var(--primary-blue); 
-    padding-bottom: 12px; 
-    margin-bottom: 12px; 
-    position: relative; 
-    z-index: 1; 
+  /* --- RESTRUCTURED MODERN HEADER --- */
+  .brand-header {
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
   }
-  
-  .brand-logo-wrap { 
-    display: flex; 
-    align-items: center; 
-    gap: 12px; 
-    flex: 1 1 auto; 
-    min-width: 0; 
+
+  /* Top Utility Bar: TeketZ Logo on Left, Planned by Gopal on Right */
+  .header-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
   }
-  
-  /* Top-Left Colored Icon */
-  .brand-logo-img { 
-    height: 52px; 
-    width: auto; 
-    max-width: 80px; 
-    object-fit: contain; 
-    flex-shrink: 0; 
-    display: block; 
+
+  .brand-brand-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
-  
-  .brand-title-wrap { 
-    flex: 1 1 auto; 
-    min-width: 0; 
+
+  .header-brand-logo {
+    height: 36px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
   }
-  
-  .brand-title-wrap h1 { 
-    margin: 0; 
-    font-size: 15pt; 
-    color: var(--slate-dark); 
-    text-transform: uppercase; 
-    letter-spacing: 0.5px; 
-    line-height: 1.25; 
-  }
-  
-  .brand-title-wrap .subtitle { 
-    font-size: 8.5pt; 
-    color: var(--slate-muted); 
-    margin-top: 3px; 
-  }
-  
-  /* Header Right Section: Logo + Made by Gopal */
-  .header-right-dock { 
-    display: flex; 
-    align-items: center; 
-    gap: 12px; 
-    flex-shrink: 0; 
-  }
-  
-  /* Right Side Brand Logo: Squeeze-Proof */
-  .header-brand-logo { 
-    height: 34px; 
-    width: auto; 
-    max-width: 170px; 
-    object-fit: contain; 
-    flex-shrink: 0; 
-    display: block; 
-    opacity: 0.95; 
-  }
-  
+
   .creator-badge { 
     background: #fff7ed; 
     border: 1.5px solid #fdba74; 
@@ -110,35 +90,148 @@
     font-size: 8.5pt; 
     font-weight: 800; 
     padding: 5px 12px; 
-    border-radius: 6px; 
-    letter-spacing: 0.5px; 
+    border-radius: 20px; 
+    letter-spacing: 0.4px; 
     display: inline-flex; 
     align-items: center; 
-    gap: 4px; 
+    gap: 5px; 
     white-space: nowrap; 
     flex-shrink: 0; 
   }
-  
+
+  /* Trip Hero Section */
+  .hero-title-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .trip-main-title {
+    margin: 0;
+    font-size: 18pt;
+    font-weight: 800;
+    color: var(--slate-dark);
+    letter-spacing: -0.3px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Metadata Tag Pills */
+  .trip-pills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    margin-top: 2px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 8pt;
+    font-weight: 600;
+    background: #f1f5f9;
+    color: var(--slate-dark);
+    border: 1px solid #e2e8f0;
+  }
+  .pill-highlight {
+    background: #ecfdf5;
+    color: var(--emerald-green);
+    border-color: #a7f3d0;
+  }
+  .pill-opt {
+    background: #fef3c7;
+    color: #b45309;
+    border-color: #fde68a;
+  }
+
   /* Alert Box & Protocols */
-  .alert-box { background: #fef3c7; border-left: 4.5px solid #f59e0b; padding: 10px 14px; margin: 12px 0 16px 0; font-size: 8.5pt; border-radius: 0 6px 6px 0; line-height: 1.45; position: relative; z-index: 1; }
-  .critical-tag { background: #dc2626; color: #ffffff; padding: 1.5px 5px; border-radius: 3px; font-weight: 800; font-size: 7.5pt; }
+  .alert-box { 
+    background: #fef3c7; 
+    border-left: 4.5px solid #f59e0b; 
+    padding: 10px 14px; 
+    margin: 12px 0 16px 0; 
+    font-size: 8.5pt; 
+    border-radius: 0 6px 6px 0; 
+    line-height: 1.45; 
+    position: relative; 
+    z-index: 1; 
+  }
+  .critical-tag { 
+    background: #dc2626; 
+    color: #ffffff; 
+    padding: 1.5px 5px; 
+    border-radius: 3px; 
+    font-weight: 800; 
+    font-size: 7.5pt; 
+  }
 
   /* Interactive Tab Filter Bar */
-  .interactive-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin: 12px 0 16px 0; background: #f1f5f9; padding: 8px 12px; border-radius: 8px; border: 1px solid #e2e8f0; position: relative; z-index: 1; }
+  .interactive-bar { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 8px; 
+    margin: 12px 0 16px 0; 
+    background: #f1f5f9; 
+    padding: 8px 12px; 
+    border-radius: 8px; 
+    border: 1px solid #e2e8f0; 
+    position: relative; 
+    z-index: 1; 
+  }
   .tab-group { display: flex; gap: 6px; flex-wrap: wrap; }
-  .tab-btn { background: #ffffff; border: 1px solid var(--border-color); color: var(--slate-dark); padding: 5px 12px; border-radius: 6px; font-size: 8.5pt; font-weight: 600; cursor: pointer; transition: all 0.15s ease; }
+  .tab-btn { 
+    background: #ffffff; 
+    border: 1px solid var(--border-color); 
+    color: var(--slate-dark); 
+    padding: 5px 12px; 
+    border-radius: 6px; 
+    font-size: 8.5pt; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: all 0.15s ease; 
+  }
   .tab-btn:hover { background: #f8fafc; border-color: var(--primary-blue); color: var(--primary-blue); }
   .tab-btn.active { background: var(--primary-blue); border-color: var(--primary-blue); color: #ffffff; }
 
   /* Route Navigation Buttons */
   .route-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 16px 0; position: relative; z-index: 1; }
-  .route-btn { display: inline-flex; align-items: center; gap: 5px; background: var(--primary-blue); color: #ffffff !important; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 8.5pt; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+  .route-btn { 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 5px; 
+    background: var(--primary-blue); 
+    color: #ffffff !important; 
+    text-decoration: none; 
+    padding: 6px 12px; 
+    border-radius: 6px; 
+    font-size: 8.5pt; 
+    font-weight: 600; 
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05); 
+  }
   .route-btn.green { background: var(--emerald-green); }
   .route-btn.purple { background: #7c3aed; }
   .route-btn.orange { background: var(--accent-orange); }
 
   /* Tables & Content */
-  h2 { color: var(--emerald-green); font-size: 12pt; margin: 20px 0 8px 0; border-bottom: 1.5px solid var(--border-color); padding-bottom: 4px; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
+  h2 { 
+    color: var(--emerald-green); 
+    font-size: 12pt; 
+    margin: 20px 0 8px 0; 
+    border-bottom: 1.5px solid var(--border-color); 
+    padding-bottom: 4px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    position: relative; 
+    z-index: 1; 
+  }
   h3 { color: #1e3a8a; font-size: 10pt; margin: 14px 0 6px 0; position: relative; z-index: 1; }
   table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 8pt; margin-bottom: 14px; background: #ffffff; position: relative; z-index: 1; }
   th, td { border: 1px solid var(--border-color); padding: 6px 8.5px; text-align: left; vertical-align: top; }
@@ -157,7 +250,7 @@
   a.spot-link:hover { text-decoration: underline; color: #0369a1; }
   ul.clean-list { margin: 4px 0 6px 18px; padding: 0; font-size: 8.5pt; position: relative; z-index: 1; }
   ul.clean-list li { margin-bottom: 4px; }
-  .notice-box { background: #f1f5f9; border-left: 4px solid #64748b; padding: 8px 12px; margin: 10px 0; font-size: 8pt; border-radius: 0 5px 5px 0; position: relative; z-index: 1; }
+  .notice-box { background: #f1f5f9; border-left: 4px solid #64748b; padding: 8px 12px; margin: 10px 0; font-size: 8pt; border-radius: 0 5px 5px 0; }
   
   /* Interactive Sub-Panel */
   .option-toggle-box { background: #f8fafc; border: 1.5px dashed #cbd5e1; border-radius: 8px; padding: 10px 14px; margin: 10px 0 14px 0; position: relative; z-index: 1; }
@@ -170,39 +263,40 @@
 </head>
 <body>
 
-<!-- Non-Rotated Centered Watermark -->
-<img src="https://ibb.co/HfLN0pdD" alt="TeketZ Outline Watermark" class="watermark-img" onerror="this.src='https://i.ibb.co/HfLN0pdD/TeketZ_BW_Outline_Full_Logo_Watermark.png';" />
+<!-- Centered Background Watermark -->
+<img src="https://i.ibb.co/HfLN0pdD/TeketZ-BW-Outline-Full-Logo-Watermark.png" alt="TeketZ Outline Watermark" class="watermark-img" onerror="this.src='https://ibb.co/HfLN0pdD';" />
 
 <div class="container">
 
-<!-- Brand Header -->
+<!-- MODERN 2-TIER BRAND HEADER -->
 <div class="brand-header">
-  <div class="brand-logo-wrap">
-    <!-- Top-Left Colored Icon -->
-    <img 
-      src="https://ibb.co/FL7hBqwF" 
-      alt="TeketZ Icon" 
-      class="brand-logo-img" 
-      onerror="this.src='https://i.ibb.co/FL7hBqwF/icon.png';" 
-    />
-    <div class="brand-title-wrap">
-      <h1>Chikmagalur Master Staycation Blueprint</h1>
-      <div class="subtitle">
-        <strong>Convoy:</strong> 1 Car (Hyundai i10/i20 Petrol) &bull; 1 Bike <span class="badge-opt">OPTIONAL</span> (RE Meteor 350) | <strong>Group:</strong> 5 Pax | <strong>Dates:</strong> 2nd &ndash; 4th Oct 2026
-      </div>
+  
+  <!-- Row 1: Brand Logo + Creator Attribution -->
+  <div class="header-top-bar">
+    <div class="brand-brand-wrap">
+      <!-- Full TeketZ Brand Logo: Completely unconstrained and uncropped -->
+      <img 
+        src="https://i.ibb.co/KzyBKsRx/logo.png" 
+        alt="TeketZ" 
+        class="header-brand-logo" 
+        onerror="this.src='https://ibb.co/KzyBKsRx';" 
+      />
+    </div>
+    <div class="creator-badge">&#9992; Planned by Gopal</div>
+  </div>
+
+  <!-- Row 2: Aesthetic Trip Heading & Metadata Pills -->
+  <div class="hero-title-section">
+    <h1 class="trip-main-title">Chikmagalur Road Trip &amp; Staycation 🌿</h1>
+    <div class="trip-pills-wrap">
+      <span class="pill pill-highlight">📅 Oct 2 – 4, 2026 (Gandhi Jayanti Weekend)</span>
+      <span class="pill">👥 5 Pax</span>
+      <span class="pill">🚗 Hyundai i10/i20 Petrol</span>
+      <span class="pill pill-opt">🏍️ RE Meteor 350 (Optional Convoy)</span>
+      <span class="pill">📍 Whitefield ➔ Chikmagalur ➔ Halebidu</span>
     </div>
   </div>
-  
-  <!-- Right Dock: Fully protected from shrinking/cropping -->
-  <div class="header-right-dock">
-    <img 
-      src="https://ibb.co/KzyBKsRx" 
-      alt="TeketZ Brand Logo" 
-      class="header-brand-logo" 
-      onerror="this.src='https://i.ibb.co/KzyBKsRx/logo.png';" 
-    />
-    <div class="creator-badge">&#9992; Made by Gopal</div>
-  </div>
+
 </div>
 
 <!-- Mandatory Protocols Alert -->
