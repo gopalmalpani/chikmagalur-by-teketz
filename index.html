@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chikmagalur Master Staycation Blueprint (5 Pax) • Made by TeketZ</title>
+<title>Chikmagalur Master Staycation Blueprint (5 Pax) • Made by Gopal</title>
 <style>
   @page { size: A4; margin: 8mm 10mm; }
   :root {
@@ -17,16 +17,17 @@
     --border-color: #cbd5e1;
   }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--slate-body); line-height: 1.45; font-size: 9pt; margin: 0; padding: 12px; background: var(--bg-light); }
-  .container { max-width: 960px; margin: 0 auto; background: #ffffff; padding: 24px 28px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+  .container { max-width: 960px; margin: 0 auto; background: #ffffff; padding: 24px 28px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); position: relative; }
   
-  /* TeketZ Image Watermark */
+  /* Fixed, Non-Rotated, Centered Screen Watermark */
   .watermark-img { 
-    position: absolute; 
+    position: fixed; 
     top: 50%; 
     left: 50%; 
-    transform: translate(-50%, -50%) rotate(-15deg); 
-    width: 680px; 
-    opacity: 0.05; 
+    transform: translate(-50%, -50%); 
+    width: 540px; 
+    max-width: 80vw;
+    opacity: 0.038; 
     pointer-events: none; 
     z-index: 0; 
     user-select: none; 
@@ -35,12 +36,16 @@
   /* Brand Header */
   .brand-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--primary-blue); padding-bottom: 12px; margin-bottom: 12px; position: relative; z-index: 1; }
   .brand-logo-wrap { display: flex; align-items: center; gap: 14px; }
-  .brand-logo-img { height: 54px; width: auto; object-fit: contain; }
-  .brand-title-wrap h1 { margin: 0; font-size: 16pt; color: var(--slate-dark); text-transform: uppercase; letter-spacing: 0.5px; }
+  .brand-logo-img { height: 52px; width: 52px; object-fit: contain; flex-shrink: 0; }
+  .brand-title-wrap h1 { margin: 0; font-size: 15.5pt; color: var(--slate-dark); text-transform: uppercase; letter-spacing: 0.5px; }
   .brand-title-wrap .subtitle { font-size: 8.5pt; color: var(--slate-muted); margin-top: 2px; }
-  .teketz-badge { background: #fff7ed; border: 1.5px solid #fdba74; color: var(--accent-orange); font-size: 9pt; font-weight: 800; padding: 4px 10px; border-radius: 6px; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
   
-  /* Alert Box & Mandatory Protocols */
+  /* Header Right Section (TeketZ Logo + Made by Gopal) */
+  .header-right-dock { display: flex; align-items: center; gap: 10px; }
+  .header-brand-logo { height: 28px; width: auto; object-fit: contain; opacity: 0.9; }
+  .creator-badge { background: #fff7ed; border: 1.5px solid #fdba74; color: var(--accent-orange); font-size: 8.5pt; font-weight: 800; padding: 4px 10px; border-radius: 6px; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+  
+  /* Alert Box & Protocols */
   .alert-box { background: #fef3c7; border-left: 4.5px solid #f59e0b; padding: 10px 14px; margin: 12px 0 16px 0; font-size: 8.5pt; border-radius: 0 6px 6px 0; line-height: 1.45; position: relative; z-index: 1; }
   .critical-tag { background: #dc2626; color: #ffffff; padding: 1.5px 5px; border-radius: 3px; font-weight: 800; font-size: 7.5pt; }
 
@@ -91,16 +96,16 @@
 </head>
 <body>
 
-<div class="container">
+<!-- Perfectly Centered Fixed Watermark -->
+<img src="https://ibb.co/HfLN0pdD" alt="TeketZ Outline Watermark" class="watermark-img" onerror="this.src='https://i.ibb.co/HfLN0pdD/TeketZ_BW_Outline_Full_Logo_Watermark.png';" />
 
-<!-- TeketZ Black & White Outline Background Watermark -->
-<img src="https://ibb.co/HfLN0pdD" alt="TeketZ Watermark" class="watermark-img" onerror="this.src='https://i.ibb.co/HfLN0pdD/TeketZ_BW_Outline_Full_Logo_Watermark.png';" />
+<div class="container">
 
 <!-- Brand Header -->
 <div class="brand-header">
   <div class="brand-logo-wrap">
-    <!-- TeketZ Full Color Logo -->
-    <img src="https://ibb.co/sx6R9JZ" alt="TeketZ Colored Logo" class="brand-logo-img" onerror="this.src='https://i.ibb.co/sx6R9JZ/TeketZ_Icon_Logo.png';" />
+    <!-- Top Left Colored Icon -->
+    <img src="https://ibb.co/rGpr705G" alt="TeketZ Colored Icon" class="brand-logo-img" onerror="this.src='https://i.ibb.co/rGpr705G/TeketZ_Icon_High_Resolution.png';" />
     <div class="brand-title-wrap">
       <h1>Chikmagalur Master Staycation Blueprint</h1>
       <div class="subtitle">
@@ -108,7 +113,11 @@
       </div>
     </div>
   </div>
-  <div class="teketz-badge">&#9992; Made by TeketZ</div>
+  <div class="header-right-dock">
+    <!-- Subtle TeketZ Logo in Header Line -->
+    <img src="https://ibb.co/sx6R9JZ" alt="TeketZ Brand" class="header-brand-logo" onerror="this.src='https://i.ibb.co/sx6R9JZ/TeketZ_Icon_Logo.png';" />
+    <div class="creator-badge">&#9992; Made by Gopal</div>
+  </div>
 </div>
 
 <!-- Critical Operations Protocols -->
