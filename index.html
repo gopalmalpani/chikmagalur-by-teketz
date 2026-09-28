@@ -33,7 +33,7 @@
     max-width: 980px; 
     margin: 0 auto; 
     background: #ffffff; 
-    padding: 22px 26px 28px 26px; 
+    padding: 0 26px 28px 26px; 
     border-radius: 14px; 
     border: 1px solid var(--border-color); 
     box-shadow: 0 10px 20px -5px rgba(0,0,0,0.06); 
@@ -54,21 +54,24 @@
     user-select: none; 
   }
   
-  /* Modern Header */
-  .brand-header {
-    border-bottom: 2px solid #e2e8f0;
-    padding-bottom: 14px;
-    margin-bottom: 12px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .header-top-bar {
+  /* FROZEN / STICKY BRAND HEADER DOCK */
+  .sticky-brand-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin: 0 -26px 14px -26px;
+    padding: 10px 26px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom: 1.5px solid #e2e8f0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
   }
 
   /* Unconstrained Brand Logo Button (Click to Scroll Top) */
@@ -98,7 +101,7 @@
     transition: transform 0.15s ease;
   }
   .brand-logo-btn:hover .header-brand-logo {
-    transform: scale(1.02);
+    transform: scale(1.03);
   }
 
   .header-actions {
@@ -148,6 +151,7 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
+    margin-bottom: 8px;
   }
 
   .trip-main-title {
@@ -678,38 +682,33 @@
 
 <div class="container">
 
-<!-- BRAND HEADER -->
-<div class="brand-header">
-  
-  <!-- Row 1: Brand Logo on Left (Click to Scroll Top) + Action Badges on Right -->
-  <div class="header-top-bar">
-    <div class="brand-brand-wrap">
-      <!-- Unhyperlinked, Scrolls Smoothly to Top on Click -->
-      <button class="brand-logo-btn" onclick="scrollToTop()" title="Scroll to top">
-        <img src="https://i.ibb.co/zHfC62jV/Teket-Z-Logo.png" alt="TeketZ" class="header-brand-logo" />
-      </button>
-    </div>
-    <div class="header-actions">
-      <!-- Shared Google Photos Album Button -->
-      <a href="https://photos.app.goo.gl/daQjVe84RwS3y585A" target="_blank" class="header-btn">📸 Shared Photo Album</a>
-      <!-- Print / Save as PDF Button -->
-      <button onclick="window.print()" class="header-btn">📄 Save PDF</button>
-      <div class="creator-badge">&#9992; Made by Gopal</div>
-    </div>
+<!-- FROZEN / STICKY BRAND HEADER BAR -->
+<div class="sticky-brand-bar">
+  <div class="brand-brand-wrap">
+    <!-- Unhyperlinked, Smoothly Scrolls to Top on Click -->
+    <button class="brand-logo-btn" onclick="scrollToTop()" title="Click to scroll to top">
+      <img src="https://i.ibb.co/zHfC62jV/Teket-Z-Logo.png" alt="TeketZ" class="header-brand-logo" />
+    </button>
   </div>
-
-  <!-- Row 2: Trip Hero Heading & Metadata Pills -->
-  <div class="hero-title-section">
-    <h1 class="trip-main-title">Chikmagalur Road Trip &amp; Staycation 🌿</h1>
-    <div class="trip-pills-wrap">
-      <span class="pill pill-highlight">📅 Oct 2 – 4, 2026 (Gandhi Jayanti Weekend)</span>
-      <span class="pill">👥 <span id="pill-pax">5 Pax</span></span>
-      <span class="pill">🚗 Hyundai i10/i20 Petrol</span>
-      <span class="pill pill-opt" id="pill-bike">🏍️ RE Meteor 350 (Group Split)</span>
-      <span class="pill">📍 Whitefield ➔ Chikmagalur ➔ Halebidu</span>
-    </div>
+  <div class="header-actions">
+    <!-- Shared Google Photos Album Button -->
+    <a href="https://photos.app.goo.gl/daQjVe84RwS3y585A" target="_blank" class="header-btn">📸 Shared Photo Album</a>
+    <!-- Print / Save as PDF Button -->
+    <button onclick="window.print()" class="header-btn">📄 Save PDF</button>
+    <div class="creator-badge">&#9992; Made by Gopal</div>
   </div>
+</div>
 
+<!-- Trip Hero Heading & Metadata Pills -->
+<div class="hero-title-section">
+  <h1 class="trip-main-title">Chikmagalur Road Trip &amp; Staycation 🌿</h1>
+  <div class="trip-pills-wrap">
+    <span class="pill pill-highlight">📅 Oct 2 – 4, 2026 (Gandhi Jayanti Weekend)</span>
+    <span class="pill">👥 <span id="pill-pax">5 Pax</span></span>
+    <span class="pill">🚗 Hyundai i10/i20 Petrol</span>
+    <span class="pill pill-opt" id="pill-bike">🏍️ RE Meteor 350 (Group Split)</span>
+    <span class="pill">📍 Whitefield ➔ Chikmagalur ➔ Halebidu</span>
+  </div>
 </div>
 
 <!-- Mountain Weather & Daylight Strip -->
@@ -883,7 +882,7 @@
           <button class="btn-map-preview" onclick="toggleMap('map-mgpark')">🗺️ Preview Park</button>
         </div>
         <div id="map-mallanduru" class="embed-map-drawer">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.6996152156235!2d75.64254239678957!3d13.368944799999989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbb26f3a93a69e1%3A0x830ff87f82425ee!2sMallanduru%20Sunset%20Setting%20point!5e0!3m2!1sen!2sin!4v1790611036131!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.6996152156235!2d75.64254239678957!3d13.368944799999989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbb26f3a93a69e1%3A0x830ff87f82425ee!2sMallanduru%20Sunset%20Setting%20point!5e0!3m2!1sen!2sin!4v1790611036131!5m2!1sen!2sin!4v1790611036131!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
         <div id="map-mgpark" class="embed-map-drawer">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62102.52748511832!2d75.70464603972425!3d13.387046214604288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad9c8f9355e4b%3A0xec942d8cd34d28a!2sMahatma%20Gandhi%20Park!5e0!3m2!1sen!2sin!4v1790611397599!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -1150,120 +1149,18 @@
     <tr id="row-dinner-stage" style="background:#f8fafc;">
       <td>06:15 PM &ndash; 07:15 PM</td>
       <td><span id="label-dinner-title"><strong>Swathi Delicacy (NH 75, Yediyur)</strong> &bull; Highway Dinner / Snacks</span></td>
-      <td><span id="desc-dinner-content">Filter coffee, crispy ghee roast dosas, and physical stretching. If taking the Direct Express route, have early dinner here to enter Bangalore completely fed!</span></td>
+      <td><span id="desc-dinner-content">Filter coffee, crispy ghee roast dosas, and physical stretching. If taking the Direct Express route, have early dinner here to enter Bangalore completely fed with zero detour!</span></td>
     </tr>
     <tr id="row-final-leg">
       <td>07:15 PM &ndash; 09:15 PM</td>
       <td><span id="label-final-route">Kunigal &rarr; Nelamangala &rarr; NICE Road &rarr; Whitefield (85 km)</span></td>
-      <td><span id="desc-final-content">Connect directly from NH 75 onto NICE Road at Nelamangala toll plaza. Bypass all city bottleneck traffic. Arrive home smoothly by ~09:15 PM!</span></td>
+      <td><span id="desc-final-content">Connect directly from NH 75 onto NICE Road at Nelamangala toll plaza. Bypass city traffic bottlenecks. Reach home by ~09:15 PM!</span></td>
     </tr>
   </tbody>
 </table>
 </div>
 
 <div class="page-break"></div>
-
-<!-- DEDICATED DINING DIRECTORY SECTION -->
-<div id="section-dining" class="day-section">
-<h2>Comprehensive Restaurant Directory (Google 4.5+ &bull; 100+ Reviews)</h2>
-
-<h3>1. Pure Vegetarian Highlights</h3>
-<ul class="clean-list">
-  <li>
-    <span class="tag-veg">[Pure Veg] <a class="spot-link" href="https://maps.app.goo.gl/woorMBo8Mp6TYuw88" target="_blank">KAILASH PARBAT</a> (Chikmagalur)</span> &ndash; <em>4.5+ Rating</em>. Top-tier pure vegetarian sit-down dining. Fresh paneer specialties, tandoori rotis, chaats, and North Indian meals.
-    <div class="loc-tools">
-      <a href="https://maps.app.goo.gl/woorMBo8Mp6TYuw88" target="_blank" class="btn-map-link">📍 Open GPS</a>
-      <button class="btn-map-preview" onclick="toggleMap('map-kailash-dir')">🗺️ Preview Map</button>
-    </div>
-    <div id="map-kailash-dir" class="embed-map-drawer">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248471.61828637606!2d75.46778699453125!3d13.327305199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad94da9923813%3A0x171c9e7f728673a8!2sKAILASH%20PARBAT%20-%20Chikkamagaluru%20-%20a%20pure%20vegetarian%20restaurant!5e0!3m2!1sen!2sin!4v1790611942593!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-    </div>
-  </li>
-  <li>
-    <span class="tag-veg">[Pure Veg] <a class="spot-link" href="https://maps.app.goo.gl/4syqyR66NvLDUggc9" target="_blank">Swathi Delicacy</a> (NH 75, Near Yediyur)</span> &ndash; <em>4.5+ (32,000+ Reviews)</em>. Gold standard highway diner. Ghee Roast Masala Dosa, Chow-Chow Bath, and South Indian filter coffee.
-    <div class="loc-tools">
-      <a href="https://maps.app.goo.gl/4syqyR66NvLDUggc9" target="_blank" class="btn-map-link">📍 Open GPS</a>
-      <button class="btn-map-preview" onclick="toggleMap('map-swathi-dir')">🗺️ Preview Map</button>
-    </div>
-    <div id="map-swathi-dir" class="embed-map-drawer">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6314028259253!2d76.9003171!3d12.995411299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bafc36bf986a6f7%3A0x226a28446bb9f973!2sSwathi%20Delicacy!5e0!3m2!1sen!2sin!4v1790612541659!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-    </div>
-  </li>
-  <li><span class="tag-veg">[Pure Veg] Dal Roti (IG Road, Chikmagalur Town)</span> &ndash; <em>4.5+ (1,400+ Reviews)</em>. Wholesome North Indian comfort food. Non-greasy phulkas, Dal Tadka, Paneer Butter Masala, and Jeera Rice.</li>
-</ul>
-
-<h3>2. Multi-Cuisine, Malnad Specialists &amp; Late-Night Hangouts</h3>
-<ul class="clean-list">
-  <li>
-    <span class="tag-nonveg">[Late Night Hangout] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Rasta+Cafe+Mysore+Road+Bengaluru" target="_blank">Rasta Cafe</a> (Bidadi / Mysore Road)</span> &ndash; <em>4.5+ (30,000+ Reviews)</em>. Open till 4:00 AM. Ambient open-air garden seating, wood-fired pizzas, burgers, loaded nachos, and chilled cold brews.
-  </li>
-  <li>
-    <span class="tag-nonveg">[Highway Diner] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Filter+Cafe+and+Kitchen+Restaurant+Mysore+Road" target="_blank">Filter Cafe and Kitchen | Restaurant</a> (Mysore Road)</span> &ndash; <em>4.5+ Rating</em>. Comfortable highway dining stop for hot meals, rolls, and filter coffee.
-  </li>
-  <li>
-    <span class="tag-nonveg">[Cafe] <a class="spot-link" href="https://maps.app.goo.gl/JYY7qHRSQmkagFGe7" target="_blank">The Estate Cafe</a> (Mallandur Road)</span> &ndash; <em>4.5+ (800+ Reviews)</em>. Open-air wooden deck perched over coffee slopes. Wood-fired thin-crust pizzas, creamy pasta, garlic bread, and cold brews.
-  </li>
-  <li>
-    <span class="tag-nonveg">[Heritage] <a class="spot-link" href="https://maps.app.goo.gl/MkrQ81Y7Tnr6baVc8" target="_blank">Town Canteen</a> (Town Center)</span> &ndash; <em>4.5+ (2,500+ Reviews)</em>. Chikmagalur's most iconic breakfast institution since 1966. Famous for golden crispy Malnad Benne Dosa, potato sagu, and filter coffee.
-  </li>
-  <li>
-    <span class="tag-nonveg">[Non-Veg] <a class="spot-link" href="https://maps.app.goo.gl/9tpU7Z8dPZ52N5Wx8" target="_blank">The Arabica Restaurant (Hotel Aadrika)</a> (Milan Theatre Road)</span> &ndash; <em>4.5+ (1,500+ Reviews)</em>. Premium sit-down dining. Kundapura Chicken Curry, Anjal Tawa Fry, Neer Dosa, and North Indian vegetarian thalis.
-  </li>
-</ul>
-</div>
-
-<!-- DEDICATED PACKING CHECKLIST SECTION -->
-<div id="section-packing" class="day-section">
-<h2>
-  Interactive Packing Checklist (Tap to Check Off &amp; Auto-Saved)
-  <button onclick="resetChecklist()" style="background:#fee2e2; border:1px solid #fecdd3; color:#b91c1c; font-size:7.5pt; font-weight:700; border-radius:4px; padding:3px 8px; cursor:pointer;">↺ Reset Checked</button>
-</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 14px;">
-  
-  <!-- Females List -->
-  <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
-    <div style="font-weight: 800; font-size: 9pt; color: #db2777; margin-bottom: 8px; border-bottom: 1px solid #fce7f3; padding-bottom: 4px;">
-      👩 Females Checklist
-    </div>
-    <div id="checklist-females">
-      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Modest dark activewear for waterfall dip</span></div></div>
-      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>2 quick-dry microfiber travel towels</span></div></div>
-      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Motion sickness tablets (Avomine/Ondem)</span></div></div>
-      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Sanitizing spray (PeeSafe) &amp; wet wipes</span></div></div>
-      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Hair clips, scrunchies, &amp; dry shampoo</span></div></div>
-      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Thick cotton socks for Halebidu stone floor</span></div></div>
-    </div>
-    <div class="add-item-box">
-      <input type="text" id="input-females" placeholder="Add custom item...">
-      <button class="btn-item-add" onclick="addCustomChecklistItem('females')">+ Add</button>
-    </div>
-  </div>
-
-  <!-- Males List -->
-  <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
-    <div style="font-weight: 800; font-size: 9pt; color: #2563eb; margin-bottom: 8px; border-bottom: 1px solid #dbeafe; padding-bottom: 4px;">
-      👨 Males Checklist
-    </div>
-    <div id="checklist-males">
-      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Nylon swim trunks &amp; athletic tees</span></div></div>
-      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Extra dry socks &amp; innerwear in day bag</span></div></div>
-      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Windbreaker jacket for chilly peak winds</span></div></div>
-      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Thick cotton socks for Halebidu stone floor</span></div></div>
-      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Biker Gear: Helmet, riding jacket &amp; poncho</span></div></div>
-      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Small daypack for Mullayanagiri water bottles</span></div></div>
-    </div>
-    <div class="add-item-box">
-      <input type="text" id="input-males" placeholder="Add custom item...">
-      <button class="btn-item-add" onclick="addCustomChecklistItem('males')">+ Add</button>
-    </div>
-  </div>
-
-</div>
-
-<div class="notice-box">
-  <strong>Luggage &amp; Vehicle Reminder:</strong> 5 adults in an i10/i20 requires <strong>soft duffel bags or backpacks only</strong> to fit all luggage in the boot. Two-wheelers are 100% toll-free across all national highways.
-</div>
-</div>
 
 <!-- DEDICATED FUEL STRATEGY & REFILL STATIONS SECTION -->
 <div id="section-fuel" class="day-section">
@@ -1929,7 +1826,7 @@ function copyWhatsAppSummary() {
                  (parseFloat(document.getElementById('cost-snacks').value) || 0) + 
                  (parseFloat(document.getElementById('cost-cafes').value) || 0);
 
-  const text = `🌿 *Chikmagalur Road Trip & Staycation*\n📅 Oct 2 – 4, 2026 (Gandhi Jayanti Weekend)\n👥 Group Size: ${pax} Pax | 🚗 Car (+ 🏍️ Meteor 350)\n\n💰 *Estimated Group Breakdown:*\n🏡 Estate Homestay (2N): ₹${stay}\n⛽ Car Petrol & Tolls: ₹${car}\n🍽️ Group Meals (3 Days): ₹${food}\n🎉 Party, Drinks & Cafe Buffer: ~₹${funSum}\n🎟️ Jhari 4x4 Jeep & Permits: ₹${activities}\n────────────────────────\n✨ *Total Group Pool:* ${total}\n💵 *Per Person Share:* ${perHead}\n🏍️ ${bikeNote}\n\n📍 *Live Itinerary & Routes:*\nhttps://gopal-chikmagalur-trip.netlify.app\n\n📸 *Shared Photo Album:*\nhttps://photos.app.goo.gl/daQjVe84RwS3y585A\n\n*Planned & Made by Gopal* ✈️`;
+  const text = `🌿 *Chikmagalur Road Trip & Staycation*\n📅 Oct 2 – 4, 2026 (Gandhi Jayanti Weekend)\n👥 Group Size: ${pax} Pax | 🚗 Car (+ 🏍️ Meteor 350)\n\n💰 *Estimated Group Breakdown:*\n🏡 Estate Homestay (2N): ₹${stay}\n⛽ Car Petrol & Tolls: ₹${car}\n🍽️ Group Meals (3 Days): ₹${food}\n🎉 Party, Drinks & Cafe Buffer: ~₹${funSum}\n🎟️ Jhari 4x4 Jeep & Permits: ₹${activities}\n────────────────────────\n✨ *Total Group Pool:* ${total}\n💵 *Per Person Share:* ${perHead}\n🏍️ ${bikeNote}\n\n📍 *Live Itinerary & Routes:*\nhttps://gopalmalpani.github.io/chikmagalur-by-teketz/\n\n📸 *Shared Photo Album:*\nhttps://photos.app.goo.gl/daQjVe84RwS3y585A\n\n*Planned & Made by Gopal* ✈️`;
 
   navigator.clipboard.writeText(text).then(() => {
     alert("✅ Copied detailed trip summary to clipboard! Paste it directly into your WhatsApp group.");
