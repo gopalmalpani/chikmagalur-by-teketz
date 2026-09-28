@@ -54,7 +54,7 @@
     user-select: none; 
   }
   
-  /* FROZEN / STICKY BRAND HEADER DOCK */
+  /* FROZEN / STICKY BRAND HEADER BAR */
   .sticky-brand-bar {
     position: sticky;
     top: 0;
@@ -74,7 +74,6 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.03);
   }
 
-  /* Unconstrained Brand Logo Button (Click to Scroll Top) */
   .brand-brand-wrap {
     display: flex;
     align-items: center;
@@ -377,7 +376,7 @@
   th { background-color: #f8fafc; font-weight: 700; color: var(--slate-dark); }
   .time-col { width: 125px; font-weight: 700; color: var(--slate-dark); white-space: nowrap; }
   
-  /* Location Action Badges & Map Toggle */
+  /* Location Action Badges & Map/Photo Toggle */
   .loc-tools {
     display: flex;
     align-items: center;
@@ -396,6 +395,22 @@
     display: inline-flex;
     align-items: center;
     gap: 3px;
+  }
+  .btn-photo-link {
+    background: #fdf2f8;
+    color: #db2777;
+    border: 1px solid #fbcfe8;
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 2.5px 7px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .btn-photo-link:hover {
+    background: #fce7f3;
   }
   .btn-map-preview {
     background: #f1f5f9;
@@ -419,13 +434,27 @@
     border-radius: 6px;
     overflow: hidden;
     border: 1px solid #cbd5e1;
-    height: 250px;
-    width: 100%;
+    background: #f8fafc;
   }
   .embed-map-drawer iframe {
     width: 100%;
-    height: 100%;
+    height: 250px;
     border: 0;
+    display: block;
+  }
+  .drawer-photo-bar {
+    padding: 6px 10px;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.5pt;
+  }
+  .drawer-photo-bar a {
+    color: #db2777;
+    font-weight: 700;
+    text-decoration: none;
   }
 
   /* Badges & Tags */
@@ -437,10 +466,10 @@
   .tag-nonveg { color: #b91c1c; font-weight: 700; }
   
   /* Links & Lists */
-  a.spot-link { color: #0284c7; text-decoration: none; font-weight: 600; }
+  a.spot-link { color: #0284c7; text-decoration: none; font-weight: 700; }
   a.spot-link:hover { text-decoration: underline; color: #0369a1; }
   ul.clean-list { margin: 4px 0 6px 18px; padding: 0; font-size: 8.5pt; position: relative; z-index: 1; }
-  ul.clean-list li { margin-bottom: 4px; }
+  ul.clean-list li { margin-bottom: 6px; }
   .notice-box { background: #f1f5f9; border-left: 4px solid #64748b; padding: 8px 12px; margin: 10px 0; font-size: 8pt; border-radius: 0 5px 5px 0; }
   
   /* Toggleable Sub-Panel */
@@ -736,7 +765,6 @@
       <button class="btn-map-switch" onclick="switchMasterMapRoute('day3_mysore', this)">3️⃣ Day 3 (Mysore Rd Hangout)</button>
     </div>
     <div class="master-map-frame-wrap">
-      <!-- Direct Multi-Point Coordinates Embedding -->
       <iframe id="master-circuit-iframe" src="https://maps.google.com/maps?saddr=Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru&daddr=13.3092605,77.1880542+to:Chikkamagaluru+to:Mullayanagiri+Peak+to:Shri+Hoysaleswara+Temple,+Halebidu+to:Tower+Summer+D,+Whitefield,+Bengaluru&output=embed" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </div>
   </div>
@@ -752,7 +780,7 @@
   &bull; <strong>Mandatory Mountain Fuel Top-up:</strong> Top up to 100% full tank in Chikmagalur town on Friday evening. <strong>Zero pumps exist in the Bababudangiri hill range!</strong>
 </div>
 
-<!-- Streamlined 9-Tab Navigation Bar (Natural Layout Below Alerts) -->
+<!-- Streamlined 9-Tab Navigation Bar -->
 <div class="filter-nav-bar">
   <button class="filter-btn active" onclick="switchMainTab('all', this)">🗺️ Full Itinerary</button>
   <button class="filter-btn" onclick="switchMainTab('day1', this)">1️⃣ Day 1 (Fri)</button>
@@ -788,22 +816,27 @@
     <tr>
       <td>06:30 AM &ndash; 08:45 AM</td>
       <td>
-        <strong>Whitefield (Home Anchor)</strong> &rarr; <a class="spot-link" href="https://maps.app.goo.gl/5XCngcahWFMNBZpy6" target="_blank">Mydala Lake</a> (88 km)
+        <strong><a class="spot-link" href="https://maps.app.goo.gl/bRbCMDhhriNpEdZ48" target="_blank">Whitefield (Home Anchor)</a></strong> &rarr; <a class="spot-link" href="https://maps.app.goo.gl/5XCngcahWFMNBZpy6" target="_blank">Mydala Lake</a> (88 km)
         <div class="loc-tools">
           <a href="https://maps.app.goo.gl/bRbCMDhhriNpEdZ48" target="_blank" class="btn-map-link">📍 Home GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-home')">🗺️ Preview Home</button>
+          <button class="btn-map-preview" onclick="toggleMap('map-home')">🗺️ Map</button>
           <a href="https://maps.app.goo.gl/5XCngcahWFMNBZpy6" target="_blank" class="btn-map-link">📍 Mydala GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-mydala')">🗺️ Preview Lake</button>
+          <button class="btn-map-preview" onclick="toggleMap('map-mydala')">🗺️ Map</button>
+          <a href="https://www.google.com/search?tbm=isch&q=Mydala+lake+Tumkur+kayaking" target="_blank" class="btn-photo-link">📷 Lake Photos</a>
         </div>
         <div id="map-home" class="embed-map-drawer">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0216718679358!2d77.739586!3d12.970464999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae120162ed758d%3A0x763eb5bb2c7a0ff0!2sTower%20Summer%20D%2C%20807%2C%20Nallurhalli%2C%20Whitefield%2C%20Bengaluru%2C%20Karnataka%20560066!5e0!3m2!1sen!2sin!4v1790611179814!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
         <div id="map-mydala" class="embed-map-drawer">
           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7765.316990329289!2d77.1880542!3d13.3092605!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb02b007c6cc4b5%3A0xed71bc7f49ec8d62!2sMydala%20lake!5e0!3m2!1sen!2sin!4v1790611216861!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <div class="drawer-photo-bar">
+            <span>Explore live traveler images of Mydala Lake:</span>
+            <a href="https://www.google.com/search?tbm=isch&q=Mydala+lake+Tumkur+kayaking" target="_blank">Open Google Images ↗</a>
+          </div>
         </div>
       </td>
       <td>
-        <strong>Pacing:</strong> 06:30 AM rollout accounts for group morning preparation. Convoy cruises along NH 48 at 75&ndash;85 km/h. Car matches Meteor 350 speed.<br>
+        <strong>Pacing:</strong> 06:30 AM rollout accounts for morning prep. Convoy cruises along NH 48 at 75&ndash;85 km/h. Car matches Meteor 350 speed.<br>
         <strong>Pre-Breakfast Munchies:</strong> Eat Bangalore-packed light bites (energy bars, bananas, dry snacks) in car to maintain stamina.
       </td>
     </tr>
@@ -829,10 +862,15 @@
         <a class="spot-link" href="https://maps.app.goo.gl/wAzxSxbdocoUDx7SA" target="_blank">Desi Café Khaana-Paana / Kyathasandra Strip</a> (Brunch)
         <div class="loc-tools">
           <a href="https://maps.app.goo.gl/wAzxSxbdocoUDx7SA" target="_blank" class="btn-map-link">📍 Cafe GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-kyathasandra')">🗺️ Preview Cafe</button>
+          <button class="btn-map-preview" onclick="toggleMap('map-kyathasandra')">🗺️ Map</button>
+          <a href="https://www.google.com/search?tbm=isch&q=Desi+Cafe+Khaana-Paana+Kyatsandra+Thatte+Idli" target="_blank" class="btn-photo-link">📷 Food Photos</a>
         </div>
         <div id="map-kyathasandra" class="embed-map-drawer">
           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31058.724847432815!2d77.0811081!3d13.3290762!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb02d9c4ac8a37f%3A0x1f96335f3aba033b!2sDesi%20Caf%C3%A9%20Khaana-Paana!5e0!3m2!1sen!2sin!4v1790611247932!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <div class="drawer-photo-bar">
+            <span>Explore food dishes &amp; Thatte Idli pictures:</span>
+            <a href="https://www.google.com/search?tbm=isch&q=Desi+Cafe+Khaana-Paana+Kyatsandra+Thatte+Idli" target="_blank">Open Google Images ↗</a>
+          </div>
         </div>
       </td>
       <td>
@@ -862,7 +900,7 @@
     <tr>
       <td>04:25 PM &ndash; 05:30 PM</td>
       <td>
-        Homestay Check-in &amp; Freshen Up (<a class="spot-link" href="https://maps.app.goo.gl/BHB3y6qbkzqbVCdh8" target="_blank">Chikmagalur</a>)
+        Homestay Check-in &amp; Freshen Up (<a class="spot-link" href="https://maps.app.goo.gl/BHB3y6qbkzqbVCdh8" target="_blank">Chikmagalur Foothills</a>)
         <div class="loc-tools">
           <a href="https://maps.app.goo.gl/BHB3y6qbkzqbVCdh8" target="_blank" class="btn-map-link">📍 Area Pin</a>
         </div>
@@ -877,12 +915,14 @@
         <span class="badge">Opt B: MG Park / Rathnagiri Bore</span>
         <div class="loc-tools">
           <a href="https://maps.app.goo.gl/j8ZLHGqDa9mXUhzz8" target="_blank" class="btn-map-link">📍 Mallanduru GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-mallanduru')">🗺️ Preview Mallanduru</button>
+          <button class="btn-map-preview" onclick="toggleMap('map-mallanduru')">🗺️ Map</button>
+          <a href="https://www.google.com/search?tbm=isch&q=Mallanduru+Sunset+Setting+point+Chikmagalur" target="_blank" class="btn-photo-link">📷 Sunset Photos</a>
           <a href="https://maps.app.goo.gl/doq9fNn2o4jb1DvJ9" target="_blank" class="btn-map-link">📍 MG Park GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-mgpark')">🗺️ Preview Park</button>
+          <button class="btn-map-preview" onclick="toggleMap('map-mgpark')">🗺️ Map</button>
+          <a href="https://www.google.com/search?tbm=isch&q=Mahatma+Gandhi+Park+Rathnagiri+Bore+Chikmagalur" target="_blank" class="btn-photo-link">📷 Park Photos</a>
         </div>
         <div id="map-mallanduru" class="embed-map-drawer">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.6996152156235!2d75.64254239678957!3d13.368944799999989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbb26f3a93a69e1%3A0x830ff87f82425ee!2sMallanduru%20Sunset%20Setting%20point!5e0!3m2!1sen!2sin!4v1790611036131!5m2!1sen!2sin!4v1790611036131!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.6996152156235!2d75.64254239678957!3d13.368944799999989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbb26f3a93a69e1%3A0x830ff87f82425ee!2sMallanduru%20Sunset%20Setting%20point!5e0!3m2!1sen!2sin!4v1790611036131!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
         <div id="map-mgpark" class="embed-map-drawer">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62102.52748511832!2d75.70464603972425!3d13.387046214604288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad9c8f9355e4b%3A0xec942d8cd34d28a!2sMahatma%20Gandhi%20Park!5e0!3m2!1sen!2sin!4v1790611397599!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -899,7 +939,8 @@
         <a class="spot-link" href="https://maps.app.goo.gl/cqyqe7nMnioJ9h8B9" target="_blank">Panduranga Coffee 1938</a> (MG Road)
         <div class="loc-tools">
           <a href="https://maps.app.goo.gl/cqyqe7nMnioJ9h8B9" target="_blank" class="btn-map-link">📍 Panduranga GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-panduranga')">🗺️ Preview Store</button>
+          <button class="btn-map-preview" onclick="toggleMap('map-panduranga')">🗺️ Map</button>
+          <a href="https://www.google.com/search?tbm=isch&q=Panduranga+Coffee+1938+Chikmagalur" target="_blank" class="btn-photo-link">📷 Store Photos</a>
         </div>
         <div id="map-panduranga" class="embed-map-drawer">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.5321583770406!2d75.7743483!3d13.3171392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad76484e1c92f%3A0x578640c914647f4d!2sPANDURANGA%20COFFEE%201938!5e0!3m2!1sen!2sin!4v1790611459248!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -913,7 +954,8 @@
         Dinner &amp; Wind Down (<a class="spot-link" href="https://maps.app.goo.gl/De4uwgdQB3mKcSZKA" target="_blank">The Arabica</a> / <a class="spot-link" href="https://maps.app.goo.gl/woorMBo8Mp6TYuw88" target="_blank">Kailash Parbat</a>)
         <div class="loc-tools">
           <a href="https://maps.app.goo.gl/De4uwgdQB3mKcSZKA" target="_blank" class="btn-map-link">📍 Arabica GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-arabica-d1')">🗺️ Preview Arabica</button>
+          <button class="btn-map-preview" onclick="toggleMap('map-arabica-d1')">🗺️ Map</button>
+          <a href="https://www.google.com/search?tbm=isch&q=Arabica+restaurant+Hotel+Aadrika+Chikmagalur+food" target="_blank" class="btn-photo-link">📷 Arabica Photos</a>
         </div>
         <div id="map-arabica-d1" class="embed-map-drawer">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d65791.79402760594!2d75.61960819079088!3d13.399996531361293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbb27229e93e38f%3A0xe2d6c2edff498720!2sArabica%20restaurant!5e0!3m2!1sen!2sin!4v1790611552011!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -963,7 +1005,7 @@
         Stay &rarr; <a class="spot-link" href="https://maps.app.goo.gl/v5R7RPJbUrt3dy1bA" target="_blank">Mullayanagiri Base</a> (22 km)
         <div class="loc-tools">
           <a href="https://maps.app.goo.gl/v5R7RPJbUrt3dy1bA" target="_blank" class="btn-map-link">📍 Base GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-mullayanagiri-base')">🗺️ Preview Base</button>
+          <button class="btn-map-preview" onclick="toggleMap('map-mullayanagiri-base')">🗺️ Map</button>
         </div>
         <div id="map-mullayanagiri-base" class="embed-map-drawer">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.352754368809!2d75.72231959788157!3d13.390470393324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad9004b9b6277%3A0x2269a9237875cdfd!2sMullayanagiri%20Peak!5e0!3m2!1sen!2sin!4v1790611659047!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -977,10 +1019,15 @@
         <a class="spot-link" href="https://maps.app.goo.gl/uavjy6nd2TxwXR4QA" target="_blank">Mullayanagiri Peak Trek</a>
         <div class="loc-tools">
           <a href="https://maps.app.goo.gl/uavjy6nd2TxwXR4QA" target="_blank" class="btn-map-link">📍 Summit Trek GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-mullayanagiri-trek')">🗺️ Preview Peak</button>
+          <button class="btn-map-preview" onclick="toggleMap('map-mullayanagiri-trek')">🗺️ Map</button>
+          <a href="https://www.google.com/search?tbm=isch&q=Mullayanagiri+Peak+Chikmagalur+clouds+trek" target="_blank" class="btn-photo-link">📷 Peak Photos</a>
         </div>
         <div id="map-mullayanagiri-trek" class="embed-map-drawer">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1153.9321792253058!2d75.72130427360048!3d13.390657817887966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad8a3b446124d%3A0x69e33a7e47e4081e!2sMullayanagiri%20Peak!5e0!3m2!1sen!2sin!4v1790611753997!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <div class="drawer-photo-bar">
+            <span>Explore 100+ live visitor photos from the summit:</span>
+            <a href="https://www.google.com/search?tbm=isch&q=Mullayanagiri+Peak+Chikmagalur+clouds+trek" target="_blank">Open Google Images ↗</a>
+          </div>
         </div>
       </td>
       <td>
@@ -999,10 +1046,15 @@
         <a class="spot-link" href="https://maps.app.goo.gl/5humTZw9KSmBkS7K8" target="_blank">Jhari Waterfalls (Dabdabe Falls)</a>
         <div class="loc-tools">
           <a href="https://maps.app.goo.gl/5humTZw9KSmBkS7K8" target="_blank" class="btn-map-link">📍 Jhari GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-jhari')">🗺️ Preview Jhari</button>
+          <button class="btn-map-preview" onclick="toggleMap('map-jhari')">🗺️ Map</button>
+          <a href="https://www.google.com/search?tbm=isch&q=Jhari+Waterfall+Dabdabe+Falls+Chikmagalur" target="_blank" class="btn-photo-link">📷 Waterfall Photos</a>
         </div>
         <div id="map-jhari" class="embed-map-drawer">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3880.8214051842842!2d75.7391047!3d13.423379300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbadf39c515058f%3A0xc70d7d8399466b7d!2sJhari%20Waterfall!5e0!3m2!1sen!2sin!4v1790611879378!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <div class="drawer-photo-bar">
+            <span>See live waterfall flow &amp; bathing pool photos:</span>
+            <a href="https://www.google.com/search?tbm=isch&q=Jhari+Waterfall+Dabdabe+Falls+Chikmagalur" target="_blank">Open Google Images ↗</a>
+          </div>
         </div>
       </td>
       <td>
@@ -1014,10 +1066,11 @@
     <tr>
       <td>02:30 PM &ndash; 04:00 PM</td>
       <td>
-        Sit-Down Lunch Halt (<a class="spot-link" href="https://maps.app.goo.gl/woorMBo8Mp6TYuw88" target="_blank">Kailash Parbat Pure Veg</a> / <a class="spot-link" href="https://maps.app.goo.gl/De4uwgdQB3mKcSZKA" target="_blank">The Arabica</a>)
+        Sit-Down Lunch Halt (<a class="spot-link" href="https://maps.app.goo.gl/woorMBo8Mp6TYuw88" target="_blank">KAILASH PARBAT</a> / <a class="spot-link" href="https://maps.app.goo.gl/De4uwgdQB3mKcSZKA" target="_blank">The Arabica</a>)
         <div class="loc-tools">
           <a href="https://maps.app.goo.gl/woorMBo8Mp6TYuw88" target="_blank" class="btn-map-link">📍 Kailash Parbat GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-kailash')">🗺️ Preview Kailash Parbat</button>
+          <button class="btn-map-preview" onclick="toggleMap('map-kailash')">🗺️ Map</button>
+          <a href="https://www.google.com/search?tbm=isch&q=Kailash+Parbat+Chikmagalur+restaurant+thali" target="_blank" class="btn-photo-link">📷 Food Photos</a>
         </div>
         <div id="map-kailash" class="embed-map-drawer">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248471.61828637606!2d75.46778699453125!3d13.327305199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad94da9923813%3A0x171c9e7f728673a8!2sKAILASH%20PARBAT%20-%20Chikkamagaluru%20-%20a%20pure%20vegetarian%20restaurant!5e0!3m2!1sen!2sin!4v1790611942593!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -1029,12 +1082,13 @@
     <tr id="dynamic-afternoon-row">
       <td>04:00 PM &ndash; 06:45 PM</td>
       <td>
-        <span id="afternoon-title"><strong>Track A:</strong> Kalathagiri Falls &amp; Veerabhadra Temple (53 km drive)</span>
+        <span id="afternoon-title"><strong>Track A:</strong> <a class="spot-link" href="https://maps.app.goo.gl/yTs6HstgPk4hyTRR9" target="_blank">Kallathigiri Falls</a> &amp; <a class="spot-link" href="https://maps.app.goo.gl/TJ7w6uE45JUW96n3A" target="_blank">Veerabhadreshwara Temple</a> (53 km)</span>
         <div class="loc-tools" id="track-a-tools">
-          <a href="https://maps.app.goo.gl/yTs6HstgPk4hyTRR9" target="_blank" class="btn-map-link">📍 Kalathagiri Falls GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-kalathagiri-falls')">🗺️ Preview Falls</button>
-          <a href="https://maps.app.goo.gl/TJ7w6uE45JUW96n3A" target="_blank" class="btn-map-link">📍 Veerabhadra Temple GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-veerabhadra')">🗺️ Preview Temple</button>
+          <a href="https://maps.app.goo.gl/yTs6HstgPk4hyTRR9" target="_blank" class="btn-map-link">📍 Falls GPS</a>
+          <button class="btn-map-preview" onclick="toggleMap('map-kalathagiri-falls')">🗺️ Map</button>
+          <a href="https://maps.app.goo.gl/TJ7w6uE45JUW96n3A" target="_blank" class="btn-map-link">📍 Temple GPS</a>
+          <button class="btn-map-preview" onclick="toggleMap('map-veerabhadra')">🗺️ Map</button>
+          <a href="https://www.google.com/search?tbm=isch&q=Kallathigiri+Falls+Veerabhadreshwara+Temple+Chikmagalur" target="_blank" class="btn-photo-link">📷 Sight Photos</a>
         </div>
         <div id="map-kalathagiri-falls" class="embed-map-drawer">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3878.7876140767144!2d75.78657327455545!3d13.54861640196638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbae052d96f4911%3A0x16d0b667151d6cc8!2sKallathigiri%20Falls!5e0!3m2!1sen!2sin!4v1790612027169!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -1044,11 +1098,12 @@
         </div>
         <div class="loc-tools" id="track-b-tools" style="display: none;">
           <a href="https://maps.app.goo.gl/HZpm23C1TvbtBs6r8" target="_blank" class="btn-map-link">📍 Kavikalmatta GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-kavikal')">🗺️ Preview Kavikal</button>
-          <a href="https://maps.app.goo.gl/Ctkmry8dZvREpyGU6" target="_blank" class="btn-map-link">📍 Honnammana Halla GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-honnammana')">🗺️ Preview Stream</button>
+          <button class="btn-map-preview" onclick="toggleMap('map-kavikal')">🗺️ Map</button>
+          <a href="https://maps.app.goo.gl/Ctkmry8dZvREpyGU6" target="_blank" class="btn-map-link">📍 Stream GPS</a>
+          <button class="btn-map-preview" onclick="toggleMap('map-honnammana')">🗺️ Map</button>
           <a href="https://maps.app.goo.gl/JYY7qHRSQmkagFGe7" target="_blank" class="btn-map-link">📍 Estate Cafe GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-estate-cafe')">🗺️ Preview Cafe</button>
+          <button class="btn-map-preview" onclick="toggleMap('map-estate-cafe')">🗺️ Map</button>
+          <a href="https://www.google.com/search?tbm=isch&q=The+Estate+Cafe+Mallandur+Road+Chikmagalur+deck" target="_blank" class="btn-photo-link">📷 Cafe Photos</a>
         </div>
         <div id="map-kavikal" class="embed-map-drawer">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62098.867886552456!2d75.5788993835449!3d13.401225481825232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbb26cdfb7ae379%3A0x5a906daa7427b13f!2sKavikalmatta%20View%20Point!5e0!3m2!1sen!2sin!4v1790612280418!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -1112,7 +1167,8 @@
         <a class="spot-link" href="https://maps.app.goo.gl/YVzYXoeJdRUPBkq67" target="_blank">Shri Hoysaleswara Temple (Halebidu)</a>
         <div class="loc-tools">
           <a href="https://maps.app.goo.gl/YVzYXoeJdRUPBkq67" target="_blank" class="btn-map-link">📍 Halebidu GPS</a>
-          <button class="btn-map-preview" onclick="toggleMap('map-halebidu')">🗺️ Preview Temple</button>
+          <button class="btn-map-preview" onclick="toggleMap('map-halebidu')">🗺️ Map</button>
+          <a href="https://www.google.com/search?tbm=isch&q=Shri+Hoysaleswara+Temple+Halebidu+carvings" target="_blank" class="btn-photo-link">📷 Temple Photos</a>
         </div>
         <div id="map-halebidu" class="embed-map-drawer">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3884.204021978372!2d75.9941821!3d13.2125039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbacb88430d776f%3A0x72e5166c8fcba5e5!2sShri%20Hoysaleswara%20Temple!5e0!3m2!1sen!2sin!4v1790612502477!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -1148,7 +1204,7 @@
     <!-- Dynamic Return Route Block -->
     <tr id="row-dinner-stage" style="background:#f8fafc;">
       <td>06:15 PM &ndash; 07:15 PM</td>
-      <td><span id="label-dinner-title"><strong>Swathi Delicacy (NH 75, Yediyur)</strong> &bull; Highway Dinner / Snacks</span></td>
+      <td><span id="label-dinner-title"><strong><a class="spot-link" href="https://maps.app.goo.gl/4syqyR66NvLDUggc9" target="_blank">Swathi Delicacy (NH 75, Yediyur)</a></strong> &bull; Highway Dinner / Snacks</span></td>
       <td><span id="desc-dinner-content">Filter coffee, crispy ghee roast dosas, and physical stretching. If taking the Direct Express route, have early dinner here to enter Bangalore completely fed with zero detour!</span></td>
     </tr>
     <tr id="row-final-leg">
@@ -1161,6 +1217,142 @@
 </div>
 
 <div class="page-break"></div>
+
+<!-- DEDICATED DINING DIRECTORY SECTION -->
+<div id="section-dining" class="day-section">
+<h2>Comprehensive Restaurant Directory (Google 4.5+ &bull; 100+ Reviews)</h2>
+
+<h3>1. Pure Vegetarian Highlights</h3>
+<ul class="clean-list">
+  <li>
+    <span class="tag-veg">[Pure Veg] <a class="spot-link" href="https://maps.app.goo.gl/woorMBo8Mp6TYuw88" target="_blank">KAILASH PARBAT</a> (Chikmagalur)</span> &ndash; <em>4.5+ Rating</em>. Top-tier pure vegetarian sit-down dining. Fresh paneer specialties, tandoori rotis, chaats, and North Indian meals.
+    <div class="loc-tools">
+      <a href="https://maps.app.goo.gl/woorMBo8Mp6TYuw88" target="_blank" class="btn-map-link">📍 Open GPS</a>
+      <button class="btn-map-preview" onclick="toggleMap('map-kailash-dir')">🗺️ Map</button>
+      <a href="https://www.google.com/search?tbm=isch&q=Kailash+Parbat+Chikmagalur+food+menu" target="_blank" class="btn-photo-link">📷 View Photos</a>
+    </div>
+    <div id="map-kailash-dir" class="embed-map-drawer">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248471.61828637606!2d75.46778699453125!3d13.327305199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad94da9923813%3A0x171c9e7f728673a8!2sKAILASH%20PARBAT%20-%20Chikkamagaluru%20-%20a%20pure%20vegetarian%20restaurant!5e0!3m2!1sen!2sin!4v1790611942593!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </li>
+  <li>
+    <span class="tag-veg">[Pure Veg] <a class="spot-link" href="https://maps.app.goo.gl/4syqyR66NvLDUggc9" target="_blank">Swathi Delicacy</a> (NH 75, Near Yediyur)</span> &ndash; <em>4.5+ (32,000+ Reviews)</em>. Gold standard highway diner. Ghee Roast Masala Dosa, Chow-Chow Bath, and South Indian filter coffee.
+    <div class="loc-tools">
+      <a href="https://maps.app.goo.gl/4syqyR66NvLDUggc9" target="_blank" class="btn-map-link">📍 Open GPS</a>
+      <button class="btn-map-preview" onclick="toggleMap('map-swathi-dir')">🗺️ Map</button>
+      <a href="https://www.google.com/search?tbm=isch&q=Swathi+Delicacy+Yediyur+Masala+Dosa" target="_blank" class="btn-photo-link">📷 View Photos</a>
+    </div>
+    <div id="map-swathi-dir" class="embed-map-drawer">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6314028259253!2d76.9003171!3d12.995411299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bafc36bf986a6f7%3A0x226a28446bb9f973!2sSwathi%20Delicacy!5e0!3m2!1sen!2sin!4v1790612541659!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </li>
+  <li><span class="tag-veg">[Pure Veg] Dal Roti (IG Road, Chikmagalur Town)</span> &ndash; <em>4.5+ (1,400+ Reviews)</em>. Wholesome North Indian comfort food. Non-greasy phulkas, Dal Tadka, Paneer Butter Masala, and Jeera Rice.</li>
+</ul>
+
+<h3>2. Multi-Cuisine, Malnad Specialists &amp; Late-Night Hangouts</h3>
+<ul class="clean-list">
+  <li>
+    <span class="tag-nonveg">[Cafe] <a class="spot-link" href="https://maps.app.goo.gl/JYY7qHRSQmkagFGe7" target="_blank">The Estate Cafe</a> (Mallandur Road)</span> &ndash; <em>4.5+ (800+ Reviews)</em>. Open-air wooden deck perched over coffee slopes. Wood-fired thin-crust pizzas, creamy pasta, garlic bread, and cold brews.
+    <div class="loc-tools">
+      <a href="https://maps.app.goo.gl/JYY7qHRSQmkagFGe7" target="_blank" class="btn-map-link">📍 Open GPS</a>
+      <button class="btn-map-preview" onclick="toggleMap('map-estate-dir')">🗺️ Map</button>
+      <a href="https://www.google.com/search?tbm=isch&q=The+Estate+Cafe+Mallandur+Chikmagalur+deck+view" target="_blank" class="btn-photo-link">📷 View Photos</a>
+    </div>
+    <div id="map-estate-dir" class="embed-map-drawer">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62108.76179278641!2d75.58984279632567!3d13.362857115961353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbb26ffeddd6571%3A0x2f7f058cbb33fb64!2sThe%20Estate%20cafe.!5e0!3m2!1sen!2sin!4v1790612446593!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </li>
+  <li>
+    <span class="tag-nonveg">[Heritage] <a class="spot-link" href="https://maps.app.goo.gl/MkrQ81Y7Tnr6baVc8" target="_blank">Town Canteen</a> (Town Center)</span> &ndash; <em>4.5+ (2,500+ Reviews)</em>. Chikmagalur's most iconic breakfast institution since 1966. Famous for golden crispy Malnad Benne Dosa, potato sagu, and filter coffee.
+    <div class="loc-tools">
+      <a href="https://maps.app.goo.gl/MkrQ81Y7Tnr6baVc8" target="_blank" class="btn-map-link">📍 Open GPS</a>
+      <button class="btn-map-preview" onclick="toggleMap('map-town-canteen')">🗺️ Map</button>
+      <a href="https://www.google.com/search?tbm=isch&q=Town+Canteen+Benne+Dosa+Chikmagalur" target="_blank" class="btn-photo-link">📷 View Photos</a>
+    </div>
+    <div id="map-town-canteen" class="embed-map-drawer">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.2659066701626!2d75.7735067!3d13.3337284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad9dab7e1d525%3A0x95fc1ba837824756!2sTown%20Canteen!5e0!3m2!1sen!2sin!4v1790612605767!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </li>
+  <li>
+    <span class="tag-nonveg">[Non-Veg] <a class="spot-link" href="https://maps.app.goo.gl/9tpU7Z8dPZ52N5Wx8" target="_blank">The Arabica Restaurant (Hotel Aadrika)</a> (Milan Theatre Road)</span> &ndash; <em>4.5+ (1,500+ Reviews)</em>. Premium sit-down dining. Kundapura Chicken Curry, Anjal Tawa Fry, Neer Dosa, and North Indian vegetarian thalis.
+    <div class="loc-tools">
+      <a href="https://maps.app.goo.gl/9tpU7Z8dPZ52N5Wx8" target="_blank" class="btn-map-link">📍 Open GPS</a>
+      <button class="btn-map-preview" onclick="toggleMap('map-arabica-dir')">🗺️ Map</button>
+      <a href="https://www.google.com/search?tbm=isch&q=Hotel+Aadrika+Arabica+Restaurant+Chikmagalur" target="_blank" class="btn-photo-link">📷 View Photos</a>
+    </div>
+    <div id="map-arabica-dir" class="embed-map-drawer">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.5312569332573!2d75.76632649678956!3d13.317195400000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad77b588cb76f%3A0x4346bc09f7a1c842!2sHotel%20Aadrika%2C%20Chikmagalur!5e0!3m2!1sen!2sin!4v1790612648537!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </li>
+  <li>
+    <span class="tag-nonveg">[Late Night Hangout] Rasta Cafe (Bidadi / Mysore Road)</span> &ndash; <em>4.5+ (30,000+ Reviews)</em>. Open till 4:00 AM. Ambient open-air garden seating, wood-fired pizzas, burgers, loaded nachos, and chilled cold brews.
+    <div class="loc-tools">
+      <a href="https://www.google.com/maps/search/?api=1&query=Rasta+Cafe+Mysore+Road+Bengaluru" target="_blank" class="btn-map-link">📍 Open GPS</a>
+      <a href="https://www.google.com/search?tbm=isch&q=Rasta+Cafe+Bangalore+Mysore+Road+night" target="_blank" class="btn-photo-link">📷 View Photos</a>
+    </div>
+  </li>
+  <li>
+    <span class="tag-nonveg">[Highway Diner] Filter Cafe and Kitchen | Restaurant (Mysore Road)</span> &ndash; <em>4.5+ Rating</em>. Comfortable highway dining stop for hot meals, rolls, and filter coffee.
+    <div class="loc-tools">
+      <a href="https://www.google.com/maps/search/?api=1&query=Filter+Cafe+and+Kitchen+Restaurant+Mysore+Road" target="_blank" class="btn-map-link">📍 Open GPS</a>
+      <a href="https://www.google.com/search?tbm=isch&q=Filter+Cafe+and+Kitchen+Mysore+Road" target="_blank" class="btn-photo-link">📷 View Photos</a>
+    </div>
+  </li>
+</ul>
+</div>
+
+<!-- DEDICATED PACKING CHECKLIST SECTION -->
+<div id="section-packing" class="day-section">
+<h2>
+  Interactive Packing Checklist (Tap to Check Off &amp; Auto-Saved)
+  <button onclick="resetChecklist()" style="background:#fee2e2; border:1px solid #fecdd3; color:#b91c1c; font-size:7.5pt; font-weight:700; border-radius:4px; padding:3px 8px; cursor:pointer;">↺ Reset Checked</button>
+</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 14px;">
+  
+  <!-- Females List -->
+  <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
+    <div style="font-weight: 800; font-size: 9pt; color: #db2777; margin-bottom: 8px; border-bottom: 1px solid #fce7f3; padding-bottom: 4px;">
+      👩 Females Checklist
+    </div>
+    <div id="checklist-females">
+      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Modest dark activewear for waterfall dip</span></div></div>
+      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>2 quick-dry microfiber travel towels</span></div></div>
+      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Motion sickness tablets (Avomine/Ondem)</span></div></div>
+      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Sanitizing spray (PeeSafe) &amp; wet wipes</span></div></div>
+      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Hair clips, scrunchies, &amp; dry shampoo</span></div></div>
+      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Thick cotton socks for Halebidu stone floor</span></div></div>
+    </div>
+    <div class="add-item-box">
+      <input type="text" id="input-females" placeholder="Add custom item...">
+      <button class="btn-item-add" onclick="addCustomChecklistItem('females')">+ Add</button>
+    </div>
+  </div>
+
+  <!-- Males List -->
+  <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
+    <div style="font-weight: 800; font-size: 9pt; color: #2563eb; margin-bottom: 8px; border-bottom: 1px solid #dbeafe; padding-bottom: 4px;">
+      👨 Males Checklist
+    </div>
+    <div id="checklist-males">
+      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Nylon swim trunks &amp; athletic tees</span></div></div>
+      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Extra dry socks &amp; innerwear in day bag</span></div></div>
+      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Windbreaker jacket for chilly peak winds</span></div></div>
+      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Thick cotton socks for Halebidu stone floor</span></div></div>
+      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Biker Gear: Helmet, riding jacket &amp; poncho</span></div></div>
+      <div class="checklist-item"><div class="checklist-left"><input type="checkbox" onchange="handleCheck(this)"><span>Small daypack for Mullayanagiri water bottles</span></div></div>
+    </div>
+    <div class="add-item-box">
+      <input type="text" id="input-males" placeholder="Add custom item...">
+      <button class="btn-item-add" onclick="addCustomChecklistItem('males')">+ Add</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="notice-box">
+  <strong>Luggage &amp; Vehicle Reminder:</strong> 5 adults in an i10/i20 requires <strong>soft duffel bags or backpacks only</strong> to fit all luggage in the boot. Two-wheelers are 100% toll-free across all national highways.
+</div>
+</div>
 
 <!-- DEDICATED FUEL STRATEGY & REFILL STATIONS SECTION -->
 <div id="section-fuel" class="day-section">
@@ -1355,13 +1547,6 @@
         <a href="https://www.google.com/maps/search/?api=1&query=Government+Hospital+Kadur" target="_blank" class="btn-sos btn-dir">🗺️ GPS</a>
       </div>
     </div>
-    <div class="sos-chip">
-      <div class="sos-chip-title">SLV MRP Wine Store (Kadur Bypass)</div>
-      <div class="sos-chip-meta">MRP Outlet (Note: Closed on Oct 2 Dry Day)</div>
-      <div class="sos-chip-actions">
-        <a href="https://www.google.com/maps/search/?api=1&query=MRP+liquor+store+Kadur" target="_blank" class="btn-sos btn-dir">🗺️ GPS</a>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -1394,13 +1579,6 @@
       <div class="sos-chip-actions">
         <a href="tel:08262230234" class="btn-sos btn-call">📞 Call</a>
         <a href="https://www.google.com/maps/search/?api=1&query=District+Hospital+MG+Hospital+Chikkamagaluru" target="_blank" class="btn-sos btn-dir">🗺️ GPS</a>
-      </div>
-    </div>
-    <div class="sos-chip">
-      <div class="sos-chip-title">Elite MRP Boutique (KM Road)</div>
-      <div class="sos-chip-meta">Beer, Wine &amp; Spirits (Open Oct 3 onwards)</div>
-      <div class="sos-chip-actions">
-        <a href="https://www.google.com/maps/search/?api=1&query=Madhuloka+liquor+store+Chikkamagaluru" target="_blank" class="btn-sos btn-dir">🗺️ GPS</a>
       </div>
     </div>
   </div>
@@ -1551,13 +1729,11 @@ function switchMainTab(target, btn) {
   const allSections = ['day1', 'day2', 'day3', 'dining', 'packing', 'fuel', 'sos', 'calc'];
   
   if (target === 'all') {
-    // Show full itinerary narrative
     allSections.forEach(s => {
       const el = document.getElementById('section-' + s);
       if (el) el.style.display = 'block';
     });
   } else {
-    // Hide all, show strictly target section
     allSections.forEach(s => {
       const el = document.getElementById('section-' + s);
       if (el) el.style.display = (s === target) ? 'block' : 'none';
@@ -1623,7 +1799,7 @@ function switchTrack(track) {
   if (track === 'A') {
     btnA.classList.add('active');
     btnB.classList.remove('active');
-    title.innerHTML = '<strong>Track A:</strong> Kalathagiri Falls & Veerabhadra Temple (53 km drive)';
+    title.innerHTML = '<strong>Track A:</strong> <a class="spot-link" href="https://maps.app.goo.gl/yTs6HstgPk4hyTRR9" target="_blank">Kallathigiri Falls</a> &amp; <a class="spot-link" href="https://maps.app.goo.gl/TJ7w6uE45JUW96n3A" target="_blank">Veerabhadreshwara Temple</a> (53 km)';
     desc.innerHTML = 'Scenic 2-lane State Highway through thick tree cover via Santaveri & Lingadahalli. Water plunges 120 meters over boulders directly across the rock-cut entrance of the ancient Veerabhadra Temple. Smooth tarmac, zero off-roading.';
     trackDesc.innerHTML = '<strong>Track A selected:</strong> Drives 53 km north to Kalathagiri Falls. Recommended if driver and rider feel energetic post-lunch.';
     toolsA.style.display = 'flex';
@@ -1631,7 +1807,7 @@ function switchTrack(track) {
   } else {
     btnB.classList.add('active');
     btnA.classList.remove('active');
-    title.innerHTML = '<strong>Track B:</strong> Low-Fatigue Hidden Gems (Kavikalmatta + Honnammana Halla)';
+    title.innerHTML = '<strong>Track B:</strong> <a class="spot-link" href="https://maps.app.goo.gl/HZpm23C1TvbtBs6r8" target="_blank">Kavikalmatta</a> &amp; <a class="spot-link" href="https://maps.app.goo.gl/Ctkmry8dZvREpyGU6" target="_blank">Honnammana Halla</a>';
     desc.innerHTML = 'Skip 106 km of driving! 50-step climb to windy Kavikalmatta viewpoint followed by a calm roadside stream dip at Honnammana Halla. Sunset coffee and wood-fired pizza on the wooden deck of The Estate Cafe.';
     trackDesc.innerHTML = '<strong>Track B selected:</strong> Eliminates 106 km round-trip driving to protect solo driver and rider from fatigue!';
     toolsA.style.display = 'none';
@@ -1639,7 +1815,7 @@ function switchTrack(track) {
   }
 }
 
-// --- DAY 3 RETURN ROUTE TOGGLE (EXPRESS DIRECT VS MYSORE RD DETOUR) ---
+// --- DAY 3 RETURN ROUTE TOGGLE ---
 function switchReturnRoute(route) {
   const btnDirect = document.getElementById('btn-route-direct');
   const btnMysore = document.getElementById('btn-route-mysore');
@@ -1653,7 +1829,7 @@ function switchReturnRoute(route) {
     btnDirect.classList.add('active');
     btnMysore.classList.remove('active');
     desc.innerHTML = '<strong>Option 1 Selected:</strong> 275 km direct highway cruise. Enjoy highway dinner at Swathi Delicacy (Yediyur), then enter Bangalore smoothly via NICE Road. Reach Whitefield by 08:45 PM – 09:15 PM!';
-    dinnerTitle.innerHTML = '<strong>Swathi Delicacy (NH 75, Yediyur)</strong> &bull; Highway Dinner / Snacks';
+    dinnerTitle.innerHTML = '<strong><a class="spot-link" href="https://maps.app.goo.gl/4syqyR66NvLDUggc9" target="_blank">Swathi Delicacy (NH 75, Yediyur)</a></strong> &bull; Highway Dinner / Snacks';
     dinnerContent.innerHTML = 'Filter coffee, crispy ghee roast dosas, and physical stretching. Have an early highway dinner here to enter Bangalore completely fed with zero detour!';
     finalRoute.innerHTML = 'Kunigal &rarr; Nelamangala &rarr; NICE Road &rarr; Whitefield (85 km)';
     finalContent.innerHTML = 'Connect directly from NH 75 onto NICE Road at Nelamangala toll plaza. Bypass city traffic bottlenecks. Reach home by ~09:15 PM!';
