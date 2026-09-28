@@ -16,6 +16,9 @@
     --bg-light: #f8fafc;
     --border-color: #cbd5e1;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body { 
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
     color: var(--slate-body); 
@@ -29,7 +32,7 @@
     max-width: 980px; 
     margin: 0 auto; 
     background: #ffffff; 
-    padding: 22px 26px; 
+    padding: 18px 24px 28px 24px; 
     border-radius: 14px; 
     border: 1px solid var(--border-color); 
     box-shadow: 0 10px 20px -5px rgba(0,0,0,0.06); 
@@ -50,13 +53,17 @@
     user-select: none; 
   }
   
-  /* Modern Header */
-  .brand-header {
+  /* FROZEN / STICKY HEADER DOCK */
+  .sticky-top-header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 100;
+    padding: 8px 0 10px 0;
     border-bottom: 2px solid #e2e8f0;
-    padding-bottom: 14px;
     margin-bottom: 12px;
-    position: relative;
-    z-index: 1;
   }
 
   .header-top-bar {
@@ -64,19 +71,25 @@
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
+  /* Unconstrained Brand Logo (Click to Scroll Top) */
   .brand-brand-wrap {
     display: flex;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
   }
-  .brand-brand-wrap a {
+  .brand-logo-btn {
     display: flex;
     align-items: center;
     text-decoration: none;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    outline: none;
   }
   .header-brand-logo {
     height: 38px;
@@ -85,6 +98,10 @@
     object-fit: contain;
     display: block;
     border: 0;
+    transition: transform 0.15s ease;
+  }
+  .brand-logo-btn:hover .header-brand-logo {
+    transform: scale(1.02);
   }
 
   .header-actions {
@@ -130,10 +147,55 @@
     color: var(--primary-blue);
   }
 
+  /* Streamlined Filter Navigation Inside Sticky Dock */
+  .filter-nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding-top: 4px;
+  }
+  .filter-btn {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: var(--slate-dark);
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 8pt;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .filter-btn:hover {
+    background: #f8fafc;
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+  }
+  .filter-btn.active {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(2, 132, 199, 0.25);
+  }
+  .filter-btn.btn-sos-tab.active {
+    background: #dc2626;
+    border-color: #dc2626;
+    color: #ffffff;
+  }
+  .filter-btn.btn-calc-tab.active {
+    background: #d97706;
+    border-color: #d97706;
+    color: #ffffff;
+  }
+
+  /* Trip Hero Section */
   .hero-title-section {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    margin-bottom: 8px;
   }
 
   .trip-main-title {
@@ -200,7 +262,7 @@
     font-weight: 600;
   }
 
-  /* Master Map Hub */
+  /* Interactive Master Map Hub */
   .master-map-box {
     background: #f8fafc;
     border: 1px solid #cbd5e1;
@@ -213,6 +275,27 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+  }
+  .map-switcher-pills {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .btn-map-switch {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    font-size: 7.5pt;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--slate-dark);
+  }
+  .btn-map-switch.active {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: #ffffff;
   }
   .master-map-frame-wrap {
     margin-top: 10px;
@@ -248,55 +331,24 @@
     font-size: 7.5pt; 
   }
 
-  /* Streamlined Modern Filter Navigation Bar */
-  .filter-nav-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin: 12px 0 16px 0;
-    background: #f1f5f9;
-    padding: 8px 10px;
-    border-radius: 10px;
-    border: 1px solid #e2e8f0;
-    position: sticky;
-    top: 6px;
-    z-index: 10;
+  /* Live External Route Buttons */
+  .route-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 16px 0; position: relative; z-index: 1; }
+  .route-btn { 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 5px; 
+    background: var(--primary-blue); 
+    color: #ffffff !important; 
+    text-decoration: none; 
+    padding: 6px 12px; 
+    border-radius: 6px; 
+    font-size: 8.5pt; 
+    font-weight: 600; 
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05); 
   }
-  .filter-btn {
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    color: var(--slate-dark);
-    padding: 6px 12px;
-    border-radius: 7px;
-    font-size: 8.5pt;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .filter-btn:hover {
-    background: #f8fafc;
-    border-color: var(--primary-blue);
-    color: var(--primary-blue);
-  }
-  .filter-btn.active {
-    background: var(--primary-blue);
-    border-color: var(--primary-blue);
-    color: #ffffff;
-    box-shadow: 0 2px 4px rgba(2, 132, 199, 0.25);
-  }
-  .filter-btn.btn-sos-tab.active {
-    background: #dc2626;
-    border-color: #dc2626;
-    color: #ffffff;
-  }
-  .filter-btn.btn-calc-tab.active {
-    background: #d97706;
-    border-color: #d97706;
-    color: #ffffff;
-  }
+  .route-btn.green { background: var(--emerald-green); }
+  .route-btn.purple { background: #7c3aed; }
+  .route-btn.orange { background: var(--accent-orange); }
 
   /* Tables & Content */
   h2 { 
@@ -613,23 +665,23 @@
   .page-break { page-break-before: always; }
 </style>
 </head>
-<body>
+<body id="top">
 
 <!-- Centered Background Watermark -->
 <img src="https://i.ibb.co/HfLN0pdD/TeketZ-BW-Outline-Full-Logo-Watermark.png" alt="TeketZ Outline Watermark" class="watermark-img" onerror="this.src='https://ibb.co/HfLN0pdD';" />
 
 <div class="container">
 
-<!-- MODERN 2-TIER BRAND HEADER -->
-<div class="brand-header">
+<!-- FROZEN / STICKY HEADER DOCK -->
+<div class="sticky-top-header">
   
-  <!-- Row 1: Brand Logo on Left + Actions on Right -->
+  <!-- Row 1: Brand Logo on Left (Click to Scroll Top) + Action Badges on Right -->
   <div class="header-top-bar">
     <div class="brand-brand-wrap">
-      <!-- Full Direct CDN TeketZ Logo Link (Never Cropped) -->
-      <a href="https://ibb.co/KzyBKsRx" target="_blank">
+      <!-- Unhyperlinked, Scrolls Smoothly to Top on Click -->
+      <button class="brand-logo-btn" onclick="scrollToTop()" title="Scroll to top">
         <img src="https://i.ibb.co/zHfC62jV/Teket-Z-Logo.png" alt="TeketZ" class="header-brand-logo" />
-      </a>
+      </button>
     </div>
     <div class="header-actions">
       <!-- Shared Google Photos Album Button -->
@@ -640,18 +692,30 @@
     </div>
   </div>
 
-  <!-- Row 2: Aesthetic Trip Heading & Metadata Pills -->
-  <div class="hero-title-section">
-    <h1 class="trip-main-title">Chikmagalur Road Trip &amp; Staycation 🌿</h1>
-    <div class="trip-pills-wrap">
-      <span class="pill pill-highlight">📅 Oct 2 – 4, 2026 (Gandhi Jayanti Weekend)</span>
-      <span class="pill">👥 <span id="pill-pax">5 Pax</span></span>
-      <span class="pill">🚗 Hyundai i10/i20 Petrol</span>
-      <span class="pill pill-opt" id="pill-bike">🏍️ RE Meteor 350 (Group Split)</span>
-      <span class="pill">📍 Whitefield ➔ Chikmagalur ➔ Halebidu</span>
-    </div>
+  <!-- Row 2: Streamlined 8-Tab Navigation Bar -->
+  <div class="filter-nav-bar">
+    <button class="filter-btn active" onclick="switchMainTab('all', this)">🗺️ Full Itinerary</button>
+    <button class="filter-btn" onclick="switchMainTab('day1', this)">1️⃣ Day 1 (Fri)</button>
+    <button class="filter-btn" onclick="switchMainTab('day2', this)">2️⃣ Day 2 (Sat)</button>
+    <button class="filter-btn" onclick="switchMainTab('day3', this)">3️⃣ Day 3 (Sun)</button>
+    <button class="filter-btn" onclick="switchMainTab('dining', this)">🍽️ Dining Guide</button>
+    <button class="filter-btn" onclick="switchMainTab('packing', this)">🎒 Packing List</button>
+    <button class="filter-btn btn-sos-tab" onclick="switchMainTab('sos', this)">🚨 Emergency &amp; Help</button>
+    <button class="filter-btn btn-calc-tab" onclick="switchMainTab('calc', this)">💰 Expense Calculator</button>
   </div>
 
+</div>
+
+<!-- Trip Hero Heading & Metadata Pills -->
+<div class="hero-title-section">
+  <h1 class="trip-main-title">Chikmagalur Road Trip &amp; Staycation 🌿</h1>
+  <div class="trip-pills-wrap">
+    <span class="pill pill-highlight">📅 Oct 2 – 4, 2026 (Gandhi Jayanti Weekend)</span>
+    <span class="pill">👥 <span id="pill-pax">5 Pax</span></span>
+    <span class="pill">🚗 Hyundai i10/i20 Petrol</span>
+    <span class="pill pill-opt" id="pill-bike">🏍️ RE Meteor 350 (Group Split)</span>
+    <span class="pill">📍 Whitefield ➔ Chikmagalur ➔ Halebidu</span>
+  </div>
 </div>
 
 <!-- Mountain Weather & Daylight Strip -->
@@ -662,16 +726,24 @@
   <div class="weather-item">🌧️ <strong>Advisory:</strong> Quick post-monsoon afternoon mist/showers likely</div>
 </div>
 
-<!-- Interactive Master Map Dock -->
+<!-- Interactive Master Map Hub with Dynamic Route Switcher -->
 <div class="master-map-box">
   <div class="master-map-header" onclick="toggleMasterMap()">
     <div style="font-weight: 800; font-size: 9pt; color: var(--primary-blue); display: flex; align-items: center; gap: 6px;">
-      🗺️ <span>Interactive Master Circuit Map (Whitefield ➔ Chikmagalur ➔ Halebidu ➔ Return)</span>
+      🗺️ <span>Interactive Master Circuit Map (<span id="master-map-title-label">Full 3-Day Route Loop</span>)</span>
     </div>
     <span id="master-map-toggle-icon" style="font-size: 8pt; font-weight: 700; color: var(--slate-muted);">▼ Tap to Preview Route</span>
   </div>
-  <div id="master-map-drawer" class="master-map-frame-wrap" style="display: none;">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0216718679358!2d77.739586!3d12.970464999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae120162ed758d%3A0x763eb5bb2c7a0ff0!2sTower%20Summer%20D%2C%20807%2C%20Nallurhalli%2C%20Whitefield%2C%20Bengaluru%2C%20Karnataka%20560066!5e0!3m2!1sen!2sin!4v1790611179814!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  <div id="master-map-drawer" style="display: none;">
+    <div class="map-switcher-pills">
+      <button class="btn-map-switch active" onclick="switchMasterMapRoute('full', this)">🔁 Full 3-Day Loop</button>
+      <button class="btn-map-switch" onclick="switchMasterMapRoute('day1', this)">1️⃣ Day 1 (To Chikmagalur)</button>
+      <button class="btn-map-switch" onclick="switchMasterMapRoute('day2', this)">2️⃣ Day 2 (Peaks &amp; Waterfalls)</button>
+      <button class="btn-map-switch" onclick="switchMasterMapRoute('day3', this)">3️⃣ Day 3 (Halebidu Return)</button>
+    </div>
+    <div class="master-map-frame-wrap">
+      <iframe id="master-circuit-iframe" src="https://maps.google.com/maps?saddr=Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru&daddr=Mydala+lake+to:Chikkamagaluru+to:Mullayanagiri+Peak+to:Shri+Hoysaleswara+Temple,+Halebidu+to:Tower+Summer+D,+Whitefield,+Bengaluru&output=embed" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
   </div>
 </div>
 
@@ -685,16 +757,12 @@
   &bull; <strong>Emergency Cash Pool:</strong> Designate one treasurer to hold <strong>₹5,000 in cash</strong> for Jhari 4x4 Jeeps, parking, and rural stalls where UPI fails.
 </div>
 
-<!-- Streamlined 8-Tab Navigation Bar -->
-<div class="filter-nav-bar">
-  <button class="filter-btn active" onclick="switchMainTab('all', this)">🗺️ Full Itinerary</button>
-  <button class="filter-btn" onclick="switchMainTab('day1', this)">1️⃣ Day 1 (Fri)</button>
-  <button class="filter-btn" onclick="switchMainTab('day2', this)">2️⃣ Day 2 (Sat)</button>
-  <button class="filter-btn" onclick="switchMainTab('day3', this)">3️⃣ Day 3 (Sun)</button>
-  <button class="filter-btn" onclick="switchMainTab('dining', this)">🍽️ Dining Guide</button>
-  <button class="filter-btn" onclick="switchMainTab('packing', this)">🎒 Packing List</button>
-  <button class="filter-btn btn-sos-tab" onclick="switchMainTab('sos', this)">🚨 Emergency &amp; Help</button>
-  <button class="filter-btn btn-calc-tab" onclick="switchMainTab('calc', this)">💰 Expense Calculator</button>
+<!-- Live Route Navigation Buttons -->
+<div class="route-nav">
+  <a class="route-btn purple" href="https://www.google.com/maps/dir/Whitefield,+Bengaluru/Mydala+Lake/Kyathsandra/Chikkamagaluru/Mullayanagiri+Peak/Jhari+Waterfalls/Kalhatti+Falls/Hoysaleswara+Temple,+Halebeedu/Whitefield,+Bengaluru" target="_blank">&#128506; Complete Circuit Map</a>
+  <a class="route-btn" href="https://www.google.com/maps/dir/Whitefield,+Bengaluru/Mydala+Lake/Kyathsandra/Chikkamagaluru" target="_blank">&#128506; Day 1: Bangalore &rarr; Mydala &rarr; Chikmagalur</a>
+  <a class="route-btn green" href="https://www.google.com/maps/dir/Chikkamagaluru/Mullayanagiri+Peak/Jhari+Waterfalls/Kalhatti+Falls/Chikkamagaluru" target="_blank">&#128506; Day 2: Peak, Falls &amp; Temple Circuit</a>
+  <a class="route-btn orange" href="https://www.google.com/maps/dir/Chikkamagaluru/Hoysaleswara+Temple,+Halebeedu/Hassan,+Karnataka/Whitefield,+Bengaluru" target="_blank">&#128506; Day 3: Halebidu &rarr; Hassan &rarr; Bangalore</a>
 </div>
 
 <!-- DAY 1 SECTION -->
@@ -1131,7 +1199,10 @@
 
 <!-- DEDICATED PACKING CHECKLIST SECTION -->
 <div id="section-packing" class="day-section">
-<h2>Interactive Packing Checklist (Tap to Check Off &amp; Auto-Saved)</h2>
+<h2>
+  Interactive Packing Checklist (Tap to Check Off &amp; Auto-Saved)
+  <button onclick="resetChecklist()" style="background:#fee2e2; border:1px solid #fecdd3; color:#b91c1c; font-size:7.5pt; font-weight:700; border-radius:4px; padding:3px 8px; cursor:pointer;">↺ Reset Checked</button>
+</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 14px;">
   
   <!-- Females List -->
@@ -1342,7 +1413,7 @@
 <div id="section-calc" class="day-section">
 <h2>Live Trip Expense &amp; Per-Head Calculator 💰</h2>
 <p style="font-size: 8.5pt; color: var(--slate-muted); margin-top: 0;">
-  Enter your actual or estimated expenses below. Per-head costs and WhatsApp splits update live!
+  Enter your actual or estimated expenses below. All entries are auto-saved to your phone!
 </p>
 
 <div class="calc-card">
@@ -1443,7 +1514,12 @@
 
 <!-- Interactive JavaScript Logic -->
 <script>
-// --- ISOLATED TAB CONTROLLER (FIXES CONTENT LEAKAGE) ---
+// --- SMOOTH SCROLL TO TOP ---
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// --- ISOLATED TAB CONTROLLER (ZERO CONTENT LEAKAGE) ---
 function switchMainTab(target, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
@@ -1451,13 +1527,13 @@ function switchMainTab(target, btn) {
   const allSections = ['day1', 'day2', 'day3', 'dining', 'packing', 'sos', 'calc'];
   
   if (target === 'all') {
-    // Show entire itinerary flow
+    // Show full itinerary narrative
     allSections.forEach(s => {
       const el = document.getElementById('section-' + s);
       if (el) el.style.display = 'block';
     });
   } else {
-    // Hide all, show strictly requested section
+    // Hide all, show strictly target section
     allSections.forEach(s => {
       const el = document.getElementById('section-' + s);
       if (el) el.style.display = (s === target) ? 'block' : 'none';
@@ -1465,7 +1541,7 @@ function switchMainTab(target, btn) {
   }
 }
 
-// Master Map Accordion
+// Master Map Hub Toggle
 function toggleMasterMap() {
   const drawer = document.getElementById('master-map-drawer');
   const icon = document.getElementById('master-map-toggle-icon');
@@ -1478,15 +1554,33 @@ function toggleMasterMap() {
   }
 }
 
+// Dynamic Master Map Route Switcher
+function switchMasterMapRoute(type, btn) {
+  document.querySelectorAll('.btn-map-switch').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const iframe = document.getElementById('master-circuit-iframe');
+  const label = document.getElementById('master-map-title-label');
+
+  if (type === 'full') {
+    label.innerText = 'Full 3-Day Route Loop';
+    iframe.src = 'https://maps.google.com/maps?saddr=Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru&daddr=Mydala+lake+to:Chikkamagaluru+to:Mullayanagiri+Peak+to:Shri+Hoysaleswara+Temple,+Halebidu+to:Tower+Summer+D,+Whitefield,+Bengaluru&output=embed';
+  } else if (type === 'day1') {
+    label.innerText = 'Day 1 Route (Bangalore ➔ Mydala ➔ Chikmagalur)';
+    iframe.src = 'https://maps.google.com/maps?saddr=Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru&daddr=Mydala+lake+to:Desi+Caf%C3%A9+Khaana-Paana+to:Chikkamagaluru&output=embed';
+  } else if (type === 'day2') {
+    label.innerText = 'Day 2 Hills Loop (Mullayanagiri ➔ Jhari ➔ Kalathagiri)';
+    iframe.src = 'https://maps.google.com/maps?saddr=Chikkamagaluru&daddr=Mullayanagiri+Peak+to:Jhari+Waterfall+to:Kallathigiri+Falls+to:Chikkamagaluru&output=embed';
+  } else if (type === 'day3') {
+    label.innerText = 'Day 3 Return (Chikmagalur ➔ Halebidu ➔ Bangalore)';
+    iframe.src = 'https://maps.google.com/maps?saddr=Chikkamagaluru&daddr=Shri+Hoysaleswara+Temple,+Halebidu+to:Swathi+Delicacy+to:Tower+Summer+D,+Whitefield,+Bengaluru&output=embed';
+  }
+}
+
 // Inline Location Map Toggle
 function toggleMap(mapId) {
   const el = document.getElementById(mapId);
   if (!el) return;
-  if (el.style.display === 'none' || el.style.display === '') {
-    el.style.display = 'block';
-  } else {
-    el.style.display = 'none';
-  }
+  el.style.display = (el.style.display === 'none' || el.style.display === '') ? 'block' : 'none';
 }
 
 // Day 2 Afternoon Track Switcher
@@ -1539,15 +1633,15 @@ function handleBikeToggle() {
   calculateTotal();
 }
 
-// --- DYNAMIC CALCULATOR ENGINE ---
-function addCustomExpense() {
+// --- DYNAMIC CALCULATOR ENGINE WITH LOCALSTORAGE ---
+function addCustomExpense(name = '', amount = 0) {
   const container = document.getElementById('custom-items-container');
   const row = document.createElement('div');
   row.className = 'custom-item-row';
   row.innerHTML = `
-    <input type="text" placeholder="Expense item (e.g. Extra Beers / BBQ coal)" class="custom-name">
-    <input type="number" placeholder="₹ Amount" value="0" class="custom-amount" oninput="calculateTotal()">
-    <button class="btn-remove" onclick="this.parentElement.remove(); calculateTotal();">✕</button>
+    <input type="text" placeholder="Expense item (e.g. Extra Beers / BBQ coal)" class="custom-name" value="${name}" oninput="saveCalculatorState()">
+    <input type="number" placeholder="₹ Amount" value="${amount}" class="custom-amount" oninput="calculateTotal()">
+    <button class="btn-remove" onclick="this.parentElement.remove(); calculateTotal(); saveCalculatorState();">✕</button>
   `;
   container.appendChild(row);
 }
@@ -1603,6 +1697,62 @@ function calculateTotal() {
   document.getElementById('display-total-group').innerText = '₹' + Math.round(totalGroup).toLocaleString('en-IN');
   document.getElementById('display-per-head').innerText = '₹' + Math.round(perHead).toLocaleString('en-IN') + ' / head';
   document.getElementById('display-bike-note').innerText = bikeNote;
+
+  saveCalculatorState();
+}
+
+function saveCalculatorState() {
+  const calcData = {
+    pax: document.getElementById('calc-pax').value,
+    bikeStatus: document.getElementById('calc-bike-toggle').value,
+    bikeCost: document.getElementById('calc-bike-cost').value,
+    stay: document.getElementById('cost-stay').value,
+    car: document.getElementById('cost-car').value,
+    food: document.getElementById('cost-food').value,
+    activities: document.getElementById('cost-activities').value,
+    drinks: document.getElementById('cost-drinks').value,
+    snacks: document.getElementById('cost-snacks').value,
+    cafes: document.getElementById('cost-cafes').value,
+    misc: document.getElementById('cost-misc').value,
+    custom: []
+  };
+  document.querySelectorAll('.custom-item-row').forEach(row => {
+    calcData.custom.push({
+      name: row.querySelector('.custom-name').value,
+      amount: row.querySelector('.custom-amount').value
+    });
+  });
+  localStorage.setItem('teketz_chikmagalur_calc', JSON.stringify(calcData));
+}
+
+function loadCalculatorState() {
+  const saved = localStorage.getItem('teketz_chikmagalur_calc');
+  if (!saved) return;
+  try {
+    const data = JSON.parse(saved);
+    if (data.pax) document.getElementById('calc-pax').value = data.pax;
+    if (data.bikeStatus) {
+      document.getElementById('calc-bike-toggle').value = data.bikeStatus;
+      handleBikeToggle();
+    }
+    if (data.bikeCost) document.getElementById('calc-bike-cost').value = data.bikeCost;
+    if (data.stay) document.getElementById('cost-stay').value = data.stay;
+    if (data.car) document.getElementById('cost-car').value = data.car;
+    if (data.food) document.getElementById('cost-food').value = data.food;
+    if (data.activities) document.getElementById('cost-activities').value = data.activities;
+    if (data.drinks) document.getElementById('cost-drinks').value = data.drinks;
+    if (data.snacks) document.getElementById('cost-snacks').value = data.snacks;
+    if (data.cafes) document.getElementById('cost-cafes').value = data.cafes;
+    if (data.misc) document.getElementById('cost-misc').value = data.misc;
+
+    const container = document.getElementById('custom-items-container');
+    container.innerHTML = '';
+    if (data.custom && data.custom.length) {
+      data.custom.forEach(item => addCustomExpense(item.name, item.amount));
+    }
+  } catch (e) {
+    console.error("Could not load calculator state", e);
+  }
 }
 
 // --- DETAILED WHATSAPP SUMMARY GENERATOR ---
@@ -1661,6 +1811,15 @@ function addCustomChecklistItem(category, textVal = null, isChecked = false) {
   saveChecklistState();
 }
 
+function resetChecklist() {
+  if (!confirm("Uncheck all packing checklist items?")) return;
+  document.querySelectorAll('#checklist-females input[type="checkbox"], #checklist-males input[type="checkbox"]').forEach(cb => {
+    cb.checked = false;
+    cb.nextElementSibling.classList.remove('checked-text');
+  });
+  saveChecklistState();
+}
+
 function saveChecklistState() {
   const state = { females: [], males: [] };
   ['females', 'males'].forEach(cat => {
@@ -1710,6 +1869,7 @@ document.getElementById('input-males').addEventListener('keypress', function(e) 
 
 // Initialize on page load
 window.addEventListener('DOMContentLoaded', () => {
+  loadCalculatorState();
   calculateTotal();
   loadChecklistState();
 });
