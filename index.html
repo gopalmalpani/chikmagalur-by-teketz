@@ -726,7 +726,7 @@
   <div class="weather-item">🌧️ <strong>Advisory:</strong> Quick post-monsoon afternoon mist/showers likely</div>
 </div>
 
-<!-- Interactive Master Map Hub with Dynamic Route Switcher -->
+<!-- Interactive Master Map Hub with Geocoded Multi-Stop Route Switcher -->
 <div class="master-map-box">
   <div class="master-map-header" onclick="toggleMasterMap()">
     <div style="font-weight: 800; font-size: 9pt; color: var(--primary-blue); display: flex; align-items: center; gap: 6px;">
@@ -742,7 +742,8 @@
       <button class="btn-map-switch" onclick="switchMasterMapRoute('day3', this)">3️⃣ Day 3 (Halebidu Return)</button>
     </div>
     <div class="master-map-frame-wrap">
-      <iframe id="master-circuit-iframe" src="https://maps.google.com/maps?saddr=Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru&daddr=Mydala+lake+to:Chikkamagaluru+to:Mullayanagiri+Peak+to:Shri+Hoysaleswara+Temple,+Halebidu+to:Tower+Summer+D,+Whitefield,+Bengaluru&output=embed" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <!-- Direct Multi-Point Coordinates Embedding (100% Reliable Mydala Sync) -->
+      <iframe id="master-circuit-iframe" src="https://maps.google.com/maps?saddr=Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru&daddr=13.3092605,77.1880542+to:Chikkamagaluru+to:Mullayanagiri+Peak+to:Shri+Hoysaleswara+Temple,+Halebidu+to:Tower+Summer+D,+Whitefield,+Bengaluru&output=embed" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </div>
   </div>
 </div>
@@ -757,12 +758,12 @@
   &bull; <strong>Emergency Cash Pool:</strong> Designate one treasurer to hold <strong>₹5,000 in cash</strong> for Jhari 4x4 Jeeps, parking, and rural stalls where UPI fails.
 </div>
 
-<!-- Live Route Navigation Buttons -->
+<!-- Live Route Navigation Buttons (Fully Geocoded Coordinates for Mydala Lake) -->
 <div class="route-nav">
-  <a class="route-btn purple" href="https://www.google.com/maps/dir/Whitefield,+Bengaluru/Mydala+Lake/Kyathsandra/Chikkamagaluru/Mullayanagiri+Peak/Jhari+Waterfalls/Kalhatti+Falls/Hoysaleswara+Temple,+Halebeedu/Whitefield,+Bengaluru" target="_blank">&#128506; Complete Circuit Map</a>
-  <a class="route-btn" href="https://www.google.com/maps/dir/Whitefield,+Bengaluru/Mydala+Lake/Kyathsandra/Chikkamagaluru" target="_blank">&#128506; Day 1: Bangalore &rarr; Mydala &rarr; Chikmagalur</a>
-  <a class="route-btn green" href="https://www.google.com/maps/dir/Chikkamagaluru/Mullayanagiri+Peak/Jhari+Waterfalls/Kalhatti+Falls/Chikkamagaluru" target="_blank">&#128506; Day 2: Peak, Falls &amp; Temple Circuit</a>
-  <a class="route-btn orange" href="https://www.google.com/maps/dir/Chikkamagaluru/Hoysaleswara+Temple,+Halebeedu/Hassan,+Karnataka/Whitefield,+Bengaluru" target="_blank">&#128506; Day 3: Halebidu &rarr; Hassan &rarr; Bangalore</a>
+  <a class="route-btn purple" href="https://www.google.com/maps/dir/Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru/13.3092605,77.1880542/Desi+Caf%C3%A9+Khaana-Paana,+Kyathsandra/Chikkamagaluru/Mullayanagiri+Peak/Jhari+Waterfalls/Kallathigiri+Falls/Shri+Hoysaleswara+Temple,+Halebidu/Tower+Summer+D,+Whitefield,+Bengaluru" target="_blank">&#128506; Complete Circuit Map</a>
+  <a class="route-btn" href="https://www.google.com/maps/dir/Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru/13.3092605,77.1880542/Desi+Caf%C3%A9+Khaana-Paana,+Kyathsandra/Chikkamagaluru" target="_blank">&#128506; Day 1: Bangalore &rarr; Mydala &rarr; Chikmagalur</a>
+  <a class="route-btn green" href="https://www.google.com/maps/dir/Chikkamagaluru/Mullayanagiri+Peak/Jhari+Waterfalls/Kallathigiri+Falls/Chikkamagaluru" target="_blank">&#128506; Day 2: Peak, Falls &amp; Temple Circuit</a>
+  <a class="route-btn orange" href="https://www.google.com/maps/dir/Chikkamagaluru/Shri+Hoysaleswara+Temple,+Halebidu/Swathi+Delicacy/Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru" target="_blank">&#128506; Day 3: Halebidu &rarr; Hassan &rarr; Bangalore</a>
 </div>
 
 <!-- DAY 1 SECTION -->
@@ -1554,7 +1555,7 @@ function toggleMasterMap() {
   }
 }
 
-// Dynamic Master Map Route Switcher
+// Dynamic Master Map Route Switcher (With Explicit Mydala Coordinates)
 function switchMasterMapRoute(type, btn) {
   document.querySelectorAll('.btn-map-switch').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
@@ -1563,10 +1564,10 @@ function switchMasterMapRoute(type, btn) {
 
   if (type === 'full') {
     label.innerText = 'Full 3-Day Route Loop';
-    iframe.src = 'https://maps.google.com/maps?saddr=Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru&daddr=Mydala+lake+to:Chikkamagaluru+to:Mullayanagiri+Peak+to:Shri+Hoysaleswara+Temple,+Halebidu+to:Tower+Summer+D,+Whitefield,+Bengaluru&output=embed';
+    iframe.src = 'https://maps.google.com/maps?saddr=Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru&daddr=13.3092605,77.1880542+to:Chikkamagaluru+to:Mullayanagiri+Peak+to:Shri+Hoysaleswara+Temple,+Halebidu+to:Tower+Summer+D,+Whitefield,+Bengaluru&output=embed';
   } else if (type === 'day1') {
     label.innerText = 'Day 1 Route (Bangalore ➔ Mydala ➔ Chikmagalur)';
-    iframe.src = 'https://maps.google.com/maps?saddr=Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru&daddr=Mydala+lake+to:Desi+Caf%C3%A9+Khaana-Paana+to:Chikkamagaluru&output=embed';
+    iframe.src = 'https://maps.google.com/maps?saddr=Tower+Summer+D,+Nallurhalli,+Whitefield,+Bengaluru&daddr=13.3092605,77.1880542+to:Desi+Caf%C3%A9+Khaana-Paana,+Kyathsandra+to:Chikkamagaluru&output=embed';
   } else if (type === 'day2') {
     label.innerText = 'Day 2 Hills Loop (Mullayanagiri ➔ Jhari ➔ Kalathagiri)';
     iframe.src = 'https://maps.google.com/maps?saddr=Chikkamagaluru&daddr=Mullayanagiri+Peak+to:Jhari+Waterfall+to:Kallathigiri+Falls+to:Chikkamagaluru&output=embed';
