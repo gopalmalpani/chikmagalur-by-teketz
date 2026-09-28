@@ -19,51 +19,105 @@
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--slate-body); line-height: 1.45; font-size: 9pt; margin: 0; padding: 12px; background: var(--bg-light); }
   .container { max-width: 960px; margin: 0 auto; background: #ffffff; padding: 24px 28px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); position: relative; }
   
-  /* Fixed, Non-Rotated, Centered Screen Watermark */
+  /* Fixed, Non-Rotated Centered Screen Watermark */
   .watermark-img { 
     position: fixed; 
     top: 50%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
-    width: 540px; 
-    max-width: 80vw;
-    opacity: 0.038; 
+    width: 520px; 
+    max-width: 75vw;
+    opacity: 0.035; 
     pointer-events: none; 
     z-index: 0; 
     user-select: none; 
   }
   
-  /* Brand Header */
-  .brand-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--primary-blue); padding-bottom: 12px; margin-bottom: 12px; position: relative; z-index: 1; }
-  .brand-logo-wrap { display: flex; align-items: center; gap: 14px; }
+  /* Brand Header Container */
+  .brand-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 16px; 
+    border-bottom: 3px solid var(--primary-blue); 
+    padding-bottom: 12px; 
+    margin-bottom: 12px; 
+    position: relative; 
+    z-index: 1; 
+  }
   
-  /* Uncompressed, Natural Aspect Ratio Icon */
+  .brand-logo-wrap { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    flex: 1 1 auto; 
+    min-width: 0; 
+  }
+  
+  /* Top-Left Colored Icon */
   .brand-logo-img { 
-    height: 56px; 
+    height: 52px; 
     width: auto; 
-    max-width: 140px;
+    max-width: 80px; 
     object-fit: contain; 
     flex-shrink: 0; 
-    display: block;
+    display: block; 
   }
   
-  .brand-title-wrap h1 { margin: 0; font-size: 15.5pt; color: var(--slate-dark); text-transform: uppercase; letter-spacing: 0.5px; }
-  .brand-title-wrap .subtitle { font-size: 8.5pt; color: var(--slate-muted); margin-top: 2px; }
+  .brand-title-wrap { 
+    flex: 1 1 auto; 
+    min-width: 0; 
+  }
   
-  /* Header Right Section (TeketZ Logo + Made by Gopal) */
-  .header-right-dock { display: flex; align-items: center; gap: 10px; }
+  .brand-title-wrap h1 { 
+    margin: 0; 
+    font-size: 15pt; 
+    color: var(--slate-dark); 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+    line-height: 1.25; 
+  }
   
-  /* Uncompressed, Natural Aspect Ratio Brand Logo */
+  .brand-title-wrap .subtitle { 
+    font-size: 8.5pt; 
+    color: var(--slate-muted); 
+    margin-top: 3px; 
+  }
+  
+  /* Header Right Section: Logo + Made by Gopal */
+  .header-right-dock { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    flex-shrink: 0; 
+  }
+  
+  /* Right Side Brand Logo: Squeeze-Proof */
   .header-brand-logo { 
-    height: 32px; 
+    height: 34px; 
     width: auto; 
-    max-width: 160px;
+    max-width: 170px; 
     object-fit: contain; 
+    flex-shrink: 0; 
+    display: block; 
     opacity: 0.95; 
-    display: block;
   }
   
-  .creator-badge { background: #fff7ed; border: 1.5px solid #fdba74; color: var(--accent-orange); font-size: 8.5pt; font-weight: 800; padding: 4px 10px; border-radius: 6px; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+  .creator-badge { 
+    background: #fff7ed; 
+    border: 1.5px solid #fdba74; 
+    color: var(--accent-orange); 
+    font-size: 8.5pt; 
+    font-weight: 800; 
+    padding: 5px 12px; 
+    border-radius: 6px; 
+    letter-spacing: 0.5px; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 4px; 
+    white-space: nowrap; 
+    flex-shrink: 0; 
+  }
   
   /* Alert Box & Protocols */
   .alert-box { background: #fef3c7; border-left: 4.5px solid #f59e0b; padding: 10px 14px; margin: 12px 0 16px 0; font-size: 8.5pt; border-radius: 0 6px 6px 0; line-height: 1.45; position: relative; z-index: 1; }
@@ -83,7 +137,7 @@
   .route-btn.purple { background: #7c3aed; }
   .route-btn.orange { background: var(--accent-orange); }
 
-  /* Tables & Headings */
+  /* Tables & Content */
   h2 { color: var(--emerald-green); font-size: 12pt; margin: 20px 0 8px 0; border-bottom: 1.5px solid var(--border-color); padding-bottom: 4px; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
   h3 { color: #1e3a8a; font-size: 10pt; margin: 14px 0 6px 0; position: relative; z-index: 1; }
   table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 8pt; margin-bottom: 14px; background: #ffffff; position: relative; z-index: 1; }
@@ -105,7 +159,7 @@
   ul.clean-list li { margin-bottom: 4px; }
   .notice-box { background: #f1f5f9; border-left: 4px solid #64748b; padding: 8px 12px; margin: 10px 0; font-size: 8pt; border-radius: 0 5px 5px 0; position: relative; z-index: 1; }
   
-  /* Toggleable Sub-Panels */
+  /* Interactive Sub-Panel */
   .option-toggle-box { background: #f8fafc; border: 1.5px dashed #cbd5e1; border-radius: 8px; padding: 10px 14px; margin: 10px 0 14px 0; position: relative; z-index: 1; }
   .option-btns { display: flex; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
   .toggle-sub-btn { background: #ffffff; border: 1px solid #cbd5e1; font-size: 8pt; font-weight: 700; padding: 4px 10px; border-radius: 4px; cursor: pointer; }
@@ -116,7 +170,7 @@
 </head>
 <body>
 
-<!-- Perfectly Centered Fixed Watermark -->
+<!-- Non-Rotated Centered Watermark -->
 <img src="https://ibb.co/HfLN0pdD" alt="TeketZ Outline Watermark" class="watermark-img" onerror="this.src='https://i.ibb.co/HfLN0pdD/TeketZ_BW_Outline_Full_Logo_Watermark.png';" />
 
 <div class="container">
@@ -124,8 +178,13 @@
 <!-- Brand Header -->
 <div class="brand-header">
   <div class="brand-logo-wrap">
-    <!-- Top Left Colored Icon (Native Proportions) -->
-    <img src="https://ibb.co/FL7hBqwF" alt="TeketZ Icon" class="brand-logo-img" onerror="this.src='https://i.ibb.co/FL7hBqwF/icon.png';" />
+    <!-- Top-Left Colored Icon -->
+    <img 
+      src="https://ibb.co/FL7hBqwF" 
+      alt="TeketZ Icon" 
+      class="brand-logo-img" 
+      onerror="this.src='https://i.ibb.co/FL7hBqwF/icon.png';" 
+    />
     <div class="brand-title-wrap">
       <h1>Chikmagalur Master Staycation Blueprint</h1>
       <div class="subtitle">
@@ -133,18 +192,24 @@
       </div>
     </div>
   </div>
+  
+  <!-- Right Dock: Fully protected from shrinking/cropping -->
   <div class="header-right-dock">
-    <!-- TeketZ Brand Logo (Native Proportions) -->
-    <img src="https://ibb.co/KzyBKsRx" alt="TeketZ Brand Logo" class="header-brand-logo" onerror="this.src='https://i.ibb.co/KzyBKsRx/logo.png';" />
+    <img 
+      src="https://ibb.co/KzyBKsRx" 
+      alt="TeketZ Brand Logo" 
+      class="header-brand-logo" 
+      onerror="this.src='https://i.ibb.co/KzyBKsRx/logo.png';" 
+    />
     <div class="creator-badge">&#9992; Made by Gopal</div>
   </div>
 </div>
 
-<!-- Critical Operations Protocols -->
+<!-- Mandatory Protocols Alert -->
 <div class="alert-box">
   <strong><span class="critical-tag">MANDATORY PROTOCOLS</span> &bull; 5-Pax Group &amp; Convoy Safeguards:</strong><br>
-  &bull; <strong>Strict Dry Day (Oct 2):</strong> Gandhi Jayanti is a 100% legal dry day across Karnataka. Purchase all homestay alcohol in Bangalore on <strong>Thursday, Oct 1st</strong> and transport sealed in boot.<br>
-  &bull; <strong>Mullayanagiri Vehicle Entry Pass:</strong> Pre-book Slot 1 (6:00 AM &ndash; 12:00 PM) on the official portal (<a class="spot-link" href="https://pgbiz.omniware.in/chikkamagalurutourism" target="_blank">pgbiz.omniware.in/chikkamagalurutourism</a>). Download or screenshot the QR pass prior to ascent (mobile data dies at Kaimara checkpost).<br>
+  &bull; <strong>Strict Dry Day (Oct 2):</strong> Gandhi Jayanti is a 100% legal dry day across Karnataka. Purchase all homestay alcohol in Bangalore on <strong>Thursday, Oct 1st</strong> and transport sealed in car boot.<br>
+  &bull; <strong>Mullayanagiri Vehicle Entry Pass:</strong> Pre-book Slot 1 (6:00 AM &ndash; 12:00 PM) on the official portal (<a class="spot-link" href="https://pgbiz.omniware.in/chikkamagalurutourism" target="_blank">pgbiz.omniware.in/chikkamagalurutourism</a>). Download or screenshot QR pass prior to ascent (cellular data drops at Kaimara checkpost).<br>
   &bull; <strong>Solo Driver &amp; Rider Relief:</strong> Exactly 1 car driver and 1 biker. Highway speed is capped at <strong>75&ndash;85 km/h</strong>. If driver/rider fatigue hits post-Jhari Falls on Day 2, toggle to <strong>Track B (Hidden Gems)</strong> to skip 106 km of driving.<br>
   &bull; <strong>Boot Space Rule:</strong> 5 adults in a hatchback requires <strong>soft duffel bags or backpacks only</strong>. Strictly zero hard-shell suitcases.<br>
   &bull; <strong>Emergency Cash Pool:</strong> Designate one treasurer to hold <strong>₹5,000 in cash</strong> for Jhari 4x4 Jeeps, parking, and rural stalls where UPI fails.
