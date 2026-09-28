@@ -36,13 +36,33 @@
   /* Brand Header */
   .brand-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--primary-blue); padding-bottom: 12px; margin-bottom: 12px; position: relative; z-index: 1; }
   .brand-logo-wrap { display: flex; align-items: center; gap: 14px; }
-  .brand-logo-img { height: 52px; width: 52px; object-fit: contain; flex-shrink: 0; }
+  
+  /* Uncompressed, Natural Aspect Ratio Icon */
+  .brand-logo-img { 
+    height: 56px; 
+    width: auto; 
+    max-width: 140px;
+    object-fit: contain; 
+    flex-shrink: 0; 
+    display: block;
+  }
+  
   .brand-title-wrap h1 { margin: 0; font-size: 15.5pt; color: var(--slate-dark); text-transform: uppercase; letter-spacing: 0.5px; }
   .brand-title-wrap .subtitle { font-size: 8.5pt; color: var(--slate-muted); margin-top: 2px; }
   
   /* Header Right Section (TeketZ Logo + Made by Gopal) */
   .header-right-dock { display: flex; align-items: center; gap: 10px; }
-  .header-brand-logo { height: 28px; width: auto; object-fit: contain; opacity: 0.9; }
+  
+  /* Uncompressed, Natural Aspect Ratio Brand Logo */
+  .header-brand-logo { 
+    height: 32px; 
+    width: auto; 
+    max-width: 160px;
+    object-fit: contain; 
+    opacity: 0.95; 
+    display: block;
+  }
+  
   .creator-badge { background: #fff7ed; border: 1.5px solid #fdba74; color: var(--accent-orange); font-size: 8.5pt; font-weight: 800; padding: 4px 10px; border-radius: 6px; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
   
   /* Alert Box & Protocols */
@@ -104,8 +124,8 @@
 <!-- Brand Header -->
 <div class="brand-header">
   <div class="brand-logo-wrap">
-    <!-- Top Left Colored Icon -->
-    <img src="https://ibb.co/rGpr705G" alt="TeketZ Colored Icon" class="brand-logo-img" onerror="this.src='https://i.ibb.co/rGpr705G/TeketZ_Icon_High_Resolution.png';" />
+    <!-- Top Left Colored Icon (Native Proportions) -->
+    <img src="https://ibb.co/FL7hBqwF" alt="TeketZ Icon" class="brand-logo-img" onerror="this.src='https://i.ibb.co/FL7hBqwF/icon.png';" />
     <div class="brand-title-wrap">
       <h1>Chikmagalur Master Staycation Blueprint</h1>
       <div class="subtitle">
@@ -114,8 +134,8 @@
     </div>
   </div>
   <div class="header-right-dock">
-    <!-- Subtle TeketZ Logo in Header Line -->
-    <img src="https://ibb.co/sx6R9JZ" alt="TeketZ Brand" class="header-brand-logo" onerror="this.src='https://i.ibb.co/sx6R9JZ/TeketZ_Icon_Logo.png';" />
+    <!-- TeketZ Brand Logo (Native Proportions) -->
+    <img src="https://ibb.co/KzyBKsRx" alt="TeketZ Brand Logo" class="header-brand-logo" onerror="this.src='https://i.ibb.co/KzyBKsRx/logo.png';" />
     <div class="creator-badge">&#9992; Made by Gopal</div>
   </div>
 </div>
@@ -158,7 +178,7 @@
     <tr>
       <th class="time-col">Time</th>
       <th>Route Segment / Stop</th>
-      <th>Details, Activities &amp; Equal Group Allocations (5 Pax)</th>
+      <th>Details, Activities &amp; Equal Group Allocations (5 Pax)[cite: 1]</th>
     </tr>
   </thead>
   <tbody>
@@ -255,7 +275,7 @@
     <tr>
       <th class="time-col">Time</th>
       <th>Route Segment / Stop</th>
-      <th>Details, Activities &amp; Equal Group Allocations (5 Pax)</th>
+      <th>Details, Activities &amp; Equal Group Allocations (5 Pax)[cite: 1]</th>
     </tr>
   </thead>
   <tbody>
@@ -319,7 +339,7 @@
     <tr>
       <th class="time-col">Time</th>
       <th>Route Segment / Stop</th>
-      <th>Details, Activities &amp; Equal Group Allocations (5 Pax)</th>
+      <th>Details, Activities &amp; Equal Group Allocations (5 Pax)[cite: 1]</th>
     </tr>
   </thead>
   <tbody>
