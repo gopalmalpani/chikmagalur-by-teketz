@@ -50,7 +50,7 @@
     user-select: none; 
   }
   
-  /* --- RESTRUCTURED MODERN HEADER --- */
+  /* Modern Header */
   .brand-header {
     border-bottom: 2px solid #e2e8f0;
     padding-bottom: 14px;
@@ -73,7 +73,6 @@
     gap: 10px;
   }
 
-  /* Inline SVG Vector Logo: Unbreakable, Uncropped */
   .teketz-svg-logo {
     height: 38px;
     width: auto;
@@ -97,7 +96,6 @@
     flex-shrink: 0; 
   }
 
-  /* Trip Hero Section */
   .hero-title-section {
     display: flex;
     flex-direction: column;
@@ -115,7 +113,6 @@
     gap: 8px;
   }
 
-  /* Metadata Tag Pills */
   .trip-pills-wrap {
     display: flex;
     flex-wrap: wrap;
@@ -145,6 +142,28 @@
     background: #fef3c7;
     color: #b45309;
     border-color: #fde68a;
+  }
+
+  /* Weather & Daylight Quick Glance Card */
+  .weather-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 8px 14px;
+    margin: 10px 0 14px 0;
+    font-size: 8pt;
+    color: #166534;
+  }
+  .weather-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
   }
 
   /* Alert Box & Protocols */
@@ -256,7 +275,24 @@
   .toggle-sub-btn { background: #ffffff; border: 1px solid #cbd5e1; font-size: 8pt; font-weight: 700; padding: 4px 10px; border-radius: 4px; cursor: pointer; }
   .toggle-sub-btn.active { background: var(--slate-dark); color: #ffffff; border-color: var(--slate-dark); }
 
-  /* --- CALCULATOR STYLING --- */
+  /* Interactive Packing Checklist */
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 8.5pt;
+    cursor: pointer;
+  }
+  .checklist-item input[type="checkbox"] {
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: var(--emerald-green);
+    width: 14px;
+    height: 14px;
+  }
+
+  /* CALCULATOR STYLING */
   .calc-card {
     background: #ffffff;
     border: 1px solid #cbd5e1;
@@ -296,13 +332,14 @@
   }
   .calc-summary-banner {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 10px;
     background: #0f172a;
     color: #ffffff;
     padding: 14px 18px;
     border-radius: 8px;
-    margin-top: 12px;
+    margin-top: 14px;
+    align-items: center;
   }
   .stat-block {
     display: flex;
@@ -328,12 +365,8 @@
     align-items: center;
     margin-bottom: 6px;
   }
-  .custom-item-row input[type="text"] {
-    flex: 2;
-  }
-  .custom-item-row input[type="number"] {
-    flex: 1;
-  }
+  .custom-item-row input[type="text"] { flex: 2; }
+  .custom-item-row input[type="number"] { flex: 1; }
   .btn-remove {
     background: #fee2e2;
     color: #dc2626;
@@ -354,8 +387,22 @@
     cursor: pointer;
     margin-top: 4px;
   }
-  .btn-add:hover {
-    background: #e2e8f0;
+  .btn-whatsapp {
+    background: #25D366;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-weight: 700;
+    font-size: 8.5pt;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .btn-whatsapp:hover {
+    background: #1eb854;
   }
   
   .page-break { page-break-before: always; }
@@ -374,9 +421,7 @@
   <!-- Row 1: Brand Logo on Left + Creator Attribution on Right -->
   <div class="header-top-bar">
     <div class="brand-brand-wrap">
-      <!-- Full Vector TeketZ Logo (Wings + Propeller + Script Typography) -->
       <svg class="teketz-svg-logo" viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Blue Wings & Propeller -->
         <g fill="#0099FF">
           <path d="M28 28C22 22 15 18 8 20C5 21 6 27 12 31C19 36 28 35 28 28Z"/>
           <path d="M30 24C21 13 12 7 5 10C3 12 5 18 12 23C20 28 30 24 30 24Z"/>
@@ -389,24 +434,16 @@
           <path d="M36 46C33 52 27 56 21 54C19 53 20 49 24 46C29 42 36 46 36 46Z"/>
           <path d="M44 46C47 52 53 56 59 54C61 53 60 49 56 46C51 42 44 46 44 46Z"/>
         </g>
-        <!-- Orange Stylized "TeketZ" Typography -->
         <g fill="#F97316">
-          <!-- T -->
           <path d="M85 24C88 23 98 21 106 20C108 20 109 23 107 25C103 27 98 28 95 29L91 49C90 53 87 54 85 52C83 50 84 46 86 38L88 29C85 30 82 30 80 29C79 27 82 24 85 24Z"/>
-          <!-- e -->
           <path d="M112 36C112 31 116 27 122 27C128 27 131 31 130 37C126 38 116 38 116 41C116 45 120 47 125 46C128 45 130 43 131 43C132 45 130 48 126 50C120 52 112 50 112 43C112 40 112 38 112 36ZM124 33C124 30 122 29 119 30C116 31 114 33 114 35C118 35 122 34 124 33Z"/>
-          <!-- k -->
           <path d="M138 16C140 16 142 18 141 22L138 35C141 32 145 28 148 28C151 28 152 30 150 33L144 40L152 49C154 51 152 53 149 53C147 53 144 50 141 46L137 51L134 51C133 50 134 46 136 38L139 21C139 18 138 16 138 16Z"/>
-          <!-- e -->
           <path d="M158 36C158 31 162 27 168 27C174 27 177 31 176 37C172 38 162 38 162 41C162 45 166 47 171 46C174 45 176 43 177 43C178 45 176 48 172 50C166 52 158 50 158 43C158 40 158 38 158 36ZM170 33C170 30 168 29 165 30C162 31 160 33 160 35C164 35 168 34 170 33Z"/>
-          <!-- t -->
           <path d="M182 24L186 24L185 28L191 27L190 30L184 31L181 44C180 47 182 48 185 47C187 46 188 45 189 46C188 48 185 51 181 51C176 51 174 48 176 42L179 32L176 32L177 29L180 29L182 24Z"/>
-          <!-- Z -->
           <path d="M197 27C203 26 216 23 223 21C226 20 227 22 225 24L208 45C214 44 220 44 226 42C228 42 229 44 227 47C221 51 209 54 200 55C197 55 196 53 198 50L216 29C211 30 205 31 200 32C197 32 196 30 197 27Z"/>
         </g>
       </svg>
     </div>
-    <!-- Updated Badge Text -->
     <div class="creator-badge">&#9992; Made by Gopal</div>
   </div>
 
@@ -417,11 +454,19 @@
       <span class="pill pill-highlight">📅 Oct 2 – 4, 2026 (Gandhi Jayanti Weekend)</span>
       <span class="pill">👥 <span id="pill-pax">5 Pax</span></span>
       <span class="pill">🚗 Hyundai i10/i20 Petrol</span>
-      <span class="pill pill-opt" id="pill-bike">🏍️ RE Meteor 350 (Optional Convoy)</span>
+      <span class="pill pill-opt" id="pill-bike">🏍️ RE Meteor 350 (Group Split)</span>
       <span class="pill">📍 Whitefield ➔ Chikmagalur ➔ Halebidu</span>
     </div>
   </div>
 
+</div>
+
+<!-- Mountain Weather & Daylight Strip -->
+<div class="weather-strip">
+  <div class="weather-item">🌤️ <strong>Weather:</strong> 17°C – 26°C (Cool &amp; Breezy)</div>
+  <div class="weather-item">🌅 <strong>Mullayanagiri Sunrise:</strong> ~06:06 AM</div>
+  <div class="weather-item">🌇 <strong>Mallandur Sunset:</strong> ~06:09 PM</div>
+  <div class="weather-item">🌧️ <strong>Advisory:</strong> Quick post-monsoon afternoon mist/showers likely</div>
 </div>
 
 <!-- Mandatory Protocols Alert -->
@@ -677,7 +722,65 @@
 
 <div class="page-break"></div>
 
-<!-- LIVE INTERACTIVE EXPENSE & SPLIT CALCULATOR SECTION -->
+<!-- DINING DIRECTORY -->
+<h2>Comprehensive Restaurant Directory (Google 4.5+ &bull; 100+ Reviews)</h2>
+
+<h3>1. Pure Vegetarian Highlights</h3>
+<ul class="clean-list">
+  <li><span class="tag-veg">[Pure Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Pavithra+Kyathsandra+Tumkur" target="_blank">Hotel Pavithra</a> (Kyathsandra / Tumkur)</span> &ndash; <em>4.5+ (14,000+ Reviews)</em>. The undisputed king of Thatte Idli. Steaming hot butter idlis, crispy vadas, potato saagu, and filter coffee. Perfect Day 1 breakfast halt.</li>
+  <li><span class="tag-veg">[Pure Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Dal+Roti+IG+Road+Chikkamagaluru" target="_blank">Dal Roti</a> (IG Road, Chikmagalur Town)</span> &ndash; <em>4.5+ (1,400+ Reviews)</em>. Homestyle North Indian food. Non-greasy phulkas, Dal Tadka, Paneer Butter Masala, and Jeera Rice.</li>
+  <li><span class="tag-veg">[Pure Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Swathi+Delicacy+NH75+Yediyur" target="_blank">Swathi Delicacy</a> (NH 75, Near Yediyur)</span> &ndash; <em>4.5+ (32,000+ Reviews)</em>. Gold standard highway diner. Ghee Roast Masala Dosa, Chow-Chow Bath, and South Indian filter coffee.</li>
+  <li><span class="tag-veg">[Pure Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Sri+Mangala+Bhavan+Chikkamagaluru" target="_blank">Sri Mangala Bhavan</a> (Market Road, Chikmagalur)</span> &ndash; <em>4.5+ (850+ Reviews)</em>. Traditional Karnataka banana leaf meals, spicy rasam, veg palya, and crisp evening tiffin.</li>
+  <li><span class="tag-veg">[Pure Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Paakashala+Tumkur+Bypass" target="_blank">Paakashala</a> (NH 48, Tumkur Bypass)</span> &ndash; <em>4.5+ (5,200+ Reviews)</em>. Excellent sit-down AC highway alternative with pristine washrooms.</li>
+</ul>
+
+<h3>2. Multi-Cuisine, Malnad Specialists &amp; Plantation Cafes</h3>
+<ul class="clean-list">
+  <li><span class="tag-nonveg">[Cafe] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=The+Estate+Cafe+Mallandur+Road+Chikkamagaluru" target="_blank">The Estate Cafe</a> (Mallandur Road)</span> &ndash; <em>4.5+ (800+ Reviews)</em>. Open-air wooden deck perched over coffee slopes. Wood-fired thin-crust pizzas, creamy pasta, garlic bread, and cold brews.</li>
+  <li><span class="tag-nonveg">[Heritage] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Town+Canteen+Chikkamagaluru" target="_blank">Town Canteen</a> (Town Center)</span> &ndash; <em>4.5+ (2,500+ Reviews)</em>. Chikmagalur's most iconic breakfast institution since 1966. Famous for golden crispy Malnad Benne Dosa, potato sagu, and filter coffee.</li>
+  <li><span class="tag-nonveg">[Non-Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=The+Arabica+Restaurant+Hotel+Aadrika+Chikkamagaluru" target="_blank">The Arabica Restaurant (Hotel Aadrika)</a> (Milan Theatre Road)</span> &ndash; <em>4.5+ (1,500+ Reviews)</em>. Premium sit-down dining. Kundapura Chicken Curry, Anjal Tawa Fry, Neer Dosa, and North Indian vegetarian thalis.</li>
+  <li><span class="tag-nonveg">[Non-Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Gowdru+Oota+Donne+Biryani+Chikkamagaluru" target="_blank">Gowdru Oota / Malnad Donne Biryani</a> (Town Center)</span> &ndash; <em>4.5+ (650+ Reviews)</em>. Authentic mint-coriander Donne Biryani, Chicken Ghee Roast, Mutton Chops, and pepper fry.</li>
+  <li><span class="tag-nonveg">[Scenic Stop] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Siri+Coffee+Bar+Chikkamagaluru" target="_blank">Siri Coffee Bar</a> (KM Road / Kaimara)</span> &ndash; <em>4.5+ (7,500+ Reviews)</em>. Famous roadside plantation cafe featuring the iconic green grass sculpture, fresh estate coffee, and local spices.</li>
+</ul>
+
+<!-- CRITICAL PACKING & PRECAUTIONS WITH INTERACTIVE CHECKBOXES -->
+<h2>Interactive Packing Checklist (Tap to Check Off on Phone)</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 50%;">Females Checklist</th>
+      <th style="width: 50%;">Males Checklist</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <label class="checklist-item"><input type="checkbox"> Modest dark-colored activewear/leggings for waterfall dip</label>
+        <label class="checklist-item"><input type="checkbox"> 2 quick-dry microfiber travel towels</label>
+        <label class="checklist-item"><input type="checkbox"> Motion sickness tablets (Avomine / Ondansetron) for ghats</label>
+        <label class="checklist-item"><input type="checkbox"> Wet wipes, sanitizing spray (PeeSafe) &amp; seat covers</label>
+        <label class="checklist-item"><input type="checkbox"> Hair clips, scrunchies, and dry shampoo for helmet hair</label>
+        <label class="checklist-item"><input type="checkbox"> Clean thick cotton socks for Halebidu temple floors</label>
+      </td>
+      <td>
+        <label class="checklist-item"><input type="checkbox"> Nylon swimming trunks &amp; dry-fit athletic tees</label>
+        <label class="checklist-item"><input type="checkbox"> Extra dry socks and cotton innerwear in day bag</label>
+        <label class="checklist-item"><input type="checkbox"> Lightweight windbreaker jacket for chilly peak winds</label>
+        <label class="checklist-item"><input type="checkbox"> Clean thick cotton socks for Halebidu temple floors</label>
+        <label class="checklist-item"><input type="checkbox"> Meteor 350 Biker: Full-face helmet, riding jacket &amp; poncho</label>
+        <label class="checklist-item"><input type="checkbox"> Small daypack to carry group water bottles up peak</label>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="notice-box">
+  <strong>Vehicle Fuel &amp; Luggage Note:</strong> Car fuel is computed for 780 km at ₹111/L assuming a 1.2L Petrol engine yielding 14 km/L blended (16 km/L highway, 11 km/L ghats). Bike fuel is computed at 34.5 km/L. Two-wheelers are 100% toll-free across all national highways. Strictly pack soft duffel bags to fit 5 bags in the car boot.
+</div>
+
+<div class="page-break"></div>
+
+<!-- LIVE INTERACTIVE EXPENSE & SPLIT CALCULATOR SECTION (AT THE END) -->
 <div id="section-calc" class="day-section">
 <h2>Live Trip Expense &amp; Per-Head Calculator 💰</h2>
 <p style="font-size: 8.5pt; color: var(--slate-muted); margin-top: 0;">
@@ -769,61 +872,11 @@
       <span class="stat-value orange" id="display-per-head">₹9,782 / head</span>
     </div>
     <div class="stat-block">
-      <span class="stat-label">Bike Convoy Allocation</span>
-      <span class="stat-value" style="font-size: 10.5pt; color: #a7f3d0;" id="display-bike-note">₹500 / head included</span>
+      <button class="btn-whatsapp" onclick="copyWhatsAppSummary()">📋 Copy for WhatsApp</button>
+      <span style="font-size: 7pt; color: #a7f3d0; margin-top: 4px;" id="display-bike-note">₹500/head bike fuel included</span>
     </div>
   </div>
 </div>
-</div>
-
-<!-- DINING DIRECTORY -->
-<h2>Comprehensive Restaurant Directory (Google 4.5+ &bull; 100+ Reviews)</h2>
-
-<h3>1. Pure Vegetarian Highlights</h3>
-<ul class="clean-list">
-  <li><span class="tag-veg">[Pure Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Pavithra+Kyathsandra+Tumkur" target="_blank">Hotel Pavithra</a> (Kyathsandra / Tumkur)</span> &ndash; <em>4.5+ (14,000+ Reviews)</em>. The undisputed king of Thatte Idli. Steaming hot butter idlis, crispy vadas, potato saagu, and filter coffee. Perfect Day 1 breakfast halt.</li>
-  <li><span class="tag-veg">[Pure Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Dal+Roti+IG+Road+Chikkamagaluru" target="_blank">Dal Roti</a> (IG Road, Chikmagalur Town)</span> &ndash; <em>4.5+ (1,400+ Reviews)</em>. Homestyle North Indian food. Non-greasy phulkas, Dal Tadka, Paneer Butter Masala, and Jeera Rice.</li>
-  <li><span class="tag-veg">[Pure Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Swathi+Delicacy+NH75+Yediyur" target="_blank">Swathi Delicacy</a> (NH 75, Near Yediyur)</span> &ndash; <em>4.5+ (32,000+ Reviews)</em>. Gold standard highway diner. Ghee Roast Masala Dosa, Chow-Chow Bath, and South Indian filter coffee.</li>
-</ul>
-
-<h3>2. Multi-Cuisine, Non-Veg &amp; Plantation Cafes</h3>
-<ul class="clean-list">
-  <li><span class="tag-nonveg">[Cafe] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=The+Estate+Cafe+Mallandur+Road+Chikkamagaluru" target="_blank">The Estate Cafe</a> (Mallandur Road)</span> &ndash; <em>4.5+ (800+ Reviews)</em>. Open-air wooden deck perched over coffee slopes. Wood-fired thin-crust pizzas, creamy pasta, garlic bread, and cold brews.</li>
-  <li><span class="tag-nonveg">[Non-Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=The+Arabica+Restaurant+Hotel+Aadrika+Chikkamagaluru" target="_blank">The Arabica Restaurant (Hotel Aadrika)</a> (Milan Theatre Road)</span> &ndash; <em>4.5+ (1,500+ Reviews)</em>. Premium sit-down dining. Kundapura Chicken Curry, Anjal Tawa Fry, Neer Dosa, and North Indian vegetarian thalis.</li>
-  <li><span class="tag-nonveg">[Non-Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Gowdru+Oota+Donne+Biryani+Chikkamagaluru" target="_blank">Gowdru Oota / Malnad Donne Biryani</a> (Town Center)</span> &ndash; <em>4.5+ (650+ Reviews)</em>. Authentic mint-coriander Donne Biryani, Chicken Ghee Roast, Mutton Chops, and pepper fry.</li>
-</ul>
-
-<!-- CRITICAL PACKING & PRECAUTIONS -->
-<h2>Critical Packing &amp; Waterfall Precautions</h2>
-<table>
-  <thead>
-    <tr>
-      <th style="width: 50%;">Females Checklist</th>
-      <th style="width: 50%;">Males Checklist</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        &bull; Modest dark-colored activewear/leggings for waterfall dip.<br>
-        &bull; 2 quick-dry microfiber travel towels.<br>
-        &bull; Motion sickness tablets (Avomine / Ondansetron) for winding ghats.<br>
-        &bull; Wet wipes, sanitizing spray (PeeSafe) &amp; toilet seat covers.<br>
-        &bull; Hair clips, scrunchies, and dry shampoo for helmet hair.
-      </td>
-      <td>
-        &bull; Nylon swimming trunks &amp; dry-fit athletic tees.<br>
-        &bull; Extra dry socks and cotton innerwear in day bag.<br>
-        &bull; Lightweight windbreaker jacket for chilly peak winds.<br>
-        &bull; Meteor 350 Biker: Full-face helmet, riding jacket, and compact poncho.<br>
-        &bull; Small backpack to carry group water bottles up Mullayanagiri.
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="notice-box">
-  <strong>Vehicle Fuel Note:</strong> Car fuel is computed for 780 km at ₹111/L assuming a 1.2L Petrol engine yielding 14 km/L blended (16 km/L highway, 11 km/L ghats). Bike fuel is computed at 34.5 km/L. Two-wheelers are 100% toll-free across all national highways.
 </div>
 
 </div>
@@ -897,7 +950,6 @@ function calculateTotal() {
   const cafes = parseFloat(document.getElementById('cost-cafes').value) || 0;
   const misc = parseFloat(document.getElementById('cost-misc').value) || 0;
 
-  // Custom items sum
   let customSum = 0;
   document.querySelectorAll('.custom-amount').forEach(el => {
     customSum += parseFloat(el.value) || 0;
@@ -924,7 +976,7 @@ function calculateTotal() {
     totalGroup = baseSum + bikeCost;
     perHead = totalGroup / pax;
     const bikeShare = Math.round(bikeCost / pax);
-    bikeNote = `₹${bikeShare}/head bike fuel shared`;
+    bikeNote = `₹${bikeShare}/head bike fuel included`;
   } else if (bikeStatus === 'solo') {
     bikePill.style.display = 'inline-flex';
     bikePill.innerText = '🏍️ RE Meteor 350 (Solo Rider Pays)';
@@ -936,6 +988,21 @@ function calculateTotal() {
   document.getElementById('display-total-group').innerText = '₹' + Math.round(totalGroup).toLocaleString('en-IN');
   document.getElementById('display-per-head').innerText = '₹' + Math.round(perHead).toLocaleString('en-IN') + ' / head';
   document.getElementById('display-bike-note').innerText = bikeNote;
+}
+
+function copyWhatsAppSummary() {
+  const total = document.getElementById('display-total-group').innerText;
+  const perHead = document.getElementById('display-per-head').innerText;
+  const pax = document.getElementById('calc-pax').value;
+  const bikeNote = document.getElementById('display-bike-note').innerText;
+
+  const text = `*Chikmagalur Road Trip & Staycation* 🌿\n📅 Oct 2 – 4, 2026\n👥 Group Size: ${pax} Pax\n\n💰 *Total Group Cost:* ${total}\n💵 *Per Person Share:* ${perHead}\n🏍️ ${bikeNote}\n\n*Planned & Made by Gopal* ✈️`;
+
+  navigator.clipboard.writeText(text).then(() => {
+    alert("✅ Copied trip split summary to clipboard! Paste it directly in WhatsApp.");
+  }).catch(() => {
+    alert("Trip Split:\n" + text);
+  });
 }
 
 // Initial calculation on load
