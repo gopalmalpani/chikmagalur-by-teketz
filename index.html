@@ -286,56 +286,89 @@
     font-size: 7.5pt; 
   }
 
-  /* 9-Tab Filter Navigation Bar */
+  /* MULTI-SELECT FLEXIBLE FILTER PANE */
+  .filter-pane-wrapper {
+    background: #f1f5f9;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    margin: 14px 0 16px 0;
+  }
+  .filter-pane-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 8pt;
+  }
+  .filter-mode-label {
+    font-weight: 800;
+    color: var(--slate-dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .filter-status-tag {
+    background: #e2e8f0;
+    color: var(--slate-dark);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 7.5pt;
+    font-weight: 700;
+  }
   .filter-nav-bar {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin: 14px 0 16px 0;
-    background: #f1f5f9;
-    padding: 8px 10px;
-    border-radius: 10px;
-    border: 1px solid #e2e8f0;
+    align-items: center;
   }
-  .filter-btn {
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    color: var(--slate-dark);
-    padding: 6px 12px;
+  .filter-btn-all {
+    background: var(--slate-dark);
+    border: 1px solid var(--slate-dark);
+    color: #ffffff;
+    padding: 6px 14px;
     border-radius: 7px;
     font-size: 8.5pt;
-    font-weight: 700;
+    font-weight: 800;
     cursor: pointer;
     transition: all 0.15s ease;
     display: inline-flex;
     align-items: center;
     gap: 5px;
   }
-  .filter-btn:hover {
-    background: #f8fafc;
-    border-color: var(--primary-blue);
-    color: var(--primary-blue);
+  .filter-btn-all:hover {
+    background: #1e293b;
   }
-  .filter-btn.active {
+  .filter-btn-all.active {
     background: var(--primary-blue);
     border-color: var(--primary-blue);
-    color: #ffffff;
-    box-shadow: 0 2px 4px rgba(2, 132, 199, 0.25);
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
   }
-  .filter-btn.btn-fuel-tab.active {
-    background: var(--amber-fuel);
-    border-color: var(--amber-fuel);
-    color: #ffffff;
+  .filter-chip {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    color: var(--slate-dark);
+    padding: 5.5px 11px;
+    border-radius: 7px;
+    font-size: 8pt;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    user-select: none;
   }
-  .filter-btn.btn-sos-tab.active {
-    background: #dc2626;
-    border-color: #dc2626;
-    color: #ffffff;
+  .filter-chip:hover {
+    border-color: var(--primary-blue);
+    background: #f8fafc;
   }
-  .filter-btn.btn-calc-tab.active {
-    background: #059669;
-    border-color: #059669;
-    color: #ffffff;
+  .filter-chip.active {
+    background: #e0f2fe;
+    border-color: var(--primary-blue);
+    color: #0369a1;
+    font-weight: 800;
+    box-shadow: 0 1px 3px rgba(2, 132, 199, 0.15);
   }
 
   /* Live External Route Buttons */
@@ -780,17 +813,25 @@
   &bull; <strong>Mandatory Mountain Fuel Top-up:</strong> Top up to 100% full tank in Chikmagalur town on Friday evening. <strong>Zero pumps exist in the Bababudangiri hill range!</strong>
 </div>
 
-<!-- Streamlined 9-Tab Navigation Bar -->
-<div class="filter-nav-bar">
-  <button class="filter-btn active" onclick="switchMainTab('all', this)">🗺️ Full Itinerary</button>
-  <button class="filter-btn" onclick="switchMainTab('day1', this)">1️⃣ Day 1 (Fri)</button>
-  <button class="filter-btn" onclick="switchMainTab('day2', this)">2️⃣ Day 2 (Sat)</button>
-  <button class="filter-btn" onclick="switchMainTab('day3', this)">3️⃣ Day 3 (Sun)</button>
-  <button class="filter-btn" onclick="switchMainTab('dining', this)">🍽️ Dining Guide</button>
-  <button class="filter-btn" onclick="switchMainTab('packing', this)">🎒 Packing List</button>
-  <button class="filter-btn btn-fuel-tab" onclick="switchMainTab('fuel', this)">⛽ Fuel Strategy &amp; Pumps</button>
-  <button class="filter-btn btn-sos-tab" onclick="switchMainTab('sos', this)">🚨 Emergency &amp; Help</button>
-  <button class="filter-btn btn-calc-tab" onclick="switchMainTab('calc', this)">💰 Expense Calculator</button>
+<!-- MULTI-SELECT FLEXIBLE FILTER PANE -->
+<div class="filter-pane-wrapper">
+  <div class="filter-pane-header">
+    <span class="filter-mode-label">⚡ Multi-Select View Filter:</span>
+    <span id="filter-status-tag" class="filter-status-tag">Showing All 8 Sections</span>
+  </div>
+  <div class="filter-nav-bar">
+    <!-- One-Tap Full Itinerary Button -->
+    <button id="filter-btn-all" class="filter-btn-all active" onclick="resetToFullItinerary()">🗺️ Full Itinerary</button>
+    <!-- Multi-Select Toggle Chips -->
+    <button id="filter-btn-day1" class="filter-chip" onclick="toggleFilterSection('day1')">1️⃣ Day 1 (Fri)</button>
+    <button id="filter-btn-day2" class="filter-chip" onclick="toggleFilterSection('day2')">2️⃣ Day 2 (Sat)</button>
+    <button id="filter-btn-day3" class="filter-chip" onclick="toggleFilterSection('day3')">3️⃣ Day 3 (Sun)</button>
+    <button id="filter-btn-dining" class="filter-chip" onclick="toggleFilterSection('dining')">🍽️ Dining Guide</button>
+    <button id="filter-btn-packing" class="filter-chip" onclick="toggleFilterSection('packing')">🎒 Packing List</button>
+    <button id="filter-btn-fuel" class="filter-chip" onclick="toggleFilterSection('fuel')">⛽ Fuel Strategy</button>
+    <button id="filter-btn-sos" class="filter-chip" onclick="toggleFilterSection('sos')">🚨 Emergency &amp; Help</button>
+    <button id="filter-btn-calc" class="filter-chip" onclick="toggleFilterSection('calc')">💰 Expense Calculator</button>
+  </div>
 </div>
 
 <!-- Live Route Navigation Buttons -->
@@ -1721,24 +1762,69 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// --- ISOLATED 9-TAB CONTROLLER (ZERO CONTENT LEAKAGE) ---
-function switchMainTab(target, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+// --- MULTI-SELECT FLEXIBLE FILTER ENGINE ---
+const allSections = ['day1', 'day2', 'day3', 'dining', 'packing', 'fuel', 'sos', 'calc'];
+let activeSections = new Set(); // Empty means Full Itinerary
 
-  const allSections = ['day1', 'day2', 'day3', 'dining', 'packing', 'fuel', 'sos', 'calc'];
-  
-  if (target === 'all') {
-    allSections.forEach(s => {
-      const el = document.getElementById('section-' + s);
-      if (el) el.style.display = 'block';
-    });
+function resetToFullItinerary() {
+  activeSections.clear();
+  renderFilters();
+}
+
+function toggleFilterSection(key) {
+  if (activeSections.size === 0) {
+    // If currently showing everything, clicking a chip isolates it
+    activeSections.add(key);
   } else {
-    allSections.forEach(s => {
-      const el = document.getElementById('section-' + s);
-      if (el) el.style.display = (s === target) ? 'block' : 'none';
-    });
+    // Toggle state
+    if (activeSections.has(key)) {
+      activeSections.delete(key);
+    } else {
+      activeSections.add(key);
+    }
   }
+  renderFilters();
+}
+
+function renderFilters() {
+  const isFull = (activeSections.size === 0);
+  const allBtn = document.getElementById('filter-btn-all');
+  const statusTag = document.getElementById('filter-status-tag');
+
+  // Handle Full Itinerary button
+  if (allBtn) {
+    if (isFull) allBtn.classList.add('active');
+    else allBtn.classList.remove('active');
+  }
+
+  // Update status badge
+  if (statusTag) {
+    if (isFull) {
+      statusTag.innerText = "Showing All 8 Sections";
+      statusTag.style.background = "#e2e8f0";
+      statusTag.style.color = "var(--slate-dark)";
+    } else {
+      statusTag.innerText = `Showing ${activeSections.size} Custom Section${activeSections.size > 1 ? 's' : ''} • Tap Full Itinerary to Reset`;
+      statusTag.style.background = "#dbeafe";
+      statusTag.style.color = "#1e40af";
+    }
+  }
+
+  // Show/hide sections and toggle active chip classes
+  allSections.forEach(s => {
+    const chip = document.getElementById('filter-btn-' + s);
+    const sec = document.getElementById('section-' + s);
+    const isSelected = activeSections.has(s);
+
+    if (chip) {
+      if (isSelected) chip.classList.add('active');
+      else chip.classList.remove('active');
+    }
+
+    if (sec) {
+      sec.style.display = (isFull || isSelected) ? 'block' : 'none';
+    }
+  });
 }
 
 // Master Map Hub Toggle
@@ -2104,6 +2190,7 @@ window.addEventListener('DOMContentLoaded', () => {
   loadCalculatorState();
   calculateTotal();
   loadChecklistState();
+  renderFilters();
 });
 </script>
 
