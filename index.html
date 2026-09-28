@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chikmagalur Road Trip & Staycation • Planned by Gopal</title>
+<title>Chikmagalur Road Trip & Staycation • Made by Gopal</title>
 <style>
   @page { size: A4; margin: 8mm 10mm; }
   :root {
@@ -59,7 +59,6 @@
     z-index: 1;
   }
 
-  /* Top Utility Bar: TeketZ Logo on Left, Planned by Gopal on Right */
   .header-top-bar {
     display: flex;
     justify-content: space-between;
@@ -74,13 +73,12 @@
     gap: 10px;
   }
 
-  .header-brand-logo {
-    height: 36px;
+  /* Inline SVG Vector Logo: Unbreakable, Uncropped */
+  .teketz-svg-logo {
+    height: 38px;
     width: auto;
-    max-width: 180px;
-    object-fit: contain;
-    flex-shrink: 0;
     display: block;
+    flex-shrink: 0;
   }
 
   .creator-badge { 
@@ -257,6 +255,108 @@
   .option-btns { display: flex; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
   .toggle-sub-btn { background: #ffffff; border: 1px solid #cbd5e1; font-size: 8pt; font-weight: 700; padding: 4px 10px; border-radius: 4px; cursor: pointer; }
   .toggle-sub-btn.active { background: var(--slate-dark); color: #ffffff; border-color: var(--slate-dark); }
+
+  /* --- CALCULATOR STYLING --- */
+  .calc-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+  }
+  .calc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .calc-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .calc-field label {
+    font-size: 8pt;
+    font-weight: 700;
+    color: var(--slate-dark);
+  }
+  .calc-field input, .calc-field select {
+    padding: 6px 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: var(--slate-dark);
+    outline: none;
+  }
+  .calc-field input:focus, .calc-field select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.15);
+  }
+  .calc-summary-banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-top: 12px;
+  }
+  .stat-block {
+    display: flex;
+    flex-direction: column;
+  }
+  .stat-label {
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #94a3b8;
+  }
+  .stat-value {
+    font-size: 14pt;
+    font-weight: 800;
+    color: #38bdf8;
+  }
+  .stat-value.orange {
+    color: #fb923c;
+  }
+  .custom-item-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .custom-item-row input[type="text"] {
+    flex: 2;
+  }
+  .custom-item-row input[type="number"] {
+    flex: 1;
+  }
+  .btn-remove {
+    background: #fee2e2;
+    color: #dc2626;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .btn-add {
+    background: #f1f5f9;
+    border: 1px dashed #94a3b8;
+    color: var(--slate-dark);
+    font-weight: 700;
+    font-size: 8pt;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 4px;
+  }
+  .btn-add:hover {
+    background: #e2e8f0;
+  }
   
   .page-break { page-break-before: always; }
 </style>
@@ -271,18 +371,43 @@
 <!-- MODERN 2-TIER BRAND HEADER -->
 <div class="brand-header">
   
-  <!-- Row 1: Brand Logo + Creator Attribution -->
+  <!-- Row 1: Brand Logo on Left + Creator Attribution on Right -->
   <div class="header-top-bar">
     <div class="brand-brand-wrap">
-      <!-- Full TeketZ Brand Logo: Completely unconstrained and uncropped -->
-      <img 
-        src="https://i.ibb.co/KzyBKsRx/logo.png" 
-        alt="TeketZ" 
-        class="header-brand-logo" 
-        onerror="this.src='https://ibb.co/KzyBKsRx';" 
-      />
+      <!-- Full Vector TeketZ Logo (Wings + Propeller + Script Typography) -->
+      <svg class="teketz-svg-logo" viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Blue Wings & Propeller -->
+        <g fill="#0099FF">
+          <path d="M28 28C22 22 15 18 8 20C5 21 6 27 12 31C19 36 28 35 28 28Z"/>
+          <path d="M30 24C21 13 12 7 5 10C3 12 5 18 12 23C20 28 30 24 30 24Z"/>
+          <path d="M34 19C24 5 14 -3 7 1C5 3 7 10 16 16C25 22 34 19 34 19Z"/>
+          <path d="M52 28C58 22 65 18 72 20C75 21 74 27 68 31C61 36 52 35 52 28Z"/>
+          <path d="M50 24C59 13 68 7 75 10C77 12 75 18 68 23C60 28 50 24 50 24Z"/>
+          <path d="M46 19C56 5 66 -3 73 1C75 3 73 10 64 16C55 22 46 19 46 19Z"/>
+          <ellipse cx="40" cy="33" rx="7" ry="17" stroke="#0099FF" stroke-width="2.5" fill="none" transform="rotate(-15 40 33)"/>
+          <circle cx="40" cy="33" r="2.5" fill="#0077B6"/>
+          <path d="M36 46C33 52 27 56 21 54C19 53 20 49 24 46C29 42 36 46 36 46Z"/>
+          <path d="M44 46C47 52 53 56 59 54C61 53 60 49 56 46C51 42 44 46 44 46Z"/>
+        </g>
+        <!-- Orange Stylized "TeketZ" Typography -->
+        <g fill="#F97316">
+          <!-- T -->
+          <path d="M85 24C88 23 98 21 106 20C108 20 109 23 107 25C103 27 98 28 95 29L91 49C90 53 87 54 85 52C83 50 84 46 86 38L88 29C85 30 82 30 80 29C79 27 82 24 85 24Z"/>
+          <!-- e -->
+          <path d="M112 36C112 31 116 27 122 27C128 27 131 31 130 37C126 38 116 38 116 41C116 45 120 47 125 46C128 45 130 43 131 43C132 45 130 48 126 50C120 52 112 50 112 43C112 40 112 38 112 36ZM124 33C124 30 122 29 119 30C116 31 114 33 114 35C118 35 122 34 124 33Z"/>
+          <!-- k -->
+          <path d="M138 16C140 16 142 18 141 22L138 35C141 32 145 28 148 28C151 28 152 30 150 33L144 40L152 49C154 51 152 53 149 53C147 53 144 50 141 46L137 51L134 51C133 50 134 46 136 38L139 21C139 18 138 16 138 16Z"/>
+          <!-- e -->
+          <path d="M158 36C158 31 162 27 168 27C174 27 177 31 176 37C172 38 162 38 162 41C162 45 166 47 171 46C174 45 176 43 177 43C178 45 176 48 172 50C166 52 158 50 158 43C158 40 158 38 158 36ZM170 33C170 30 168 29 165 30C162 31 160 33 160 35C164 35 168 34 170 33Z"/>
+          <!-- t -->
+          <path d="M182 24L186 24L185 28L191 27L190 30L184 31L181 44C180 47 182 48 185 47C187 46 188 45 189 46C188 48 185 51 181 51C176 51 174 48 176 42L179 32L176 32L177 29L180 29L182 24Z"/>
+          <!-- Z -->
+          <path d="M197 27C203 26 216 23 223 21C226 20 227 22 225 24L208 45C214 44 220 44 226 42C228 42 229 44 227 47C221 51 209 54 200 55C197 55 196 53 198 50L216 29C211 30 205 31 200 32C197 32 196 30 197 27Z"/>
+        </g>
+      </svg>
     </div>
-    <div class="creator-badge">&#9992; Planned by Gopal</div>
+    <!-- Updated Badge Text -->
+    <div class="creator-badge">&#9992; Made by Gopal</div>
   </div>
 
   <!-- Row 2: Aesthetic Trip Heading & Metadata Pills -->
@@ -290,9 +415,9 @@
     <h1 class="trip-main-title">Chikmagalur Road Trip &amp; Staycation 🌿</h1>
     <div class="trip-pills-wrap">
       <span class="pill pill-highlight">📅 Oct 2 – 4, 2026 (Gandhi Jayanti Weekend)</span>
-      <span class="pill">👥 5 Pax</span>
+      <span class="pill">👥 <span id="pill-pax">5 Pax</span></span>
       <span class="pill">🚗 Hyundai i10/i20 Petrol</span>
-      <span class="pill pill-opt">🏍️ RE Meteor 350 (Optional Convoy)</span>
+      <span class="pill pill-opt" id="pill-bike">🏍️ RE Meteor 350 (Optional Convoy)</span>
       <span class="pill">📍 Whitefield ➔ Chikmagalur ➔ Halebidu</span>
     </div>
   </div>
@@ -313,11 +438,11 @@
 <div class="interactive-bar">
   <div style="font-weight:700; font-size:8.5pt; color:var(--slate-dark);">Interactive View Filter:</div>
   <div class="tab-group">
-    <button class="tab-btn active" onclick="filterDay('all', this)">View All Days</button>
+    <button class="tab-btn active" onclick="filterDay('all', this)">View All</button>
     <button class="tab-btn" onclick="filterDay('day1', this)">Day 1 (Fri)</button>
     <button class="tab-btn" onclick="filterDay('day2', this)">Day 2 (Sat)</button>
     <button class="tab-btn" onclick="filterDay('day3', this)">Day 3 (Sun)</button>
-    <button class="tab-btn" onclick="filterDay('budget', this)">Budget &amp; Costs</button>
+    <button class="tab-btn" style="background:#fef3c7; color:#b45309; border-color:#fde68a;" onclick="filterDay('calc', this)">💰 Live Expense Calculator</button>
   </div>
 </div>
 
@@ -552,6 +677,105 @@
 
 <div class="page-break"></div>
 
+<!-- LIVE INTERACTIVE EXPENSE & SPLIT CALCULATOR SECTION -->
+<div id="section-calc" class="day-section">
+<h2>Live Trip Expense &amp; Per-Head Calculator 💰</h2>
+<p style="font-size: 8.5pt; color: var(--slate-muted); margin-top: 0;">
+  Enter your actual or estimated expenses below. Per-head costs update live for your group!
+</p>
+
+<div class="calc-card">
+  <div style="font-weight: 800; font-size: 9.5pt; color: var(--primary-blue); margin-bottom: 10px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px;">
+    1. Group Configuration &amp; Vehicle Options
+  </div>
+  <div class="calc-grid">
+    <div class="calc-field">
+      <label>Total People (Pax):</label>
+      <input type="number" id="calc-pax" value="5" min="1" max="15" oninput="calculateTotal()">
+    </div>
+    <div class="calc-field">
+      <label>Meteor 350 Bike Status:</label>
+      <select id="calc-bike-toggle" onchange="calculateTotal()">
+        <option value="none">No Bike (Car Only - 5 in Car)</option>
+        <option value="split" selected>Bike Joining (Split Fuel Across Group)</option>
+        <option value="solo">Bike Joining (Biker Pays Own Fuel)</option>
+      </select>
+    </div>
+    <div class="calc-field">
+      <label>Bike Fuel Amount (₹):</label>
+      <input type="number" id="calc-bike-cost" value="2500" oninput="calculateTotal()">
+    </div>
+  </div>
+
+  <div style="font-weight: 800; font-size: 9.5pt; color: var(--emerald-green); margin-top: 14px; margin-bottom: 10px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px;">
+    2. Core Stay &amp; Transit Costs
+  </div>
+  <div class="calc-grid">
+    <div class="calc-field">
+      <label>Estate Stay Total (2 Nights):</label>
+      <input type="number" id="cost-stay" value="18000" oninput="calculateTotal()">
+    </div>
+    <div class="calc-field">
+      <label>Car Petrol &amp; FASTag Tolls:</label>
+      <input type="number" id="cost-car" value="6660" oninput="calculateTotal()">
+    </div>
+    <div class="calc-field">
+      <label>Group Meals (3 Days Standard):</label>
+      <input type="number" id="cost-food" value="9000" oninput="calculateTotal()">
+    </div>
+    <div class="calc-field">
+      <label>Sightseeing, Jeeps &amp; Permits:</label>
+      <input type="number" id="cost-activities" value="3250" oninput="calculateTotal()">
+    </div>
+  </div>
+
+  <div style="font-weight: 800; font-size: 9.5pt; color: var(--accent-orange); margin-top: 14px; margin-bottom: 10px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px;">
+    3. Party, Chilling &amp; On-Trip Actuals
+  </div>
+  <div class="calc-grid">
+    <div class="calc-field">
+      <label>Alcohol, Beers &amp; Bonfire Drinks:</label>
+      <input type="number" id="cost-drinks" value="4500" oninput="calculateTotal()">
+    </div>
+    <div class="calc-field">
+      <label>Chips, Munchies, Snacks &amp; Drinks:</label>
+      <input type="number" id="cost-snacks" value="1500" oninput="calculateTotal()">
+    </div>
+    <div class="calc-field">
+      <label>Cafe Pizzas, Desserts &amp; Coffee:</label>
+      <input type="number" id="cost-cafes" value="2500" oninput="calculateTotal()">
+    </div>
+    <div class="calc-field">
+      <label>Emergency / Misc Cash Pool:</label>
+      <input type="number" id="cost-misc" value="1000" oninput="calculateTotal()">
+    </div>
+  </div>
+
+  <!-- Dynamic Custom Items Section -->
+  <div style="font-weight: 700; font-size: 8.5pt; color: var(--slate-dark); margin-top: 10px; margin-bottom: 4px;">
+    Custom Purchases &amp; Extras:
+  </div>
+  <div id="custom-items-container"></div>
+  <button class="btn-add" onclick="addCustomExpense()">+ Add Another Expense Item</button>
+
+  <!-- Live Output Banner -->
+  <div class="calc-summary-banner">
+    <div class="stat-block">
+      <span class="stat-label">Total Group Cost</span>
+      <span class="stat-value" id="display-total-group">₹48,910</span>
+    </div>
+    <div class="stat-block">
+      <span class="stat-label">Per Person Split</span>
+      <span class="stat-value orange" id="display-per-head">₹9,782 / head</span>
+    </div>
+    <div class="stat-block">
+      <span class="stat-label">Bike Convoy Allocation</span>
+      <span class="stat-value" style="font-size: 10.5pt; color: #a7f3d0;" id="display-bike-note">₹500 / head included</span>
+    </div>
+  </div>
+</div>
+</div>
+
 <!-- DINING DIRECTORY -->
 <h2>Comprehensive Restaurant Directory (Google 4.5+ &bull; 100+ Reviews)</h2>
 
@@ -598,97 +822,8 @@
   </tbody>
 </table>
 
-<!-- BUDGET & EXPENSES SECTION -->
-<div id="section-budget" class="day-section">
-<h2>Comprehensive Budget &amp; Group Expense Breakdown (5 Pax)</h2>
-
-<div class="option-toggle-box">
-  <div style="font-weight:700; font-size:8.5pt; margin-bottom:4px; color:var(--slate-dark);">Budget Plan View:</div>
-  <div class="option-btns">
-    <button class="toggle-sub-btn active" id="btn-budget-base" onclick="switchBudget('base')">Standard Base Budget (₹7,052/head)</button>
-    <button class="toggle-sub-btn" id="btn-budget-chill" onclick="switchBudget('chill')">Upgraded Chill &amp; Party Pool (₹9,482/head)</button>
-  </div>
-  <div id="budget-desc" style="font-size:8pt; color:var(--slate-muted);">
-    <strong>Standard Base Budget:</strong> Covers scenic 2-BHK private homestay, car petrol, FASTag tolls, Jhari jeep shuttle, and standard group dining.
-  </div>
-</div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Expense Head</th>
-      <th>Total Group Cost (5 Pax)</th>
-      <th>Per Person Share</th>
-      <th>Remarks &amp; Division Setup</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Estate Stay / Homestay (2 Nights)</strong></td>
-      <td>₹18,000</td>
-      <td>₹3,600</td>
-      <td>Scenic 2-BHK private coffee plantation villa</td>
-    </tr>
-    <tr>
-      <td><strong>Car Fuel (Hyundai i10/i20 Petrol)</strong></td>
-      <td>₹6,180</td>
-      <td>₹1,236</td>
-      <td>780 km @ 14.0 km/L blended @ ₹111/L</td>
-    </tr>
-    <tr>
-      <td><strong>Highway FASTag Tolls (Car)</strong></td>
-      <td>₹480</td>
-      <td>₹96</td>
-      <td>Bangalore &ndash; Hassan round-trip tolls</td>
-    </tr>
-    <tr>
-      <td><strong>Jhari Falls 4x4 Jeep Shuttle</strong></td>
-      <td>₹1,000</td>
-      <td>₹200</td>
-      <td>Exclusive 4x4 Jeep for all 5 pax (both ways)</td>
-    </tr>
-    <tr>
-      <td><strong>Mydala Kayaking (Group Activity)</strong></td>
-      <td>₹1,250</td>
-      <td>₹250</td>
-      <td>2 Tandem Kayaks + 1 Solo Kayak hire</td>
-    </tr>
-    <tr>
-      <td><strong>Entry Passes, Parking &amp; ASI Guide</strong></td>
-      <td>₹1,000</td>
-      <td>₹200</td>
-      <td>Mullayanagiri pass, ASI Halebidu guide &amp; parking</td>
-    </tr>
-    <tr id="row-food">
-      <td><strong>Group Food &amp; Dining (3 Days)</strong></td>
-      <td><span id="val-food-total">₹9,000</span></td>
-      <td><span id="val-food-head">₹1,800</span></td>
-      <td><span id="val-food-note">Standard hearty meals across all 3 days</span></td>
-    </tr>
-    <tr id="row-party" style="display:none; background:#fff7ed;">
-      <td><strong>Party, Bonfire &amp; Premium Cafe Margin</strong></td>
-      <td>₹10,500</td>
-      <td>₹2,100</td>
-      <td>Woodfired pizzas, specialty coffees, bonfire BBQ &amp; snacks</td>
-    </tr>
-    <tr style="background:#f1f5f9; font-weight:bold;">
-      <td><strong>SUB-TOTAL (Car Base Trip &bull; 5 Pax)</strong></td>
-      <td><span id="val-grand-total">₹36,910</span></td>
-      <td><span id="val-grand-head">₹7,382 / head</span></td>
-      <td><strong>Equal 5-way split from pooled cash</strong></td>
-    </tr>
-    <tr style="background:#fffbeb;">
-      <td><strong>Bike Fuel (RE Meteor 350) <span class="badge-opt">OPTIONAL</span></strong></td>
-      <td><strong>+₹2,500</strong></td>
-      <td><strong>&mdash;</strong></td>
-      <td><strong>780 km @ 34.5 km/L (Covered by rider if joining)</strong></td>
-    </tr>
-  </tbody>
-</table>
-
 <div class="notice-box">
   <strong>Vehicle Fuel Note:</strong> Car fuel is computed for 780 km at ₹111/L assuming a 1.2L Petrol engine yielding 14 km/L blended (16 km/L highway, 11 km/L ghats). Bike fuel is computed at 34.5 km/L. Two-wheelers are 100% toll-free across all national highways.
-</div>
 </div>
 
 </div>
@@ -700,7 +835,7 @@ function filterDay(day, btn) {
   tabs.forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
 
-  const sections = ['day1', 'day2', 'day3', 'budget'];
+  const sections = ['day1', 'day2', 'day3', 'calc'];
   if (day === 'all') {
     sections.forEach(s => {
       const el = document.getElementById('section-' + s);
@@ -736,30 +871,75 @@ function switchTrack(track) {
   }
 }
 
-function switchBudget(type) {
-  const btnBase = document.getElementById('btn-budget-base');
-  const btnChill = document.getElementById('btn-budget-chill');
-  const rowParty = document.getElementById('row-party');
-  const grandTotal = document.getElementById('val-grand-total');
-  const grandHead = document.getElementById('val-grand-head');
-  const budgetDesc = document.getElementById('budget-desc');
-
-  if (type === 'chill') {
-    btnChill.classList.add('active');
-    btnBase.classList.remove('active');
-    rowParty.style.display = 'table-row';
-    grandTotal.innerText = '₹47,410';
-    grandHead.innerText = '₹9,482 / head';
-    budgetDesc.innerHTML = '<strong>Upgraded Chill & Party Pool selected:</strong> Adds ₹2,100/head buffer for wood-fired pizzas, cafe mocktails, evening campfire BBQ, and premium dining.';
-  } else {
-    btnBase.classList.add('active');
-    btnChill.classList.remove('active');
-    rowParty.style.display = 'none';
-    grandTotal.innerText = '₹36,910';
-    grandHead.innerText = '₹7,382 / head';
-    budgetDesc.innerHTML = '<strong>Standard Base Budget selected:</strong> Covers scenic homestay, car petrol, FASTag tolls, Jhari jeep shuttle, and standard dining.';
-  }
+// --- DYNAMIC CALCULATOR ENGINE ---
+function addCustomExpense() {
+  const container = document.getElementById('custom-items-container');
+  const row = document.createElement('div');
+  row.className = 'custom-item-row';
+  row.innerHTML = `
+    <input type="text" placeholder="Expense description (e.g. Red Bulls / BBQ coal)" class="custom-name">
+    <input type="number" placeholder="₹ Amount" value="0" class="custom-amount" oninput="calculateTotal()">
+    <button class="btn-remove" onclick="this.parentElement.remove(); calculateTotal();">✕</button>
+  `;
+  container.appendChild(row);
 }
+
+function calculateTotal() {
+  const pax = Math.max(1, parseInt(document.getElementById('calc-pax').value) || 1);
+  document.getElementById('pill-pax').innerText = pax + ' Pax';
+
+  const stay = parseFloat(document.getElementById('cost-stay').value) || 0;
+  const car = parseFloat(document.getElementById('cost-car').value) || 0;
+  const food = parseFloat(document.getElementById('cost-food').value) || 0;
+  const activities = parseFloat(document.getElementById('cost-activities').value) || 0;
+  const drinks = parseFloat(document.getElementById('cost-drinks').value) || 0;
+  const snacks = parseFloat(document.getElementById('cost-snacks').value) || 0;
+  const cafes = parseFloat(document.getElementById('cost-cafes').value) || 0;
+  const misc = parseFloat(document.getElementById('cost-misc').value) || 0;
+
+  // Custom items sum
+  let customSum = 0;
+  document.querySelectorAll('.custom-amount').forEach(el => {
+    customSum += parseFloat(el.value) || 0;
+  });
+
+  const baseSum = stay + car + food + activities + drinks + snacks + cafes + misc + customSum;
+
+  const bikeStatus = document.getElementById('calc-bike-toggle').value;
+  const bikeCost = parseFloat(document.getElementById('calc-bike-cost').value) || 0;
+  const bikePill = document.getElementById('pill-bike');
+
+  let totalGroup = baseSum;
+  let perHead = 0;
+  let bikeNote = '';
+
+  if (bikeStatus === 'none') {
+    bikePill.style.display = 'none';
+    totalGroup = baseSum;
+    perHead = totalGroup / pax;
+    bikeNote = 'Car-only trip (₹0 bike cost)';
+  } else if (bikeStatus === 'split') {
+    bikePill.style.display = 'inline-flex';
+    bikePill.innerText = '🏍️ RE Meteor 350 (Group Split)';
+    totalGroup = baseSum + bikeCost;
+    perHead = totalGroup / pax;
+    const bikeShare = Math.round(bikeCost / pax);
+    bikeNote = `₹${bikeShare}/head bike fuel shared`;
+  } else if (bikeStatus === 'solo') {
+    bikePill.style.display = 'inline-flex';
+    bikePill.innerText = '🏍️ RE Meteor 350 (Solo Rider Pays)';
+    totalGroup = baseSum + bikeCost;
+    perHead = baseSum / pax;
+    bikeNote = `Rider pays ₹${bikeCost} solo (excluded from pool)`;
+  }
+
+  document.getElementById('display-total-group').innerText = '₹' + Math.round(totalGroup).toLocaleString('en-IN');
+  document.getElementById('display-per-head').innerText = '₹' + Math.round(perHead).toLocaleString('en-IN') + ' / head';
+  document.getElementById('display-bike-note').innerText = bikeNote;
+}
+
+// Initial calculation on load
+window.addEventListener('DOMContentLoaded', calculateTotal);
 </script>
 
 </body>
