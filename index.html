@@ -3,528 +3,573 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wayanad Master Group Blueprint - 12 Pax</title>
+<title>Chikmagalur Master Staycation Blueprint (5 Pax) • Made by TeketZ</title>
 <style>
   @page { size: A4; margin: 8mm 10mm; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #1e293b; line-height: 1.42; font-size: 9pt; margin: 0; padding: 12px; background: #f8fafc; }
-  .container { max-width: 940px; margin: 0 auto; background: #ffffff; padding: 22px 26px; border-radius: 10px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); }
-  h1 { color: #0f172a; font-size: 18pt; margin: 0 0 4px 0; text-transform: uppercase; border-bottom: 3px solid #059669; padding-bottom: 5px; }
-  h2 { color: #065f46; font-size: 12.5pt; margin: 16px 0 6px 0; border-bottom: 1.5px solid #cbd5e1; padding-bottom: 3px; }
-  h3 { color: #1e3a8a; font-size: 10.5pt; margin: 12px 0 4px 0; }
-  .subtitle { font-size: 8.5pt; color: #475569; margin: 2px 0 10px 0; }
-  .alert-box { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 9px 12px; margin: 8px 0 14px 0; font-size: 8.5pt; border-radius: 0 5px 5px 0; line-height: 1.45; }
-  .route-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 16px 0; }
-  .route-btn { display: inline-flex; align-items: center; gap: 5px; background: #2563eb; color: #ffffff !important; text-decoration: none; padding: 6px 12px; border-radius: 5px; font-size: 8.5pt; font-weight: 600; }
-  .route-btn.green { background: #059669; }
+  :root {
+    --primary-blue: #0284c7;
+    --accent-orange: #ea580c;
+    --emerald-green: #059669;
+    --slate-dark: #0f172a;
+    --slate-body: #1e293b;
+    --slate-muted: #64748b;
+    --bg-light: #f8fafc;
+    --border-color: #cbd5e1;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--slate-body); line-height: 1.45; font-size: 9pt; margin: 0; padding: 12px; background: var(--bg-light); }
+  .container { max-width: 960px; margin: 0 auto; background: #ffffff; padding: 24px 28px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); position: relative; }
+  
+  /* TeketZ Watermark Background */
+  .watermark-bg { position: absolute; top: 38%; left: 50%; transform: translate(-50%, -50%) rotate(-25deg); font-size: 72pt; font-weight: 900; color: rgba(2, 132, 199, 0.035); pointer-events: none; z-index: 0; text-transform: uppercase; white-space: nowrap; user-select: none; }
+  
+  /* Header & Logo */
+  .brand-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--primary-blue); padding-bottom: 12px; margin-bottom: 10px; position: relative; z-index: 1; }
+  .brand-logo-wrap { display: flex; align-items: center; gap: 10px; }
+  .brand-logo-svg { width: 52px; height: 52px; flex-shrink: 0; }
+  .brand-title-wrap h1 { margin: 0; font-size: 16pt; color: var(--slate-dark); text-transform: uppercase; letter-spacing: 0.5px; }
+  .brand-title-wrap .subtitle { font-size: 8.5pt; color: var(--slate-muted); margin-top: 2px; }
+  .teketz-badge { background: #fff7ed; border: 1.5px solid #fdba74; color: var(--accent-orange); font-size: 9pt; font-weight: 800; padding: 4px 10px; border-radius: 6px; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 4px; }
+  
+  /* Alert Box & Protocols */
+  .alert-box { background: #fef3c7; border-left: 4.5px solid #f59e0b; padding: 10px 14px; margin: 12px 0 16px 0; font-size: 8.5pt; border-radius: 0 6px 6px 0; line-height: 1.45; position: relative; z-index: 1; }
+  .critical-tag { background: #dc2626; color: #ffffff; padding: 1.5px 5px; border-radius: 3px; font-weight: 800; font-size: 7.5pt; }
+
+  /* Interactive Tabs & Controllers */
+  .interactive-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin: 14px 0 16px 0; background: #f1f5f9; padding: 8px 12px; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .tab-group { display: flex; gap: 6px; }
+  .tab-btn { background: #ffffff; border: 1px solid var(--border-color); color: var(--slate-dark); padding: 5px 12px; border-radius: 6px; font-size: 8.5pt; font-weight: 600; cursor: pointer; transition: all 0.15s ease; }
+  .tab-btn:hover { background: #f8fafc; border-color: var(--primary-blue); color: var(--primary-blue); }
+  .tab-btn.active { background: var(--primary-blue); border-color: var(--primary-blue); color: #ffffff; }
+
+  /* Route Buttons */
+  .route-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 16px 0; }
+  .route-btn { display: inline-flex; align-items: center; gap: 5px; background: var(--primary-blue); color: #ffffff !important; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 8.5pt; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+  .route-btn.green { background: var(--emerald-green); }
   .route-btn.purple { background: #7c3aed; }
-  table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 8pt; margin-bottom: 14px; }
-  th, td { border: 1px solid #cbd5e1; padding: 5.5px 7.5px; text-align: left; vertical-align: top; }
-  th { background-color: #f8fafc; font-weight: 600; color: #0f172a; }
-  .time-col { width: 115px; font-weight: 600; color: #0f172a; white-space: nowrap; }
-  .badge { background: #dcfce7; color: #166534; padding: 1.5px 6px; border-radius: 3px; font-size: 7.5pt; font-weight: 700; }
-  .badge-opt { background: #fef3c7; color: #b45309; padding: 1.5px 6px; border-radius: 3px; font-size: 7.5pt; font-weight: 700; }
+  .route-btn.orange { background: var(--accent-orange); }
+
+  /* Tables */
+  h2 { color: var(--emerald-green); font-size: 12pt; margin: 20px 0 8px 0; border-bottom: 1.5px solid var(--border-color); padding-bottom: 4px; display: flex; align-items: center; justify-content: space-between; }
+  h3 { color: #1e3a8a; font-size: 10pt; margin: 14px 0 6px 0; }
+  table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 8pt; margin-bottom: 14px; background: #ffffff; }
+  th, td { border: 1px solid var(--border-color); padding: 6px 8.5px; text-align: left; vertical-align: top; }
+  th { background-color: #f8fafc; font-weight: 700; color: var(--slate-dark); }
+  .time-col { width: 120px; font-weight: 700; color: var(--slate-dark); white-space: nowrap; }
+  
+  /* Badges & Tags */
+  .badge { background: #dcfce7; color: #166534; padding: 2px 6px; border-radius: 3px; font-size: 7.5pt; font-weight: 700; }
+  .badge-opt { background: #fef3c7; color: #b45309; padding: 2px 6px; border-radius: 3px; font-size: 7.5pt; font-weight: 700; }
+  .badge-gem { background: #ede9fe; color: #6d28d9; padding: 2px 6px; border-radius: 3px; font-size: 7.5pt; font-weight: 700; }
   .tag-veg { color: #15803d; font-weight: 700; }
-  .card { border: 1px solid #e2e8f0; border-radius: 6px; padding: 9px 12px; margin-bottom: 9px; background: #ffffff; page-break-inside: avoid; }
-  .card-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3px; }
-  .card h4 { margin: 0; font-size: 10pt; color: #0f172a; }
-  .meta { font-size: 8pt; color: #475569; margin-bottom: 3px; }
+  .tag-nonveg { color: #b91c1c; font-weight: 700; }
+  
+  /* Links & Lists */
   a.spot-link { color: #0284c7; text-decoration: none; font-weight: 600; }
-  a.spot-link:hover { text-decoration: underline; }
-  .photo-link { color: #0284c7; text-decoration: none; font-weight: 600; font-size: 8pt; margin-left: 6px; }
+  a.spot-link:hover { text-decoration: underline; color: #0369a1; }
   ul.clean-list { margin: 4px 0 6px 18px; padding: 0; font-size: 8.5pt; }
-  ul.clean-list li { margin-bottom: 3px; }
-  .notice-box { background: #f1f5f9; border-left: 4px solid #64748b; padding: 8px 10px; margin: 8px 0; font-size: 8pt; border-radius: 0 4px 4px 0; }
+  ul.clean-list li { margin-bottom: 4px; }
+  .notice-box { background: #f1f5f9; border-left: 4px solid #64748b; padding: 8px 12px; margin: 10px 0; font-size: 8pt; border-radius: 0 5px 5px 0; }
+  
+  /* Toggleable Tracks / Options Box */
+  .option-toggle-box { background: #f8fafc; border: 1.5px dashed #cbd5e1; border-radius: 8px; padding: 10px 14px; margin: 10px 0 16px 0; }
+  .option-btns { display: flex; gap: 8px; margin-bottom: 8px; }
+  .toggle-sub-btn { background: #ffffff; border: 1px solid #cbd5e1; font-size: 8pt; font-weight: 700; padding: 4px 10px; border-radius: 4px; cursor: pointer; }
+  .toggle-sub-btn.active { background: var(--slate-dark); color: #ffffff; border-color: var(--slate-dark); }
+  
   .page-break { page-break-before: always; }
 </style>
 </head>
 <body>
 
 <div class="container">
+<div class="watermark-bg">Made by TeketZ</div>
 
-<h1>Wayanad Master Weekend Blueprint (12 Pax)</h1>
-<div class="subtitle">
-  <strong>Vehicle:</strong> 12-Seater Tempo Traveller | <strong>Departure:</strong> 12th Sept at 1:00 AM (Midnight) | <strong>Stay Hub:</strong> <a class="spot-link" href="https://maps.google.com/?cid=13043323209845924379" target="_blank">Ichumma's Inn, Thalapuzha (North Wayanad)</a>
+<!-- Brand Header -->
+<div class="brand-header">
+  <div class="brand-logo-wrap">
+    <!-- Inline TeketZ Vector Propeller Logo -->
+    <svg class="brand-logo-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M120 220C90 190 60 170 30 180C20 185 25 210 50 230C80 255 120 250 120 220Z" fill="#0099FF"/>
+      <path d="M130 200C90 150 50 120 20 135C10 142 20 170 50 195C85 220 130 200 130 200Z" fill="#00B4D8"/>
+      <path d="M145 180C100 110 55 70 25 90C15 98 25 130 65 160C105 190 145 180 145 180Z" fill="#48CAE4"/>
+      <path d="M260 220C290 190 320 170 350 180C360 185 355 210 330 230C300 255 260 250 260 220Z" fill="#0099FF"/>
+      <path d="M250 200C290 150 330 120 360 135C370 142 360 170 330 195C295 220 250 200 250 200Z" fill="#00B4D8"/>
+      <path d="M235 180C280 110 325 70 355 90C365 98 355 130 315 160C275 190 235 180 235 180Z" fill="#48CAE4"/>
+      <ellipse cx="190" cy="240" rx="30" ry="75" stroke="#0099FF" stroke-width="12" fill="none" transform="rotate(-15 190 240)"/>
+      <circle cx="190" cy="240" r="10" fill="#0077B6"/>
+      <path d="M175 300C160 330 130 350 100 340C90 335 95 315 115 300C140 280 175 300 175 300Z" fill="#0099FF"/>
+    </svg>
+    <div class="brand-title-wrap">
+      <h1>Chikmagalur Master Staycation Blueprint</h1>
+      <div class="subtitle">
+        <strong>Convoy:</strong> 1 Car (Hyundai i10/i20 Petrol) &bull; 1 Bike <span class="badge-opt">OPTIONAL</span> (RE Meteor 350) | <strong>Group:</strong> 5 Pax | <strong>Dates:</strong> 2nd &ndash; 4th Oct 2026
+      </div>
+    </div>
+  </div>
+  <div class="teketz-badge">&#9992; Made by TeketZ</div>
 </div>
 
+<!-- Critical Operations Alert -->
 <div class="alert-box">
-  <strong>Highway Corridor Protocol:</strong><br>
-  &bull; <strong>Entry via Bandipur:</strong> Departing Bangalore via Mysore Expressway &rarr; Gundlupet &rarr; Bandipur National Park (NH 766). Arrive at checkpost at 5:45 AM; gates open at 6:00 AM sharp.<br>
-  &bull; <strong>Curfew-Free Sunday Exit:</strong> Bandipur strictly closes between 9:00 PM and 6:00 AM. Our return runs via <strong>Mananthavady &rarr; Kattikulam &rarr; Kutta &rarr; Gonikoppa &rarr; Hunsur</strong> (Zero night curfew; completely open 24/7).
+  <strong><span class="critical-tag">MANDATORY PROTOCOLS</span> &bull; 5-Pax Convoy Safeguards:</strong><br>
+  &bull; <strong>Strict Dry Day (Oct 2):</strong> Gandhi Jayanti is a 100% legal dry day across Karnataka. Purchase all homestay/bonfire alcohol in Bangalore on <strong>Thursday, Oct 1st</strong> and transport sealed in boot.<br>
+  &bull; <strong>Mullayanagiri Vehicle Entry Pass:</strong> Pre-book Slot 1 (6:00 AM &ndash; 12:00 PM) on the official portal (<a class="spot-link" href="https://pgbiz.omniware.in/chikkamagalurutourism" target="_blank">pgbiz.omniware.in/chikkamagalurutourism</a>). Download or screenshot QR pass prior to ascent (zero network at base checkpost).<br>
+  &bull; <strong>Driver/Rider Relief:</strong> Only 1 car driver and 1 bike rider. Highway speed locked at <strong>75&ndash;85 km/h</strong>. If driver/rider fatigue hits post-Jhari Falls on Day 2, toggle to <strong>Track B (Hidden Gems)</strong> to skip 106 km of driving.<br>
+  &bull; <strong>Boot Capacity:</strong> 5 adults in a hatchback requires <strong>soft duffel bags only</strong>. Strictly zero rigid hard-shell suitcases.
 </div>
 
-<h2>Direct Interactive Route Maps (Click to View Live Navigation)</h2>
+<!-- Interactive Navigation Controls -->
+<div class="interactive-bar">
+  <div style="font-weight:700; font-size:8.5pt; color:var(--slate-dark);">Interactive View Filter:</div>
+  <div class="tab-group">
+    <button class="tab-btn active" onclick="filterDay('all', this)">View All Days</button>
+    <button class="tab-btn" onclick="filterDay('day1', this)">Day 1 (Fri)</button>
+    <button class="tab-btn" onclick="filterDay('day2', this)">Day 2 (Sat)</button>
+    <button class="tab-btn" onclick="filterDay('day3', this)">Day 3 (Sun)</button>
+    <button class="tab-btn" onclick="filterDay('budget', this)">Budget &amp; Costs</button>
+  </div>
+</div>
+
+<!-- Live Route Navigation Buttons -->
 <div class="route-nav">
-  <a class="route-btn purple" href="https://www.google.com/maps/dir/Bengaluru,+Karnataka/Bandipur+Tiger+Reserve/Muthanga+Wildlife+Sanctuary/Sulthan+Bathery/Edakkal+Caves/Karapuzha+Dam+Adventure+Park+%26+Garden/Kanthanpara+Waterfalls/Ichumma's+Inn/Karlad+Lake/Banasura+Sagar+Dam/Kutta/Bengaluru" target="_blank">&#128506; Complete Overall Loop Map</a>
-  <a class="route-btn" href="https://www.google.com/maps/dir/Bengaluru,+Karnataka/Bandipur+Tiger+Reserve/Muthanga+Wildlife+Sanctuary/Sulthan+Bathery/Edakkal+Caves/Karapuzha+Dam+Adventure+Park+%26+Garden/Kanthanpara+Waterfalls/Ichumma's+Inn" target="_blank">&#128506; Day 1: Bangalore to Stay Map</a>
-  <a class="route-btn green" href="https://www.google.com/maps/dir/Ichumma's+Inn/Karlad+Lake/Banasura+Sagar+Dam/Kattikulam/Kutta/Gonikoppa/Hunsur/Bengaluru" target="_blank">&#128506; Day 2: Return Route via Kutta</a>
+  <a class="route-btn purple" href="https://www.google.com/maps/dir/Whitefield,+Bengaluru/Mydala+Lake/Kyathsandra/Chikkamagaluru/Mullayanagiri+Peak/Jhari+Waterfalls/Kalhatti+Falls/Hoysaleswara+Temple,+Halebeedu/Whitefield,+Bengaluru" target="_blank">&#128506; Complete Circuit Map</a>
+  <a class="route-btn" href="https://www.google.com/maps/dir/Whitefield,+Bengaluru/Mydala+Lake/Kyathsandra/Chikkamagaluru" target="_blank">&#128506; Day 1: Bangalore &rarr; Mydala &rarr; Chikmagalur</a>
+  <a class="route-btn green" href="https://www.google.com/maps/dir/Chikkamagaluru/Mullayanagiri+Peak/Jhari+Waterfalls/Kalhatti+Falls/Chikkamagaluru" target="_blank">&#128506; Day 2: Peak, Falls &amp; Temple Circuit</a>
+  <a class="route-btn orange" href="https://www.google.com/maps/dir/Chikkamagaluru/Hoysaleswara+Temple,+Halebeedu/Hassan,+Karnataka/Whitefield,+Bengaluru" target="_blank">&#128506; Day 3: Halebidu &rarr; Hassan &rarr; Bangalore</a>
 </div>
 
-<h2>Day 1: Saturday, Sept 12 &ndash; Bandipur Entry &amp; East Sightseeing</h2>
+<!-- DAY 1 SECTION -->
+<div id="section-day1" class="day-section">
+<h2>Day 1: Friday, Oct 2 &ndash; Bangalore Exit, Mydala Kayaking &amp; Sunset Heritage</h2>
 <table>
   <thead>
     <tr>
       <th class="time-col">Time</th>
       <th>Route Segment / Stop</th>
-      <th>Details, Activities &amp; Equal Group Allocations</th>
+      <th>Details, Activities &amp; Equal Group Allocations (5 Pax)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>01:00 AM &ndash; 05:45 AM</td>
-      <td>Bangalore &rarr; Mandya &rarr; Gundlupet (225 km)</td>
-      <td>Smooth run down Mysore Expressway. Quick 15-min tea/restroom stop at Gundlupet. Arrive at Bandipur checkpost gate at 5:45 AM (gate opens at 6:00 AM sharp).</td>
-    </tr>
-    <tr>
-      <td>06:00 AM &ndash; 06:45 AM</td>
-      <td>Gundlupet &rarr; Bandipur Forest &rarr; Muthanga Gate (35 km)</td>
-      <td>Early morning wildlife corridor drive crossing into Kerala. Observe roadside deer and birds.</td>
-    </tr>
-    <tr>
-      <td>06:45 AM &ndash; 08:15 AM</td>
-      <td><a class="spot-link" href="https://maps.google.com/?cid=12638848777936187747" target="_blank">Muthanga Wildlife Sanctuary</a></td>
+      <td>06:30 AM &ndash; 08:45 AM</td>
+      <td>Whitefield &rarr; Goraguntepalya &rarr; <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Mydala+Lake+Tumakuru" target="_blank">Mydala Lake</a> (88 km)</td>
       <td>
-        <strong>Activities:</strong> 1.5-hour 4x4 open jeep safari; wildlife spotting (wild elephants, Indian gaur, deer, giant squirrels).<br>
-        <strong>Group Division:</strong> Exactly <strong>2 Jeeps of 6 people each</strong> (6 + 6 split). (~₹5,000 total).
+        <strong>Pacing:</strong> 06:30 AM rollout accounts for group morning preparation. Convoy cruises along NH 48 at 75&ndash;85 km/h. Car matches Meteor 350 speed.<br>
+        <strong>Pre-Breakfast Munchies:</strong> Eat Bangalore-packed light bites (energy bars, bananas, dry snacks) in car to maintain stamina.
       </td>
     </tr>
     <tr>
-      <td>08:15 AM &ndash; 08:35 AM</td>
-      <td>Muthanga &rarr; Sulthan Bathery (12 km)</td>
-      <td>Transit to breakfast. <em>Optional quick stop:</em> 13th-century granite <a class="spot-link" href="https://maps.google.com/?cid=12959828452331588647" target="_blank">Jain Temple</a>.</td>
-    </tr>
-    <tr>
-      <td>08:35 AM &ndash; 09:35 AM</td>
-      <td>Sulthan Bathery (Breakfast Halt)</td>
-      <td>100% Pure Veg breakfast: Ghee Roast Dosa, Idli-Vada, Appam with veg stew, and filter coffee. <em>(See Dining Directory).</em></td>
-    </tr>
-    <tr>
-      <td>09:35 AM &ndash; 10:05 AM</td>
-      <td>Sulthan Bathery &rarr; Edakkal Caves (14 km)</td>
-      <td>Scenic transit through Ambalavayal plantation roads.</td>
-    </tr>
-    <tr>
-      <td>10:05 AM &ndash; 12:35 PM</td>
-      <td><a class="spot-link" href="https://maps.google.com/?cid=14361546870566371551" target="_blank">Edakkal Caves</a> (Ambukuthi Mala)</td>
+      <td>08:45 AM &ndash; 10:30 AM</td>
+      <td><a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Mydala+Lake+Tumakuru" target="_blank">Mydala Lake</a> &amp; Mandaragiri Base</td>
       <td>
-        <strong>Activities:</strong> Base shuttle jeep ride; climb 350+ stone steps; inspect 6,000-year-old Neolithic cliff petroglyphs; panoramic view of tri-state border plains; sip spiced passion fruit juice (~₹70/head).<br>
-        <strong>Group Division:</strong> Shuttle jeeps seat 6 pax each &rarr; exactly <strong>2 Jeeps of 6 people each</strong> (6 + 6 split).
+        <strong>Activities (Zero Temple Climbing):</strong><br>
+        &bull; Earthen lake bund stroll &amp; granite boulder exploration.<br>
+        &bull; <strong>Water Sports Group Allocation:</strong> 2 Tandem Kayaks (2 + 2 = 4 pax) + 1 Solo Kayak/SUP (1 pax) (~₹250&ndash;₹300/head) operated by local adventure guides.<br>
+        &bull; 10-min stroll to Mandaragiri base to photograph the iconic peacock-feather dome architecture (zero steps/rituals).<br>
+        &bull; Open-air lakeside coffee from personal flask.
       </td>
     </tr>
     <tr>
-      <td>12:35 PM &ndash; 01:00 PM</td>
-      <td>Edakkal Caves &rarr; Ambalavayal (3 km)</td>
-      <td>Short drive to lunch town. <em>Pass by:</em> <a class="spot-link" href="https://maps.google.com/?cid=16172365925477828296" target="_blank">Phantom Rock</a>.</td>
+      <td>10:30 AM &ndash; 10:50 AM</td>
+      <td>Mydala Lake &rarr; Kyathsandra (12 km)</td>
+      <td>Short 20-min rural drive to Karnataka's Thatte Idli culinary strip.</td>
     </tr>
     <tr>
-      <td>01:00 PM &ndash; 02:00 PM</td>
-      <td>Ambalavayal / Karapuzha Base (Lunch Halt)</td>
+      <td>10:50 AM &ndash; 12:00 PM</td>
+      <td><a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Pavithra+Kyathsandra+Tumkur" target="_blank">Hotel Pavithra, Kyathsandra</a> (Brunch)</td>
       <td>
-        <strong>Pure Veg Lunch:</strong> Traditional Kerala meals with sambar, avial, thoran, rasam, and payasam in Ambalavayal town. <em>(Avoid driving 20 km to Kalpetta to prevent backtracking).</em>
+        <strong>Brunch Stop:</strong> Steaming hot Thatte Idlis served with dollops of white butter, spicy red coconut chutney, crispy vadas, and potato saagu.<br>
+        <strong>Driver Rest:</strong> Full 1-hour physical halt for solo driver and biker to recharge before the long highway run.
       </td>
     </tr>
     <tr>
-      <td>02:00 PM &ndash; 03:45 PM</td>
-      <td><a class="spot-link" href="https://maps.google.com/?cid=17581958429463227480" target="_blank">Karapuzha Dam, Adventure Park &amp; Garden</a></td>
+      <td>12:00 PM &ndash; 04:00 PM</td>
+      <td>Kyathsandra &rarr; Tiptur &rarr; Kadur &rarr; Chikmagalur (170 km)</td>
       <td>
-        <strong>Activities:</strong> ATV dirt-track circuit; 600m zipline across water; giant bungee swing; human slingshot; trampoline park; 9D VR simulator; landscaped rose garden promenade walk.<br>
-        <strong>Group Division:</strong> Giant Bungee Swing (2 pax/ride &rarr; 6 turns); ATVs (tandem or individual turns).
+        <strong>Route:</strong> Smooth 2-lane NH 73. Straightforward driving with bypasses around major towns.<br>
+        <strong>Mandatory Fatigue Buffer:</strong> 25-min stop near Arsikere bypass for tender coconut, washroom break, and limb stretching.
       </td>
     </tr>
     <tr>
-      <td>03:45 PM &ndash; 04:15 PM</td>
-      <td>Karapuzha &rarr; Kanthanpara Falls (14 km)</td>
-      <td>Drive towards Meppadi foothills.</td>
+      <td>04:00 PM &ndash; 05:15 PM</td>
+      <td>Homestay Check-in &amp; Freshen Up</td>
+      <td>Check-in at booked plantation stay in Kaimara/Mallandur foothills. Unpack, wash off road grime, and rest for 1 hour.</td>
     </tr>
     <tr>
-      <td>04:15 PM &ndash; 05:15 PM</td>
-      <td><a class="spot-link" href="https://maps.google.com/?cid=14092497873200782795" target="_blank">Kanthanpara Waterfalls</a></td>
-      <td><strong>Activities:</strong> Flat 150m easy stroll from vehicle; scenic 30m cascade viewing; safe foot-dipping in clean side rivulets; photography amidst bamboo groves (~₹50/head). Ticket counter winds down by 5:00 PM.</td>
+      <td>05:15 PM &ndash; 06:45 PM</td>
+      <td><strong>Evening Sunset Options:</strong><br>
+        <span class="badge-gem">Opt A: Mallandur Shooting Point</span><br>
+        <span class="badge">Opt B: MG Park / Rathnagiri Bore</span>
+      </td>
+      <td>
+        <strong>Option A (Recommended Scenic Ridge):</strong> Drive 15 mins to <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Mallandur+Sunset+Shooting+Point+Chikkamagaluru" target="_blank">Mallandur Shooting Point</a>. Open grassland cliff edge dropping into coffee valleys with 360&deg; sunset views (quiet, zero crowds).<br>
+        <strong>Option B (Town Park):</strong> Visit <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Mahatma+Gandhi+Park+Rathnagiri+Bore+Chikkamagaluru" target="_blank">Mahatma Gandhi Park</a> for an elevated northern town view.
+      </td>
     </tr>
     <tr>
-      <td>05:15 PM &ndash; 07:15 PM</td>
-      <td>Kanthanpara &rarr; Meppadi &rarr; Thalapuzha (56 km)</td>
-      <td>Audited 2-hour northbound drive through Kalpetta bypass and Mananthavady towards north tea highlands.</td>
-    </tr>
-    <tr>
-      <td>07:15 PM &ndash; 08:30 PM</td>
-      <td><a class="spot-link" href="https://maps.google.com/?cid=13043323209845924379" target="_blank">Ichumma's Inn, Thalapuzha</a></td>
-      <td><strong>Check-in &amp; Rest:</strong> Hot showers, unpack, and unwind at the private property.</td>
+      <td>07:00 PM &ndash; 08:30 PM</td>
+      <td><a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Panduranga+Coffee+1938+MG+Road+Chikkamagaluru" target="_blank">Panduranga Coffee (Operating Since 1938)</a></td>
+      <td>Visit the heritage institution on MG Road. Group coffee tasting; shop for fresh roasted Arabica powder, chicory blends, estate black pepper, and artisanal cocoa chocolates.</td>
     </tr>
     <tr>
       <td>08:30 PM onwards</td>
-      <td>Thalapuzha / Mananthavady (Dinner Halt)</td>
-      <td>Pure Veg dinner in Mananthavady town or coordinated home-cooked vegetarian dinner at stay. Overnight sleep.</td>
+      <td>Dinner &amp; Wind Down</td>
+      <td>Dinner at <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=The+Arabica+Restaurant+Hotel+Aadrika+Chikkamagaluru" target="_blank">The Arabica</a> or homestyle dinner at the stay. Sleep early for sunrise alarm.</td>
     </tr>
   </tbody>
 </table>
+</div>
 
 <div class="page-break"></div>
 
-<h2>Day 2: Sunday, Sept 13 &ndash; Flexible Tracks &amp; Curfew-Free Return</h2>
+<!-- DAY 2 SECTION -->
+<div id="section-day2" class="day-section">
+<h2>Day 2: Saturday, Oct 3 &ndash; Mullayanagiri Peak, Jhari Waterfall Dip &amp; Afternoon Circuit</h2>
 
-<h3>Track 1: Relaxed &amp; Unrushed (Karlad Lake + Banasura Dam Sunset) &ndash; Recommended</h3>
-<p style="margin: 0 0 6px 0; font-size: 8.5pt; color: #475569;">Eliminates the 45 km drive south to Vythiri. Highly recommended to ensure zero rush, guaranteed boating tokens, and full recovery from Saturday.</p>
+<!-- Track Selector Widget -->
+<div class="option-toggle-box">
+  <div style="font-weight:700; font-size:8.5pt; margin-bottom:4px; color:var(--slate-dark);">Driver Fatigue Management &bull; Afternoon Plan Selector:</div>
+  <div class="option-btns">
+    <button class="toggle-sub-btn active" id="btn-track-a" onclick="switchTrack('A')">Track A: Kalathagiri Falls &amp; Rock Temple (Full Circuit)</button>
+    <button class="toggle-sub-btn" id="btn-track-b" onclick="switchTrack('B')">Track B: Low-Fatigue Hidden Gems (Kavikal Gandi + Honnammana Halla)</button>
+  </div>
+  <div id="track-desc" style="font-size:8pt; color:var(--slate-muted);">
+    <strong>Track A selected:</strong> Drives 53 km north to Kalathagiri Falls. Recommended if the driver and rider feel energetic post-lunch.
+  </div>
+</div>
+
 <table>
   <thead>
     <tr>
       <th class="time-col">Time</th>
       <th>Route Segment / Stop</th>
-      <th>Details &amp; Equal Group Allocations</th>
+      <th>Details, Activities &amp; Equal Group Allocations (5 Pax)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>08:00 AM &ndash; 09:30 AM</td>
-      <td><a class="spot-link" href="https://maps.google.com/?cid=13043323209845924379" target="_blank">Ichumma's Inn</a></td>
-      <td>Wake up leisurely, hot pure veg breakfast at stay, pack bags, and load into Traveller.</td>
+      <td>06:30 AM &ndash; 07:15 AM</td>
+      <td>Wake-up, Tea &amp; Day-Bag Prep</td>
+      <td>Generous 45-min group prep window. Pack waterfall dry bags (towels, change of clothes, water shoes).</td>
     </tr>
     <tr>
-      <td>09:30 AM &ndash; 10:30 AM</td>
-      <td>Thalapuzha &rarr; Pozhuthana / Karlad (24 km)</td>
-      <td>Drive south via Tharuvana through scenic tea estates.</td>
+      <td>07:15 AM &ndash; 08:15 AM</td>
+      <td>Stay &rarr; <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Mullayanagiri+Peak+Chikkamagaluru" target="_blank">Mullayanagiri Base</a> (22 km)</td>
+      <td>Misty mountain ascent. Headlights on. Show screenshot of digital entry pass at Kaimara checkpost. Hatchback stays in 1st/2nd gear.</td>
     </tr>
     <tr>
-      <td>10:30 AM &ndash; 12:30 PM</td>
-      <td><a class="spot-link" href="https://maps.google.com/?cid=14603957266155990588" target="_blank">Karlad Lake</a></td>
+      <td>08:15 AM &ndash; 10:30 AM</td>
+      <td><a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Mullayanagiri+Peak+Chikkamagaluru" target="_blank">Mullayanagiri Peak Trek</a></td>
       <td>
-        <strong>Activities:</strong> High-speed steel zipline directly across the lake surface (~₹300); twin kayaking/boating; peaceful bamboo boardwalk stroll (~₹40 entry).<br>
-        <strong>Group Division:</strong> Kayaks seat 2 pax &rarr; exactly <strong>6 boats of 2 people each</strong>.
+        <strong>Activities:</strong> Climb the ~450 stone steps to Karnataka's highest peak (1,925 m). Witness panoramic mountain views and rolling clouds.<br>
+        <strong>Buffer:</strong> Full 2 hours allocated for an unrushed climb, scenic photos, and safe descent.
       </td>
     </tr>
     <tr>
-      <td>12:45 PM &ndash; 02:00 PM</td>
-      <td>Padinjarathara / Pozhuthana (Lunch Halt)</td>
-      <td>Unrushed pure veg Kerala lunch break near the reservoir approach. <em>(See Dining Directory).</em></td>
+      <td>10:30 AM &ndash; 11:30 AM</td>
+      <td>Attigundi Junction (Breakfast Halt)</td>
+      <td>Roadside Malnad mess: Hot Akki Roti, Guliappa (Paddu) with spicy coconut chutney, and fresh estate filter coffee.</td>
     </tr>
     <tr>
-      <td>02:15 PM &ndash; 03:30 PM</td>
-      <td>Banasura Spice Gardens / Tea Break</td>
-      <td>Stroll through spice plantation gardens and enjoy hot tea/snacks with mountain views.</td>
-    </tr>
-    <tr>
-      <td>03:45 PM &ndash; 05:45 PM</td>
-      <td><a class="spot-link" href="https://maps.google.com/?cid=3710170945367423860" target="_blank">Banasura Sagar Dam</a></td>
+      <td>11:45 AM &ndash; 02:30 PM</td>
+      <td><a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Jhari+Waterfalls+Chikkamagaluru" target="_blank">Jhari Waterfalls (Dabdabe Falls)</a></td>
       <td>
-        <strong>Activities:</strong> Open electric buggy ride up to the crest; sunset walk across the earthen dam wall.<br>
-        <strong>Boating Group Setup (Official Limits):</strong> Speed boats seat max 5 passengers. For 12 people: <strong>3 Speed Boats of 4 people each (4 + 4 + 4)</strong> (~₹1,000/boat) OR hire the <strong>20-seater Pontoon Boat (~₹2,000)</strong> so all 12 ride together.
+        <strong>Activities &amp; Allocations:</strong> Park car and bike safely at entrance barrier. <strong>All 5 pax board 1 local 4x4 Jeep (~₹1,000 round-trip)</strong> down the steep plantation track.<br>
+        <strong>Driver Relief:</strong> The 2.5-hour jeep + waterfall window gives driver and rider a total break from operating vehicles.<br>
+        <strong>Waterfall Bathing Protocol:</strong> Change into swimwear/quick-dry clothing; use rubber-grip footwear on slippery boulders; dry off and change back before boarding the return jeep.
       </td>
     </tr>
     <tr>
-      <td>05:45 PM &ndash; 07:00 PM</td>
-      <td>Padinjarathara &rarr; Mananthavady &rarr; Kutta (42 km)</td>
-      <td>Direct northward drive (passes <a class="spot-link" href="https://maps.google.com/?cid=14019485504265683947" target="_blank">Pazhassi Raja Tomb</a>); cross into Karnataka (Zero curfew route).</td>
+      <td>02:30 PM &ndash; 04:00 PM</td>
+      <td>Sit-Down Lunch Halt</td>
+      <td>Leisurely lunch at <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=The+Arabica+Restaurant+Hotel+Aadrika+Chikkamagaluru" target="_blank">The Arabica</a> (coastal/Malnad meals) or <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Dal+Roti+IG+Road+Chikkamagaluru" target="_blank">Dal Roti</a> (pure veg). Extended meal allows solo drivers to fully recharge.</td>
+    </tr>
+    <!-- Dynamic Track Row -->
+    <tr id="dynamic-afternoon-row">
+      <td>04:00 PM &ndash; 06:45 PM</td>
+      <td><span id="afternoon-title"><strong>Track A:</strong> Kalathagiri Falls &amp; Veerabhadra Temple (53 km drive)</span></td>
+      <td><span id="afternoon-desc">Scenic 2-lane State Highway through thick tree cover via Santaveri &amp; Lingadahalli. Water plunges 120 meters over boulders directly across the rock-cut entrance of the ancient Veerabhadra Temple. Smooth tarmac, zero off-roading.</span></td>
     </tr>
     <tr>
-      <td>07:00 PM &ndash; 08:35 PM</td>
-      <td>Kutta &rarr; Gonikoppa &rarr; Hunsur Bypass (68 km)</td>
-      <td>Scenic transit through South Coorg and Anechoukur 24/7 forest checkpost.</td>
-    </tr>
-    <tr>
-      <td>08:35 PM &ndash; 09:45 PM</td>
-      <td>Hunsur Highway Bypass (Dinner Halt)</td>
-      <td>Highway dinner break at pure veg restaurants. <em>(See Dining Directory below).</em></td>
-    </tr>
-    <tr>
-      <td>09:45 PM &ndash; 01:15 AM</td>
-      <td>Hunsur &rarr; Mysore Expressway &rarr; Bangalore (185 km)</td>
-      <td>Smooth cruise down the expressway back to Bangalore drop-off.</td>
+      <td>07:30 PM onwards</td>
+      <td>Campfire &amp; Estate Dinner</td>
+      <td>Private estate bonfire, music, barbecue/dinner, and a full night's rest after an active outdoor day.</td>
     </tr>
   </tbody>
 </table>
+</div>
 
-<h3>Track 2: Full-Throttle Sunday (Including Optional En Ooru &amp; Pookode Lake)</h3>
-<p style="margin: 0 0 6px 0; font-size: 8.5pt; color: #475569;">Requires checkout by 7:45 AM sharp. Note: En Ooru shuttle queues on Sunday mornings can take 45+ minutes.</p>
+<!-- DAY 3 SECTION -->
+<div id="section-day3" class="day-section">
+<h2>Day 3: Sunday, Oct 4 &ndash; Late Checkout, UNESCO Hoysala Heritage &amp; Highway Return</h2>
 <table>
   <thead>
     <tr>
       <th class="time-col">Time</th>
       <th>Route Segment / Stop</th>
-      <th>Details, Activities &amp; Equal Group Allocations</th>
+      <th>Details, Activities &amp; Equal Group Allocations (5 Pax)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>07:45 AM &ndash; 08:30 AM</td>
-      <td><a class="spot-link" href="https://maps.google.com/?cid=13043323209845924379" target="_blank">Ichumma's Inn</a> (Checkout &amp; Breakfast)</td>
-      <td>Early breakfast at stay; load all luggage into Traveller for checkout.</td>
+      <td>09:00 AM &ndash; 10:45 AM</td>
+      <td>Late Breakfast &amp; Leisurely Checkout</td>
+      <td><strong>No Early Alarms:</strong> Sleep in, enjoy hot homestyle breakfast on the estate, pack luggage into car boot, tie down bike bags, and check out by 10:45 AM.</td>
     </tr>
     <tr>
-      <td>08:30 AM &ndash; 09:45 AM</td>
-      <td>Thalapuzha &rarr; Vythiri (46 km, 1 hr 15 min)</td>
-      <td>Drive south towards Vythiri hills via Mananthavady and Kalpetta bypass.</td>
+      <td>10:45 AM &ndash; 11:45 AM</td>
+      <td>Stay &rarr; Halebidu (38 km)</td>
+      <td>Smooth State Highway passing through rural coconut groves. Easy cruising at 60&ndash;75 km/h.</td>
     </tr>
     <tr>
-      <td>09:45 AM &ndash; 11:15 AM</td>
-      <td><a class="spot-link" href="https://maps.google.com/?cid=13807661121713466369" target="_blank">En Ooru Tribal Village</a> <span class="badge-opt">OPTIONAL</span></td>
+      <td>11:45 AM &ndash; 01:45 PM</td>
+      <td><a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Hoysaleswara+Temple+Halebidu" target="_blank">Shri Hoysaleswara Temple (Halebidu)</a></td>
       <td>
-        <strong>Activities:</strong> Shuttle jeep up to ridge; explore thatched tribal huts; bamboo archery; herbal tea (Kattappi); handicraft stalls (~₹80/head).<br>
-        <strong>Group Division:</strong> Shuttle jeeps seat 6 pax &rarr; exactly <strong>2 Jeeps of 6 people each</strong> (6 + 6 split).
-      </td>
-    </tr>
-    <tr>
-      <td>11:15 AM &ndash; 11:25 AM</td>
-      <td>En Ooru &rarr; Pookode Lake (4 km, 10 min)</td>
-      <td>Short drive down to the freshwater lake entrance.</td>
-    </tr>
-    <tr>
-      <td>11:25 AM &ndash; 12:30 PM</td>
-      <td><a class="spot-link" href="https://maps.google.com/?cid=15311055715330008696" target="_blank">Pookode Lake</a> &amp; <a class="spot-link" href="https://maps.google.com/?cid=11704491870799189018" target="_blank">Lakkidi View Point</a></td>
-      <td>
-        <strong>Activities:</strong> 1.5 km shaded lake loop trail; water lily viewing; pedal boating; see mythical <a class="spot-link" href="https://maps.google.com/?cid=16913484807351561928" target="_blank">Chain Tree</a>; photograph Thamarassery Churam ghats.<br>
-        <strong>Group Division (Boating):</strong> Pedal boats seat 4 pax &rarr; exactly <strong>3 Boats of 4 people each</strong> (4 + 4 + 4 split).
-      </td>
-    </tr>
-    <tr>
-      <td>12:30 PM &ndash; 12:45 PM</td>
-      <td>Lakkidi &rarr; Vythiri / Chundale (8 km, 15 min)</td>
-      <td>Short drive to lunch hub.</td>
-    </tr>
-    <tr>
-      <td>12:45 PM &ndash; 01:45 PM</td>
-      <td>Vythiri / Chundale Bypass (Lunch Halt)</td>
-      <td>
-        <strong>Pure Veg Lunch:</strong> <a class="spot-link" href="https://maps.google.com/maps/search/Hotel+Haritagiri+Pure+Veg+Chundale" target="_blank">Hotel Haritagiri Pure Veg</a> &ndash; Unlimited South Indian banana leaf meals, sambar, avial, and payasam. <em>(Pre-order 20 mins prior).</em>
+        <strong>UNESCO World Heritage Focus:</strong> Twin star-shaped soapstone sanctums, monolithic Nandi pavilions, and unbroken outer friezes carved with intricate relief sculptures.<br>
+        <strong>Group Allocation:</strong> Hire 1 authorized ASI guide for the group of 5 (~₹400) to decode carvings.<br>
+        <strong>Pro-Tip:</strong> Pack clean, thick cotton socks in your pocket. Footwear is removed at the gate; socks protect feet from hot soapstone floors.
       </td>
     </tr>
     <tr>
       <td>01:45 PM &ndash; 02:30 PM</td>
-      <td>Vythiri &rarr; Pozhuthana &rarr; Karlad Lake (22 km, 45 min)</td>
-      <td>Scenic mountain drive through tea plantations towards the lake.</td>
+      <td>Halebidu &rarr; Hassan Bypass (30 km)</td>
+      <td>Connect directly onto 4-lane NH 75.</td>
     </tr>
     <tr>
-      <td>02:30 PM &ndash; 03:30 PM</td>
-      <td><a class="spot-link" href="https://maps.google.com/?cid=14603957266155990588" target="_blank">Karlad Lake</a></td>
-      <td>
-        <strong>Activities:</strong> Lake zipline, twin kayaking, and boardwalk stroll (~₹340/head).<br>
-        <strong>Group Division:</strong> Kayaks seat 2 pax &rarr; exactly <strong>6 pairs of 2 people each</strong>.
-      </td>
+      <td>02:30 PM &ndash; 03:45 PM</td>
+      <td>Hassan Bypass (Lunch Halt)</td>
+      <td>Relaxed lunch at <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Mayura+Hassan+Bypass" target="_blank">Hotel Mayura</a> or <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Empire+Hassan+NH75" target="_blank">Empire Restaurant Hassan</a>. Air-conditioned dining, spacious parking, and clean washrooms.</td>
     </tr>
     <tr>
-      <td>03:30 PM &ndash; 03:50 PM</td>
-      <td>Karlad Lake &rarr; Banasura Dam (8 km, 20 min)</td>
-      <td>Direct connection to Padinjarathara.</td>
+      <td>03:45 PM &ndash; 06:00 PM</td>
+      <td>Hassan &rarr; Yediyur &rarr; Kunigal (125 km on NH 75)</td>
+      <td>Straight 4-lane cruising. Maintain convoy speed at <strong>80&ndash;85 km/h</strong> matching the Meteor 350 comfort sweet spot.</td>
     </tr>
     <tr>
-      <td>03:50 PM &ndash; 05:45 PM</td>
-      <td><a class="spot-link" href="https://maps.google.com/?cid=3710170945367423860" target="_blank">Banasura Sagar Dam</a></td>
-      <td>
-        <strong>Activities:</strong> Electric buggy to dam crest, speed boating across islands, and sunset embankment stroll.<br>
-        <strong>Group Division:</strong> 3 Speed Boats of 4 pax each (4 + 4 + 4) OR the single 20-seater Pontoon boat for all 12.
-      </td>
+      <td>06:00 PM &ndash; 06:45 PM</td>
+      <td>Highway Tea Halt at <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Swathi+Delicacy+NH75+Yediyur" target="_blank">Swathi Delicacy</a></td>
+      <td>Filter coffee, crispy dosas, and physical stretching for the solo rider before entering city traffic.</td>
     </tr>
     <tr>
-      <td>05:45 PM &ndash; 07:00 PM</td>
-      <td>Padinjarathara &rarr; Mananthavady &rarr; Kutta (42 km, 1 hr 15 min)</td>
-      <td>Direct north transit bypassing southern traffic; cross into Karnataka (Zero curfew route).</td>
-    </tr>
-    <tr>
-      <td>07:00 PM &ndash; 08:35 PM</td>
-      <td>Kutta &rarr; Gonikoppa &rarr; Hunsur Bypass (68 km, 1 hr 35 min)</td>
-      <td>Scenic night drive through South Coorg and Anechoukur 24/7 forest checkpost.</td>
-    </tr>
-    <tr>
-      <td>08:35 PM &ndash; 09:45 PM</td>
-      <td>Hunsur Highway Bypass (Dinner Halt)</td>
-      <td>
-        <strong>Pure Veg Dinner:</strong> <a class="spot-link" href="https://maps.google.com/maps/search/Aadishakti+Pure+Veg+Hunsur" target="_blank">Aadishakti Pure Veg</a> / <a class="spot-link" href="https://maps.google.com/maps/search/Hotel+Mayura+Pure+Veg+Hunsur" target="_blank">Hotel Mayura Pure Veg</a> (Hot rotis, dal tadka, paneer curries).
-      </td>
-    </tr>
-    <tr>
-      <td>09:45 PM &ndash; 01:15 AM</td>
-      <td>Hunsur &rarr; Mysore Expressway &rarr; Bangalore (185 km, 3 hr 30 min)</td>
-      <td>Smooth cruise down the expressway back to Bangalore drop-off.</td>
+      <td>06:45 PM &ndash; 09:30 PM</td>
+      <td>Kunigal &rarr; Nelamangala &rarr; NICE Road &rarr; Whitefield (85 km)</td>
+      <td>Route via NICE road to bypass downtown traffic. Return home comfortably without exhaustion.</td>
     </tr>
   </tbody>
 </table>
+</div>
 
 <div class="page-break"></div>
 
-<h2>Karapuzha Dam Adventure Park &ndash; Full Activity &amp; Price Chart</h2>
+<!-- DINING DIRECTORY -->
+<h2>Comprehensive Restaurant Directory (Google 4.5+ &bull; 100+ Reviews)</h2>
+
+<h3>1. Pure Vegetarian Highlights</h3>
+<ul class="clean-list">
+  <li><span class="tag-veg">[Pure Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Pavithra+Kyathsandra+Tumkur" target="_blank">Hotel Pavithra</a> (Kyathsandra / Tumkur)</span> &ndash; <em>4.5+ (14,000+ Reviews)</em>. The undisputed king of Thatte Idli. Steaming hot butter idlis, crispy vadas, potato saagu, and filter coffee. Perfect Day 1 breakfast halt.</li>
+  <li><span class="tag-veg">[Pure Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Dal+Roti+IG+Road+Chikkamagaluru" target="_blank">Dal Roti</a> (IG Road, Chikmagalur Town)</span> &ndash; <em>4.5+ (1,400+ Reviews)</em>. Homestyle North Indian food. Non-greasy phulkas, Dal Tadka, Paneer Butter Masala, and Jeera Rice.</li>
+  <li><span class="tag-veg">[Pure Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Swathi+Delicacy+NH75+Yediyur" target="_blank">Swathi Delicacy</a> (NH 75, Near Yediyur)</span> &ndash; <em>4.5+ (32,000+ Reviews)</em>. Gold standard highway diner. Ghee Roast Masala Dosa, Chow-Chow Bath, and South Indian filter coffee.</li>
+</ul>
+
+<h3>2. Multi-Cuisine, Non-Veg &amp; Plantation Cafes</h3>
+<ul class="clean-list">
+  <li><span class="tag-nonveg">[Cafe] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=The+Estate+Cafe+Mallandur+Road+Chikkamagaluru" target="_blank">The Estate Cafe</a> (Mallandur Road)</span> &ndash; <em>4.5+ (800+ Reviews)</em>. Open-air wooden deck perched over coffee slopes. Wood-fired thin-crust pizzas, creamy pasta, garlic bread, and cold brews.</li>
+  <li><span class="tag-nonveg">[Non-Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=The+Arabica+Restaurant+Hotel+Aadrika+Chikkamagaluru" target="_blank">The Arabica Restaurant (Hotel Aadrika)</a> (Milan Theatre Road)</span> &ndash; <em>4.5+ (1,500+ Reviews)</em>. Premium sit-down dining. Kundapura Chicken Curry, Anjal Tawa Fry, Neer Dosa, and North Indian vegetarian thalis.</li>
+  <li><span class="tag-nonveg">[Non-Veg] <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Gowdru+Oota+Donne+Biryani+Chikkamagaluru" target="_blank">Gowdru Oota / Malnad Donne Biryani</a> (Town Center)</span> &ndash; <em>4.5+ (650+ Reviews)</em>. Authentic mint-coriander Donne Biryani, Chicken Ghee Roast, Mutton Chops, and pepper fry.</li>
+</ul>
+
+<!-- CRITICAL PACKING & PRECAUTIONS -->
+<h2>Critical Packing &amp; Waterfall Precautions</h2>
 <table>
   <thead>
     <tr>
-      <th>Activity / Ride</th>
-      <th>Description</th>
-      <th>Approx. Cost</th>
-      <th>Group Division Setup</th>
+      <th style="width: 50%;">Females Checklist</th>
+      <th style="width: 50%;">Males Checklist</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Park Entry Fee</strong></td>
-      <td>Access to dam reservoir promenade, rose garden &amp; viewpoints</td>
-      <td>₹30 (Adults) / ₹10 (Kids)</td>
-      <td>All 12 together</td>
-    </tr>
-    <tr>
-      <td><strong>All-Terrain Vehicle (ATV)</strong></td>
-      <td>Dedicated off-road dirt track circuit driving</td>
-      <td>₹300 &ndash; ₹350 / ride</td>
-      <td>6 Pairs of 2 (or individual turns)</td>
-    </tr>
-    <tr>
-      <td><strong>Mega Zipline</strong></td>
-      <td>~605-meter long line gliding over the water basin (40 kg+ limit)</td>
-      <td>₹390 / person</td>
-      <td>Single launch in rapid succession</td>
-    </tr>
-    <tr>
-      <td><strong>Giant Bungee Swing</strong></td>
-      <td>Two-seater swing arching out over the hillside drop</td>
-      <td>₹280 / person</td>
-      <td>Exactly 6 Pairs of 2 (2 &times; 6)</td>
-    </tr>
-    <tr>
-      <td><strong>Human Slingshot / Twister</strong></td>
-      <td>High-adrenaline launch &amp; gyro-spinning ride</td>
-      <td>₹180 &ndash; ₹250 / person</td>
-      <td>Single or tandem turns</td>
-    </tr>
-    <tr>
-      <td><strong>Space Tower / Drop Tower</strong></td>
-      <td>Elevated panoramic watchtower &amp; vertical drop descent</td>
-      <td>₹250 / person</td>
-      <td>Batches of 4 or 6</td>
-    </tr>
-    <tr>
-      <td><strong>Trampoline Park</strong></td>
-      <td>Multi-grid interconnected trampoline court</td>
-      <td>₹80 / person</td>
-      <td>Simultaneous entry</td>
-    </tr>
-    <tr>
-      <td><strong>9D Flying Cinema / VR Zone</strong></td>
-      <td>Virtual reality immersive ride simulator</td>
-      <td>₹180 &ndash; ₹199 / person</td>
-      <td>2 Batches of 6</td>
+      <td>
+        &bull; Modest dark-colored activewear/leggings for waterfall dip.<br>
+        &bull; 2 quick-dry microfiber travel towels.<br>
+        &bull; Motion sickness tablets (Avomine / Ondansetron) for winding ghats.<br>
+        &bull; Wet wipes, sanitizing spray (PeeSafe) &amp; toilet seat covers.<br>
+        &bull; Hair clips, scrunchies, and dry shampoo for helmet hair.
+      </td>
+      <td>
+        &bull; Nylon swimming trunks &amp; dry-fit athletic tees.<br>
+        &bull; Extra dry socks and cotton innerwear in day bag.<br>
+        &bull; Lightweight windbreaker jacket for chilly peak winds.<br>
+        &bull; Meteor 350 Biker: Full-face helmet, riding jacket, and compact poncho.<br>
+        &bull; Small backpack to carry group water bottles up Mullayanagiri.
+      </td>
     </tr>
   </tbody>
 </table>
 
-<h2>Comprehensive 100% Pure Vegetarian Restaurant Directory</h2>
+<!-- BUDGET & EXPENSES SECTION -->
+<div id="section-budget" class="day-section">
+<h2>Comprehensive Budget &amp; Group Expense Breakdown (5 Pax)</h2>
 
-<h3>1. Sulthan Bathery (Saturday Breakfast &amp; Morning Snacks)</h3>
-<ul class="clean-list">
-  <li><span class="tag-veg">Pure Veg 1:</span> <a class="spot-link" href="https://maps.google.com/?cid=17075727140417734173" target="_blank">Saravana Bhavan</a> &ndash; Crispy Ghee Roast Dosa, Medu Vada, steamed idlis with three chutneys &amp; piping hot filter coffee.</li>
-  <li><span class="tag-veg">Pure Veg 2:</span> <a class="spot-link" href="https://maps.google.com/?cid=4980291399149268946" target="_blank">Hotel Mint Flower Pure Veg Restaurant</a> &ndash; Fluffy Appams with rich vegetable stew, Poori Masala, hot tiffins, and tea.</li>
-  <li><span class="tag-veg">Pure Veg 3:</span> <a class="spot-link" href="https://maps.google.com/maps/search/Udupi+Pure+Veg+Sulthan+Bathery" target="_blank">Udupi Pure Vegetarian Restaurant</a> &ndash; Quick-service South Indian tiffin, Rava Upma, kesari bath, and podi dosas.</li>
-  <li><span class="tag-veg">Pure Veg 4:</span> <a class="spot-link" href="https://maps.google.com/maps/search/Adhyapaka+Bhavan+Vegetarian+Sulthan+Bathery" target="_blank">Adhyapaka Bhavan Veg Mess</a> &ndash; Homely, simple Kerala vegetarian breakfast items at very nominal rates.</li>
-</ul>
-
-<h3>2. Ambalavayal / Karapuzha / Kalpetta (Saturday Lunch)</h3>
-<ul class="clean-list">
-  <li><span class="tag-veg">Pure Veg 1:</span> <strong>Hotel Sanman Veg (Ambalavayal)</strong> &ndash; Located directly between Edakkal Caves and Karapuzha Dam; unlimited Kerala meals, sambar, and avial.</li>
-  <li><span class="tag-veg">Pure Veg 2:</span> <a class="spot-link" href="https://maps.google.com/?cid=7240096581554470728" target="_blank">The Woodlands Hotel (Kalpetta)</a> &ndash; Authentic Kerala Sadhya on fresh plantain leaves with avial, thoran, olan, pulissery, and payasam. <em>(Visit only if in Kalpetta town).</em></li>
-  <li><span class="tag-veg">Pure Veg 3:</span> <a class="spot-link" href="https://maps.google.com/?cid=13219232726068056850" target="_blank">Krishna Bhavan Pure Vegetarian Restaurant (Kalpetta Bypass)</a> &ndash; Spacious hall, ideal for 12 pax; South &amp; North Indian vegetarian meals, rotis, and paneer curries.</li>
-  <li><span class="tag-veg">Pure Veg 4:</span> <a class="spot-link" href="https://maps.google.com/maps/search/New+Udupi+Anand+Bhavan+Kalpetta" target="_blank">New Udupi Anand Bhavan (Kalpetta)</a> &ndash; Fast-food style vegetarian meals, Chole Bhature, and evening snacks.</li>
-</ul>
-
-<h3>3. Mananthavady / Thalapuzha (Saturday Dinner &amp; Sunday Breakfast)</h3>
-<ul class="clean-list">
-  <li><span class="tag-veg">Pure Veg 1:</span> <strong>Fresh Home-Cooked Vegetarian Dinner at Ichumma's Inn</strong> &ndash; Highly recommended; coordinate with property caretaker for hot Kerala rice, dal, thoran, rasam, and chapati.</li>
-  <li><span class="tag-veg">Pure Veg 2:</span> <a class="spot-link" href="https://maps.google.com/maps/search/Hotel+Udupi+Upahar+Mananthavady" target="_blank">Hotel Udupi Upahar (Mananthavady Town)</a> &ndash; Clean vegetarian diner offering hot dosas, Uttapams, chapati kurma, and tea/coffee.</li>
-  <li><span class="tag-veg">Pure Veg 3:</span> <a class="spot-link" href="https://maps.google.com/maps/search/Aryas+Vegetarian+Mananthavady" target="_blank">Hotel Aryas Pure Veg (Mananthavady)</a> &ndash; Dependable North/South Indian dinner dishes, fried rice, and tandoori rotis.</li>
-  <li><span class="tag-veg">Pure Veg 4:</span> <a class="spot-link" href="https://maps.google.com/maps/search/Hotel+Gowri+Sankar+Veg+Mananthavady" target="_blank">Hotel Gowri Sankar Pure Veg</a> &ndash; Traditional simple Kerala vegetarian meals and evening tiffin.</li>
-</ul>
-
-<h3>4. Vythiri / Pozhuthana (Sunday Lunch)</h3>
-<ul class="clean-list">
-  <li><span class="tag-veg">Pure Veg 1:</span> <a class="spot-link" href="https://maps.google.com/maps/search/Hotel+Haritagiri+Pure+Veg+Chundale" target="_blank">Hotel Haritagiri Pure Veg (Chundale/Vythiri)</a> &ndash; The best pure vegetarian sit-down restaurant in the area; unlimited Kerala leaf meals and fresh payasam.</li>
-  <li><span class="tag-veg">Pure Veg 2:</span> <a class="spot-link" href="https://maps.google.com/maps/search/Hotel+Sanman+Veg+Meppadi" target="_blank">Hotel Sanman Pure Veg</a> &ndash; Crispy dosas, Kerala parottas with rich veg korma, and quick turnover.</li>
-  <li><span class="tag-veg">Pure Veg 3:</span> <a class="spot-link" href="https://maps.google.com/?cid=1552582299573818269" target="_blank">Anna Bhavan Pure Veg (Lakkidi)</a> &ndash; Located right near the viewpoint; hot South Indian tiffins and coffee with valley mist views.</li>
-  <li><span class="tag-veg">Pure Veg 4:</span> <a class="spot-link" href="https://maps.google.com/maps/search/The+Coffee+Grove+Restaurant+Vythiri" target="_blank">The Coffee Grove Pure Veg</a> &ndash; Fresh tropical fruit juices, sandwiches, and vegetarian lunch combos.</li>
-</ul>
-
-<h3>5. Gonikoppa &amp; Hunsur Highway (Sunday Late Dinner)</h3>
-<ul class="clean-list">
-  <li><span class="tag-veg">Pure Veg 1:</span> <a class="spot-link" href="https://maps.google.com/maps/search/Aadishakti+Pure+Veg+Hunsur" target="_blank">Aadishakti Pure Veg (Hunsur Highway Bypass)</a> &ndash; Expansive highway dhaba with large parking; hot butter rotis, Dal Tadka, Paneer Butter Masala, and Jeera Rice.</li>
-  <li><span class="tag-veg">Pure Veg 2:</span> <a class="spot-link" href="https://maps.google.com/maps/search/Hotel+Mayura+Pure+Veg+Hunsur" target="_blank">Hotel Mayura Pure Veg (Hunsur Bypass)</a> &ndash; Fast, hygienic roadside vegetarian restaurant with dosas, meals, and North Indian curries.</li>
-  <li><span class="tag-veg">Pure Veg 3:</span> <a class="spot-link" href="https://maps.google.com/maps/search/Cafe+County+Gonikoppa" target="_blank">Caf&eacute; County (Gonikoppa Town)</a> &ndash; Western &amp; continental bites, vegetarian wood-fired pizzas, garlic bread, and pasta.</li>
-  <li><span class="tag-veg">Pure Veg 4:</span> <a class="spot-link" href="https://maps.google.com/maps/search/Hotel+Nisarga+Veg+Hunsur" target="_blank">Hotel Nisarga Pure Veg (Hunsur)</a> &ndash; Homely vegetarian meals and hot South Indian tiffin items.</li>
-</ul>
-
-<div class="page-break"></div>
-
-<h2>Bangalore Bus Packing Checklist (12-Seater Tempo Traveller)</h2>
-<ul class="clean-list">
-  <li><strong>Water &amp; Hydration:</strong> Two 20-litre bubble tops with a manual dispenser pump, or two cartons of 1-litre sealed bottles. Refill personal bottles to comply with Wayanad's strict anti-plastic checkpoints.</li>
-  <li><strong>Midnight Highway Munchies:</strong> Theplas, dry khakhras, roasted makhanas, bhujia, NutriChoice/Oreo biscuits, protein bars, and cup noodles for villa late nights.</li>
-  <li><strong>Electrolytes &amp; Digestion:</strong> ORS/Tang sachets for hydration after climbing 350+ stone steps at Edakkal; Pudin Hara, Digene, Eno, and motion sickness tablets (Avomine / Ondansetron) for winding ghat curves.</li>
-  <li><strong>First-Aid &amp; Relief:</strong> Moov / Volini spray for tired calves, Paracetamol (Dolo 650), Band-Aids, Dettol antiseptic wipes, and Odomos mosquito repellent.</li>
-  <li><strong>Group Electronics:</strong> 2 multi-plug spike surge extension boards (for villa bed charging), auxiliary audio cable / Bluetooth FM transmitter for the bus, and phone car chargers.</li>
-  <li><strong>Shisha Kit (Strict Protocol):</strong> Hookah base, hoses, coconut charcoal cubes, portable electric coil burner, wind cover, foil, and flavors packed deep in the rear boot luggage. <em>Never light or open near Bandipur or Muthanga forest checkpoints.</em></li>
-  <li><strong>Luggage Rule:</strong> Strictly one soft backpack or medium duffel bag per person. Avoid large rigid hard-shell suitcases to prevent clogging the TT boot.</li>
-</ul>
-
-<h2>Essential Trip Tips &amp; Logistics</h2>
-<ul class="clean-list">
-  <li><strong>Strict Zero-Plastic Policy:</strong> Wayanad strictly bans single-use plastic bottles at eco-tourism points (Kanthanpara, Karlad, Edakkal, Banasura). Forest checkpoints charge a refundable ₹10–₹20 sticker deposit on mineral water bottles.</li>
-  <li><strong>Carry Pooled Cash:</strong> Mobile data is patchy around Muthanga Safari, Edakkal shuttles, and parking lots. UPI often fails—keep a cash pool of around ₹6,000 with one designated treasurer.</li>
-  <li><strong>Grippy Footwear:</strong> In September, the 350+ stone steps of Edakkal Caves and walkways near Kanthanpara Falls have wet moss and can be slippery. Wear shoes with firm rubber traction.</li>
-  <li><strong>Pre-order Group Meals:</strong> For 12 people, ordering a la carte causes 45-minute delays. Have one person call the restaurant 20 minutes ahead to pre-order 12 vegetarian thalis.</li>
-  <li><strong>Bandipur Forest Driving Rules:</strong> Zero honking, no stopping on the roadway, and no stepping out for animal selfies. Fines are strictly enforced by forest patrols.</li>
-</ul>
-
-<h2>Comprehensive Budget &amp; Group Expense Breakdown (12 Pax)</h2>
+<div class="option-toggle-box">
+  <div style="font-weight:700; font-size:8.5pt; margin-bottom:4px; color:var(--slate-dark);">Budget Plan View:</div>
+  <div class="option-btns">
+    <button class="toggle-sub-btn active" id="btn-budget-base" onclick="switchBudget('base')">Standard Base Budget (₹7,050/head)</button>
+    <button class="toggle-sub-btn" id="btn-budget-chill" onclick="switchBudget('chill')">Upgraded Chill &amp; Party Pool (₹9,200/head)</button>
+  </div>
+  <div id="budget-desc" style="font-size:8pt; color:var(--slate-muted);">
+    <strong>Standard Base Budget:</strong> Covers scenic 2-BHK private homestay, car petrol, FASTag tolls, Jhari jeep shuttle, and standard group dining.
+  </div>
+</div>
 
 <table>
   <thead>
     <tr>
       <th>Expense Head</th>
-      <th>Total Group Cost (12 Pax)</th>
+      <th>Total Group Cost (5 Pax)</th>
       <th>Per Person Share</th>
-      <th>Remarks &amp; Equal Division Method</th>
+      <th>Remarks &amp; Division Setup</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Muthanga Wildlife Safari</strong></td>
-      <td>₹6,000</td>
-      <td>₹500</td>
-      <td>2 Jeeps of 6 pax each (6+6) + forest entry passes</td>
-    </tr>
-    <tr>
-      <td><strong>Core Entry Passes</strong></td>
+      <td><strong>Estate Stay / Homestay (2 Nights)</strong></td>
+      <td>₹18,000</td>
       <td>₹3,600</td>
-      <td>₹300</td>
-      <td>Edakkal Caves, Karapuzha Dam, Kanthanpara, Karlad, Banasura</td>
+      <td>Scenic 2-BHK private coffee plantation villa</td>
     </tr>
     <tr>
-      <td><strong>Shuttles &amp; Group Boating</strong></td>
-      <td>₹3,600</td>
-      <td>₹300</td>
-      <td>Edakkal jeeps (2x6), Banasura buggies &amp; 3 speed boats (4+4+4) OR Pontoon</td>
+      <td><strong>Car Fuel (Hyundai i10/i20 Petrol)</strong></td>
+      <td>₹6,180</td>
+      <td>₹1,236</td>
+      <td>780 km @ 14.0 km/L blended @ ₹111/L</td>
     </tr>
     <tr>
-      <td><strong>Adventure Activities (Optional)</strong></td>
-      <td>₹4,800 &ndash; ₹7,200</td>
-      <td>₹400 &ndash; ₹600</td>
-      <td>Karapuzha Zipline / Giant Swing / Karlad Zipline</td>
+      <td><strong>Highway FASTag Tolls (Car)</strong></td>
+      <td>₹480</td>
+      <td>₹96</td>
+      <td>Bangalore &ndash; Hassan round-trip tolls</td>
     </tr>
     <tr>
-      <td><strong>Food &amp; Dining (Pure Veg)</strong></td>
-      <td>₹21,600 &ndash; ₹24,000</td>
-      <td>₹1,800 &ndash; ₹2,000</td>
-      <td>2 Breakfasts, 2 Lunches, Tea/Snacks &amp; 2 Dinners</td>
+      <td><strong>Jhari Falls 4x4 Jeep Shuttle</strong></td>
+      <td>₹1,000</td>
+      <td>₹200</td>
+      <td>Exclusive 4x4 Jeep for all 5 pax (both ways)</td>
+    </tr>
+    <tr>
+      <td><strong>Mydala Kayaking (Group Activity)</strong></td>
+      <td>₹1,250</td>
+      <td>₹250</td>
+      <td>2 Tandem Kayaks + 1 Solo Kayak hire</td>
+    </tr>
+    <tr>
+      <td><strong>Entry Passes, Parking &amp; ASI Guide</strong></td>
+      <td>₹1,000</td>
+      <td>₹200</td>
+      <td>Mullayanagiri pass, ASI Halebidu guide &amp; parking</td>
+    </tr>
+    <tr id="row-food">
+      <td><strong>Group Food &amp; Dining (3 Days)</strong></td>
+      <td><span id="val-food-total">₹9,000</span></td>
+      <td><span id="val-food-head">₹1,800</span></td>
+      <td><span id="val-food-note">Standard hearty meals across all 3 days</span></td>
+    </tr>
+    <tr id="row-party" style="display:none; background:#fff7ed;">
+      <td><strong>Party, Bonfire &amp; Premium Cafe Margin</strong></td>
+      <td>₹10,500</td>
+      <td>₹2,100</td>
+      <td>Woodfired pizzas, specialty coffees, bonfire BBQ &amp; snacks</td>
     </tr>
     <tr style="background:#f1f5f9; font-weight:bold;">
-      <td><strong>SUB-TOTAL (Local On-Trip Out-of-Pocket)</strong></td>
-      <td><strong>~₹39,600 &ndash; ₹44,400</strong></td>
-      <td><strong>~₹3,300 &ndash; ₹3,700 / head</strong></td>
-      <td><strong>Covered in pooled cash</strong></td>
+      <td><strong>SUB-TOTAL (Car Base Trip &bull; 5 Pax)</strong></td>
+      <td><span id="val-grand-total">₹36,910</span></td>
+      <td><span id="val-grand-head">₹7,382 / head</span></td>
+      <td><strong>Equal 5-way split from pooled cash</strong></td>
+    </tr>
+    <tr style="background:#fffbeb;">
+      <td><strong>Bike Fuel (RE Meteor 350) <span class="badge-opt">OPTIONAL</span></strong></td>
+      <td><strong>+₹2,500</strong></td>
+      <td><strong>&mdash;</strong></td>
+      <td><strong>780 km @ 34.5 km/L (Covered by rider if joining)</strong></td>
     </tr>
   </tbody>
 </table>
 
 <div class="notice-box">
-  <strong>IMPORTANT: Items NOT Included in the Above Estimate (To Budget Separately):</strong><br>
-  &bull; <strong>Stay Booking:</strong> Total tariff for Ichumma's Inn, Thalapuzha (pre-paid / separate).<br>
-  &bull; <strong>Tempo Traveller Transport:</strong> Rental package (900 km base quota), driver night allowance/bata, Karnataka/Kerala interstate border permits, toll charges, and diesel costs.<br>
-  &bull; <strong>In-Transit Food &amp; Munchies to Carry:</strong> Biscuits, dry snacks, energy bars, water cartons, and chips purchased in Bangalore for the midnight bus journey (~₹2,500 &ndash; ₹3,500 pooled).<br>
-  &bull; <strong>Shisha &amp; Accessories:</strong> Personal carrying items (coal, flavors, foil, hoses, wind cover, burner).<br>
-  &bull; <strong>Personal Souvenirs &amp; Shopping:</strong> Spices, fresh banana chips, homemade chocolates, or tribal handicrafts.
+  <strong>Vehicle Fuel Note:</strong> Car fuel is computed for 780 km at ₹111/L assuming a 1.2L Petrol engine yielding 14 km/L blended (16 km/L highway, 11 km/L ghats). Bike fuel is computed at 34.5 km/L. Two-wheelers are 100% toll-free across all national highways.
+</div>
 </div>
 
 </div>
+
+<!-- Interactive JS Logic -->
+<script>
+function filterDay(day, btn) {
+  const tabs = document.querySelectorAll('.tab-btn');
+  tabs.forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+
+  const sections = ['day1', 'day2', 'day3', 'budget'];
+  if (day === 'all') {
+    sections.forEach(s => {
+      const el = document.getElementById('section-' + s);
+      if (el) el.style.display = 'block';
+    });
+  } else {
+    sections.forEach(s => {
+      const el = document.getElementById('section-' + s);
+      if (el) el.style.display = (s === day) ? 'block' : 'none';
+    });
+  }
+}
+
+function switchTrack(track) {
+  const btnA = document.getElementById('btn-track-a');
+  const btnB = document.getElementById('btn-track-b');
+  const title = document.getElementById('afternoon-title');
+  const desc = document.getElementById('afternoon-desc');
+  const trackDesc = document.getElementById('track-desc');
+
+  if (track === 'A') {
+    btnA.classList.add('active');
+    btnB.classList.remove('active');
+    title.innerHTML = '<strong>Track A:</strong> Kalathagiri Falls & Veerabhadra Temple (53 km drive)';
+    desc.innerHTML = 'Scenic 2-lane State Highway through thick tree cover via Santaveri & Lingadahalli. Water plunges 120 meters over boulders directly across the rock-cut entrance of the ancient Veerabhadra Temple. Smooth tarmac, zero off-roading.';
+    trackDesc.innerHTML = '<strong>Track A selected:</strong> Drives 53 km north to Kalathagiri Falls. Recommended if driver and rider feel energetic post-lunch.';
+  } else {
+    btnB.classList.add('active');
+    btnA.classList.remove('active');
+    title.innerHTML = '<strong>Track B:</strong> Low-Fatigue Hidden Gems (Kavikal Gandi + Honnammana Halla)';
+    desc.innerHTML = 'Skip 106 km of driving! 50-step climb to windy Kavikal Gandi viewpoint (Vivekananda rock art) followed by a calm roadside stream dip at Honnammana Halla. Sunset coffee and wood-fired pizza on the wooden deck of The Estate Cafe.';
+    trackDesc.innerHTML = '<strong>Track B selected:</strong> Eliminates 106 km round-trip driving to protect solo driver and rider from fatigue!';
+  }
+}
+
+function switchBudget(type) {
+  const btnBase = document.getElementById('btn-budget-base');
+  const btnChill = document.getElementById('btn-budget-chill');
+  const rowParty = document.getElementById('row-party');
+  const grandTotal = document.getElementById('val-grand-total');
+  const grandHead = document.getElementById('val-grand-head');
+  const budgetDesc = document.getElementById('budget-desc');
+
+  if (type === 'chill') {
+    btnChill.classList.add('active');
+    btnBase.classList.remove('active');
+    rowParty.style.display = 'table-row';
+    grandTotal.innerText = '₹47,410';
+    grandHead.innerText = '₹9,482 / head';
+    budgetDesc.innerHTML = '<strong>Upgraded Chill & Party Pool selected:</strong> Adds ₹2,100/head buffer for wood-fired pizzas, cafe mocktails, evening campfire BBQ, and premium dining.';
+  } else {
+    btnBase.classList.add('active');
+    btnChill.classList.remove('active');
+    rowParty.style.display = 'none';
+    grandTotal.innerText = '₹36,910';
+    grandHead.innerText = '₹7,382 / head';
+    budgetDesc.innerHTML = '<strong>Standard Base Budget selected:</strong> Covers scenic homestay, car petrol, FASTag tolls, Jhari jeep shuttle, and standard dining.';
+  }
+}
+</script>
+
 </body>
 </html>
